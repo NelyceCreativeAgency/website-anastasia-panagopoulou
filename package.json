@@ -1,0 +1,13 @@
+{
+  "name": "anastasia-panagopoulou-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bilingual (GR/EN) marketing website for Anastasia Panagopoulou English School.",
+  "scripts": {
+    "dev": "browser-sync start --config bs-config.js",
+    "start": "browser-sync start --config bs-config.js"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.3"
+  }
+}

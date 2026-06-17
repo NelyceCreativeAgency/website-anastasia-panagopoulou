@@ -15,7 +15,7 @@
     ["pages/about.html", "Το Σχολείο", "About"],
     ["pages/courses.html", "Τμήματα", "Courses"],
     ["pages/certificates.html", "Πτυχία", "Certificates"],
-    ["pages/blog.html", "Άρθρα", "Blog"],
+    ["pages/blog.html", "Τα νέα μας", "News"],
     ["pages/contact.html", "Επικοινωνία", "Contact"]
   ];
 
@@ -31,31 +31,37 @@
   }
 
   /* ---------- Header ---------- */
-  var links = NAV.map(function (n) {
+  // Separate contact from the main menu so it can sit on the right
+  var mainLinks = NAV.filter(function (n) { return n[0] !== "pages/contact.html"; });
+  var contactItem = NAV.find(function (n) { return n[0] === "pages/contact.html"; });
+
+  var links = mainLinks.map(function (n) {
     return '<li><a class="nav__link ' + (isActive(n[0]) ? "is-active" : "") +
       '" href="' + href(n[0]) + '">' + dual(n[1], n[2]) + '</a></li>';
-  }).join("");
+  }).join("") + (contactItem
+    ? '<li class="nav__cta-mobile"><a class="nav__link nav__link--contact' + (isActive(contactItem[0]) ? ' is-active' : '') + '" href="' + href(contactItem[0]) + '">' + dual(contactItem[1], contactItem[2]) + '</a></li>'
+    : '');
 
   var header =
     '<a class="skip-link" href="#main">' + dual("Μετάβαση στο περιεχόμενο", "Skip to content") + '</a>' +
     '<header class="nav" id="nav">' +
       '<div class="container nav__inner">' +
         '<a class="nav__logo" href="' + href("index.html") + '" aria-label="Anastasia Panagopoulou English School">' +
-          '<img src="' + href("Images/LOGO.png") + '" alt="Anastasia Panagopoulou English School" width="170" height="38">' +
+          '<img class="nav__logo-dark" src="' + href("Images/LOGO.png") + '" alt="Anastasia Panagopoulou English School" width="170" height="38">' +
+          '<img class="nav__logo-light" src="' + href("Images/LOGOlight.png") + '" alt="Anastasia Panagopoulou English School" width="170" height="38" aria-hidden="true">' +
         '</a>' +
         '<nav aria-label="Primary">' +
-          '<ul class="nav__menu" id="navMenu">' + links +
-            '<li class="nav__cta-mobile"><a class="btn btn--sm" href="' + href("pages/contact.html") + '">' +
-              dual("Κλείσε Δωρεάν Test", "Book a Free Test") + '</a></li>' +
-          '</ul>' +
+          '<ul class="nav__menu" id="navMenu">' + links + '</ul>' +
         '</nav>' +
         '<div class="nav__actions">' +
           '<div class="lang" role="group" aria-label="Language">' +
             '<button class="lang__btn" data-set-lang="el" type="button">GR</button>' +
             '<button class="lang__btn" data-set-lang="en" type="button">EN</button>' +
           '</div>' +
-          '<a class="btn btn--sm nav__cta-desktop" href="' + href("pages/contact.html") + '">' +
-            dual("Δωρεάν Test", "Free Test") + '</a>' +
+          (contactItem
+            ? '<a class="nav__link nav__link--contact nav__contact--desktop' + (isActive(contactItem[0]) ? ' is-active' : '') + '" href="' + href(contactItem[0]) + '">' +
+                dual(contactItem[1], contactItem[2]) + '</a>'
+            : '') +
           '<button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="navMenu" type="button"><span></span></button>' +
         '</div>' +
       '</div>' +
