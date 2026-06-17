@@ -1,0 +1,196 @@
+/* =============================================================
+   Site behaviour — language switch, sticky nav, mobile menu,
+   scroll reveal, accordion, testimonials, counters, forms.
+   Runs after components.js has injected the header/footer.
+   ============================================================= */
+(function () {
+  "use strict";
+  var STORE_KEY = "apes_lang";
+
+  /* ---------------- Language ---------------- */
+  function applyLang(lang) {
+    lang = lang === "en" ? "en" : "el";
+    document.documentElement.lang = lang;
+    try { localStorage.setItem(STORE_KEY, lang); } catch (e) {}
+
+    // Active state on switch buttons
+    document.querySelectorAll("[data-set-lang]").forEach(function (b) {
+      b.classList.toggle("is-active", b.getAttribute("data-set-lang") === lang);
+      b.setAttribute("aria-pressed", b.getAttribute("data-set-lang") === lang);
+    });
+
+    // Per-page <title> swap
+    var body = document.body;
+    var t = body.getAttribute("data-title-" + lang);
+    if (t) document.title = t;
+    var d = body.getAttribute("data-desc-" + lang);
+    if (d) {
+      var meta = document.querySelector('meta[name="description"]');
+      if (meta) meta.setAttribute("content", d);
+    }
+  }
+
+  function initLang() {
+    var saved;
+    try { saved = localStorage.getItem(STORE_KEY); } catch (e) {}
+    applyLang(saved || document.documentElement.lang || "el");
+
+    document.addEventListener("click", function (e) {
+      var btn = e.target.closest("[data-set-lang]");
+      if (!btn) return;
+      applyLang(btn.getAttribute("data-set-lang"));
+    });
+  }
+
+  /* ---------------- Sticky nav ---------------- */
+  function initStickyNav() {
+    var nav = document.getElementById("nav");
+    if (!nav) return;
+    var onScroll = function () {
+      nav.classList.toggle("is-stuck", window.scrollY > 24);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
+  /* ---------------- Mobile menu ---------------- */
+  function initMobileMenu() {
+    var nav = document.getElementById("nav");
+    var burger = document.getElementById("burger");
+    var backdrop = document.getElementById("navBackdrop");
+    var menu = document.getElementById("navMenu");
+    if (!nav || !burger) return;
+
+    function setOpen(open) {
+      nav.classList.toggle("is-open", open);
+      if (backdrop) backdrop.classList.toggle("is-shown", open);
+      burger.setAttribute("aria-expanded", open);
+      document.body.style.overflow = open ? "hidden" : "";
+    }
+    burger.addEventListener("click", function () {
+      setOpen(!nav.classList.contains("is-open"));
+    });
+    if (backdrop) backdrop.addEventListener("click", function () { setOpen(false); });
+    if (menu) menu.addEventListener("click", function (e) {
+      if (e.target.closest("a")) setOpen(false);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") setOpen(false);
+    });
+  }
+
+  /* ---------------- Scroll reveal ---------------- */
+  function initReveal() {
+    var els = document.querySelectorAll(".reveal");
+    if (!("IntersectionObserver" in window) || !els.length) {
+      els.forEach(function (el) { el.classList.add("is-visible"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    els.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ---------------- FAQ accordion ---------------- */
+  function initAccordion() {
+    document.querySelectorAll(".faq__item").forEach(function (item) {
+      var q = item.querySelector(".faq__q");
+      var a = item.querySelector(".faq__a");
+      if (!q || !a) return;
+      q.setAttribute("aria-expanded", "false");
+      q.addEventListener("click", function () {
+        var open = item.classList.toggle("is-open");
+        q.setAttribute("aria-expanded", open);
+        a.style.maxHeight = open ? a.scrollHeight + "px" : null;
+      });
+    });
+    // Recalculate open heights on language change / resize
+    window.addEventListener("resize", function () {
+      document.querySelectorAll(".faq__item.is-open .faq__a").forEach(function (a) {
+        a.style.maxHeight = a.scrollHeight + "px";
+      });
+    });
+  }
+
+  /* ---------------- Testimonials slider ---------------- */
+  function initTestimonials() {
+    var track = document.querySelector(".ttrack");
+    if (!track) return;
+    var prev = document.querySelector("[data-tslide='prev']");
+    var next = document.querySelector("[data-tslide='next']");
+    function step() {
+      var card = track.querySelector(".tcard");
+      return card ? card.offsetWidth + 28 : 380;
+    }
+    if (prev) prev.addEventListener("click", function () { track.scrollBy({ left: -step(), behavior: "smooth" }); });
+    if (next) next.addEventListener("click", function () { track.scrollBy({ left: step(), behavior: "smooth" }); });
+  }
+
+  /* ---------------- Animated counters ---------------- */
+  function initCounters() {
+    var nums = document.querySelectorAll("[data-count]");
+    if (!nums.length) return;
+    if (!("IntersectionObserver" in window)) {
+      nums.forEach(function (n) { n.firstChild ? (n.childNodes[0].nodeValue = n.getAttribute("data-count")) : (n.textContent = n.getAttribute("data-count")); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        io.unobserve(el);
+        var target = parseFloat(el.getAttribute("data-count"));
+        var dur = 1600, start = null;
+        var valNode = el.querySelector(".js-val") || el;
+        function tick(ts) {
+          if (!start) start = ts;
+          var p = Math.min((ts - start) / dur, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          valNode.textContent = Math.round(target * eased).toLocaleString("el-GR");
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.4 });
+    nums.forEach(function (n) { io.observe(n); });
+  }
+
+  /* ---------------- Contact form ---------------- */
+  function initForm() {
+    var form = document.getElementById("contactForm");
+    if (!form) return;
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var status = document.getElementById("formStatus");
+      if (status) status.classList.add("is-shown");
+      form.reset();
+      if (status) status.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+  }
+
+  /* ---------------- Footer year handled in components.js ---------------- */
+
+  function init() {
+    initLang();
+    initStickyNav();
+    initMobileMenu();
+    initReveal();
+    initAccordion();
+    initTestimonials();
+    initCounters();
+    initForm();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
