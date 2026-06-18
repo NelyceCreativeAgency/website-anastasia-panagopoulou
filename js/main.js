@@ -65,7 +65,7 @@
       nav.classList.toggle("is-open", open);
       if (backdrop) backdrop.classList.toggle("is-shown", open);
       burger.setAttribute("aria-expanded", open);
-      document.body.style.overflow = open ? "hidden" : "";
+      document.body.style.overflowY = open ? "hidden" : "";
     }
     burger.addEventListener("click", function () {
       setOpen(!nav.classList.contains("is-open"));
@@ -161,6 +161,25 @@
     nums.forEach(function (n) { io.observe(n); });
   }
 
+  /* Why-choose-us cards stack with pure CSS position:sticky — no JS needed. */
+
+  /* ---------------- Course card tilt ---------------- */
+  function initCslider() {
+    document.querySelectorAll('.cslide').forEach(function (card) {
+      card.addEventListener('mousemove', function (e) {
+        var r = card.getBoundingClientRect();
+        var x = (e.clientX - r.left)  / r.width  - 0.5;
+        var y = (e.clientY - r.top)   / r.height - 0.5;
+        card.style.transition = 'transform 0.08s linear';
+        card.style.transform  = 'perspective(900px) rotateX(' + (y * -10) + 'deg) rotateY(' + (x * 8) + 'deg) scale(1.02)';
+      });
+      card.addEventListener('mouseleave', function () {
+        card.style.transition = 'transform 0.55s cubic-bezier(0.23, 1, 0.32, 1)';
+        card.style.transform  = '';
+      });
+    });
+  }
+
   /* ---------------- Contact form ---------------- */
   function initForm() {
     var form = document.getElementById("contactForm");
@@ -175,6 +194,24 @@
     });
   }
 
+  /* ---------------- Footer art reveal ---------------- */
+  function initFooterArt() {
+    var art    = document.querySelector('.footer__art');
+    var footer = document.querySelector('.footer');
+    if (!art || !footer) return;
+    if (!('IntersectionObserver' in window)) { art.classList.add('is-visible'); return; }
+    var io = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        art.classList.add('is-visible');
+        io.disconnect();
+      }
+    }, {
+      rootMargin: '0px 0px -18% 0px', /* only fire once footer is 18vh above bottom edge */
+      threshold: 0
+    });
+    io.observe(footer);
+  }
+
   /* ---------------- Footer year handled in components.js ---------------- */
 
   function init() {
@@ -185,6 +222,8 @@
     initAccordion();
     initTestimonials();
     initCounters();
+    initCslider();
+    initFooterArt();
     initForm();
   }
 

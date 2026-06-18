@@ -35,9 +35,11 @@
   var mainLinks = NAV.filter(function (n) { return n[0] !== "pages/contact.html"; });
   var contactItem = NAV.find(function (n) { return n[0] === "pages/contact.html"; });
 
+  var pencilSVG = '<svg class="nav__underline" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M1,5 C12,2 25,7 38,4 S58,2 72,5 C82,7 91,3 99,5"/></svg>';
+
   var links = mainLinks.map(function (n) {
     return '<li><a class="nav__link ' + (isActive(n[0]) ? "is-active" : "") +
-      '" href="' + href(n[0]) + '">' + dual(n[1], n[2]) + '</a></li>';
+      '" href="' + href(n[0]) + '">' + dual(n[1], n[2]) + pencilSVG + '</a></li>';
   }).join("") + (contactItem
     ? '<li class="nav__cta-mobile"><a class="nav__link nav__link--contact' + (isActive(contactItem[0]) ? ' is-active' : '') + '" href="' + href(contactItem[0]) + '">' + dual(contactItem[1], contactItem[2]) + '</a></li>'
     : '');
@@ -75,10 +77,11 @@
 
   var footer =
     '<footer class="footer">' +
+      '<img class="footer__art" src="' + href("Images/big-pencil.svg") + '" alt="" aria-hidden="true">' +
       '<div class="container">' +
         '<div class="footer__grid">' +
           '<div class="footer__about">' +
-            '<a class="footer__logo" href="' + href("index.html") + '"><img src="' + href("Images/LOGO.png") + '" alt="Anastasia Panagopoulou English School"></a>' +
+            '<a class="footer__logo" href="' + href("index.html") + '"><img src="' + href("Images/LOGOlight.png") + '" alt="Anastasia Panagopoulou English School"></a>' +
             '<p>' + dual(
               "Από το 1988 διδάσκουμε Αγγλικά με αγάπη, συνέπεια και αποτελέσματα — σε μια ζεστή, οικογενειακή ατμόσφαιρα.",
               "Since 1988 we have taught English with care, consistency and results — in a warm, family atmosphere."
@@ -116,7 +119,6 @@
         '</div>' +
         '<div class="footer__bottom">' +
           '<span>© <span id="year"></span> Anastasia Panagopoulou English School. ' + dual("Με επιφύλαξη παντός δικαιώματος.", "All rights reserved.") + '</span>' +
-          '<span>' + dual("Σχεδιασμός με φροντίδα ", "Crafted with care ") + '· Est. 1988</span>' +
         '</div>' +
       '</div>' +
     '</footer>';

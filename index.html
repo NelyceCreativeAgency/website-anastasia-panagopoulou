@@ -29,11 +29,7 @@
 <div class="container">
         <div class="hero__grid">
           <div class="reveal">
-            <span class="eyebrow">
-              <span data-lang-el>Από το 1988 · Κορωπί Αττικής</span>
-              <span data-lang-en>Since 1988 · Koropi, Attica</span>
-            </span>
-            <h1 class="hero__title" style="margin-top:1.2rem">
+            <h1 class="hero__title">
               <span data-lang-el>Χτίζοντας γερές βάσεις στα αγγλικά από το 1988.</span>
               <span data-lang-en>Building strong English foundations since 1988.</span>
             </h1>
@@ -42,9 +38,11 @@
               <span data-lang-en>With over 35 years of experience, we help every student grow with confidence, consistency and personal guidance.</span>
             </p>
             <div class="hero__cta">
-              <a class="btn" href="pages/contact.html">
-                <span data-lang-el>Ας μιλήσουμε</span>
-                <span data-lang-en>Let's talk</span>
+              <a class="btn-modern" href="pages/contact.html">
+                <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path></svg>
+                <span class="text"><span data-lang-el>Ας μιλήσουμε</span><span data-lang-en>Let's talk</span></span>
+                <span class="circle"></span>
+                <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path></svg>
               </a>
             </div>
           </div>
@@ -52,16 +50,6 @@
           <div class="hero__media reveal" data-delay="2">
             <img class="hero__illustration" src="Images/heroimage2.svg" alt="Βιβλίο Αγγλικών με σημαίες ΗΠΑ και Ηνωμένου Βασιλείου" width="921" height="751" fetchpriority="high">
           </div>
-        </div>
-
-        <!-- credibility strip -->
-        <div class="partners reveal" style="margin-top:clamp(3rem,6vw,5rem)" aria-label="Exam boards">
-          <span>Cambridge</span>
-          <span>Michigan</span>
-          <span>ECPE</span>
-          <span>B2 First</span>
-          <span>C2 Proficiency</span>
-          <span>LanguageCert</span>
         </div>
       </div>
     </section>
@@ -71,15 +59,9 @@
       <div class="container">
         <div class="split">
           <div class="split__media reveal">
-            <img src="https://picsum.photos/seed/apes-about/800/640" alt="Το σχολείο μας" loading="lazy" width="800" height="640">
-            <div class="hero__badge hero__badge--bl" style="position:absolute">
-              <span class="hero__badge-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg></span>
-              <div>
-                <div class="hero__badge-num" data-lang-el>Οικογενειακό σχολείο</div>
-                <div class="hero__badge-num" data-lang-en>A family school</div>
-                <div class="hero__badge-label" data-lang-el>3 γενιές μαθητών</div>
-                <div class="hero__badge-label" data-lang-en>3 generations of students</div>
-              </div>
+            <div class="img-frame">
+              <div class="img-deco" aria-hidden="true"></div>
+              <img src="Images/mainroom.png" alt="Το σχολείο μας" loading="lazy" width="800" height="640">
             </div>
           </div>
           <div class="reveal" data-delay="2">
@@ -87,25 +69,19 @@
               <span data-lang-el>Το Σχολείο μας</span><span data-lang-en>About Us</span>
             </span>
             <h2 class="h2" style="margin-top:1rem">
-              <span data-lang-el>Από το 1988, μια ζεστή οικογένεια μάθησης.</span>
-              <span data-lang-en>Since 1988, a warm learning family.</span>
+              <span data-lang-el>Μια ιστορία που συνεχίζεται καθημερινά.</span>
+              <span data-lang-en>A story that continues every day.</span>
             </h2>
             <p class="lead" style="margin-top:1rem">
-              <span data-lang-el>Ξεκινήσαμε με μια απλή πεποίθηση: κάθε παιδί μαθαίνει καλύτερα όταν νιώθει ασφαλές, ορατό και ενθαρρυμένο. Τρεις δεκαετίες αργότερα, διδάσκουμε πια τα παιδιά των πρώτων μας μαθητών.</span>
-              <span data-lang-en>We started with one belief: every child learns better when they feel safe, seen and encouraged. Three decades later, we now teach the children of our very first students.</span>
+              <span data-lang-el>Για περισσότερες από τρεις δεκαετίες, η διδασκαλία της αγγλικής γλώσσας αποτελεί μέρος της καθημερινότητάς μας. Μέσα από ολιγομελή τμήματα και προσωπική καθοδήγηση, έχουμε σταθεί δίπλα σε εκατοντάδες μαθητές, παρακολουθώντας την πορεία τους από τα πρώτα τους βήματα στα Αγγλικά μέχρι την επίτευξη των στόχων τους.</span>
+              <span data-lang-en>For more than three decades, teaching the English language has been part of our everyday life. Through small groups and personal guidance, we have stood by hundreds of students, watching their journey from their first steps in English all the way to achieving their goals.</span>
             </p>
-            <ul class="check-list">
-              <li><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
-                <span><strong data-lang-el>Εξατομικευμένη μάθηση</strong><strong data-lang-en>Personalised learning</strong><span data-lang-el> — ένα πρόγραμμα στα μέτρα κάθε μαθητή.</span><span data-lang-en> — a plan tailored to each student.</span></span></li>
-              <li><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
-                <span><strong data-lang-el>Οικογενειακή ατμόσφαιρα</strong><strong data-lang-en>Family atmosphere</strong><span data-lang-el> — γνωρίζουμε κάθε παιδί με το όνομά του.</span><span data-lang-en> — we know every child by name.</span></span></li>
-              <li><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
-                <span><strong data-lang-el>Έμπειροι καθηγητές</strong><strong data-lang-en>Experienced teachers</strong><span data-lang-el> — σταθεροί, πιστοποιημένοι, αφοσιωμένοι.</span><span data-lang-en> — consistent, certified and dedicated.</span></span></li>
-            </ul>
             <div style="margin-top:2rem">
-              <a class="link-arrow" href="pages/about.html">
-                <span data-lang-el>Η ιστορία μας</span><span data-lang-en>Our story</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              <a class="btn-modern" href="pages/about.html">
+                <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path></svg>
+                <span class="text"><span data-lang-el>Η ιστορία μας</span><span data-lang-en>Our story</span></span>
+                <span class="circle"></span>
+                <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path></svg>
               </a>
             </div>
           </div>
@@ -116,38 +92,75 @@
     <!-- ============ WHY CHOOSE US ============ -->
     <section class="section section--soft">
       <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow"><span data-lang-el>Γιατί εμάς</span><span data-lang-en>Why Choose Us</span></span>
-          <h2 class="h2" style="margin-top:1rem">
-            <span data-lang-el>Φτιαγμένο γύρω από κάθε μαθητή</span>
-            <span data-lang-en>Built around every student</span>
-          </h2>
-          <p class="lead">
-            <span data-lang-el>Όλα όσα κάνουμε ξεκινούν από μία ερώτηση: τι χρειάζεται αυτό το παιδί για να προοδεύσει με σιγουριά;</span>
-            <span data-lang-en>Everything we do starts with one question: what does this child need to progress with confidence?</span>
-          </p>
-        </div>
-        <div class="grid cols-4">
-          <article class="card reveal">
-            <div class="card__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9"/></svg></div>
-            <h3 class="card__title"><span data-lang-el>Μικρά Τμήματα</span><span data-lang-en>Small Groups</span></h3>
-            <p class="card__text"><span data-lang-el>Έως 8 μαθητές ανά τμήμα, ώστε κάθε παιδί να συμμετέχει, να ρωτά και να ακούγεται.</span><span data-lang-en>Up to 8 students per class, so every child takes part, asks and is heard.</span></p>
-          </article>
-          <article class="card reveal" data-delay="1">
-            <div class="card__icon card__icon--accent"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3"/><path d="M7 5H4v2a3 3 0 0 0 3 3"/></svg></div>
-            <h3 class="card__title"><span data-lang-el>Αποδεδειγμένα Αποτελέσματα</span><span data-lang-en>Proven Results</span></h3>
-            <p class="card__text"><span data-lang-el>95% επιτυχία στις εξετάσεις πτυχίων, με μαθητές που πετυχαίνουν χρόνο με τον χρόνο.</span><span data-lang-en>A 95% pass rate in certificate exams, with students who succeed year after year.</span></p>
-          </article>
-          <article class="card reveal" data-delay="2">
-            <div class="card__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-            <h3 class="card__title"><span data-lang-el>Προσιτά Δίδακτρα</span><span data-lang-en>Affordable Tuition</span></h3>
-            <p class="card__text"><span data-lang-el>Ποιοτική εκπαίδευση σε δίκαιες τιμές, με ευέλικτες επιλογές και εκπτώσεις αδελφών.</span><span data-lang-en>Quality teaching at fair prices, with flexible options and sibling discounts.</span></p>
-          </article>
-          <article class="card reveal" data-delay="3">
-            <div class="card__icon card__icon--accent"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div>
-            <h3 class="card__title"><span data-lang-el>Προσωπική Διδασκαλία</span><span data-lang-en>Personalised Teaching</span></h3>
-            <p class="card__text"><span data-lang-el>Παρακολουθούμε κάθε μαθητή ξεχωριστά και προσαρμόζουμε ρυθμό, ύλη και στόχους.</span><span data-lang-en>We follow each student individually and adapt the pace, material and goals.</span></p>
-          </article>
+        <div class="why-split">
+
+          <div class="why-text reveal">
+            <span class="eyebrow"><span data-lang-el>Γιατί εμάς</span><span data-lang-en>Why Choose Us</span></span>
+            <h2 class="h2" style="margin-top:1rem">
+              <span data-lang-el>Αξιοποιώντας τη γνώση και την εμπειρία.</span>
+              <span data-lang-en>Putting knowledge and experience to work.</span>
+            </h2>
+            <p class="lead" style="margin-top:1rem">
+              <span data-lang-el>Όλοι οι μαθητές και οι γονείς που μας έχουν δείξει εμπιστοσύνη όλα αυτά τα χρόνια, γνωρίζουν τα σημαντικά πλεονεκτήματα της φοίτησης στο φροντιστήριό μας.</span>
+              <span data-lang-en>Every student and parent who has trusted us over the years knows the real advantages of studying with us.</span>
+            </p>
+          </div>
+
+          <div class="why-cards">
+
+            <div class="wcard wcard--tint">
+              <div class="wcard__media">
+                <img class="wcard__img" src="https://picsum.photos/seed/apes-why1/560/420" alt="" loading="lazy" width="560" height="300">
+                <span class="wcard__num">01</span>
+              </div>
+              <div class="wcard__body">
+                <div class="wcard__foot">
+                  <h3 class="wcard__title"><span data-lang-el>Ολιγομελή Τμήματα</span><span data-lang-en>Small Classes</span></h3>
+                  <p class="wcard__text"><span data-lang-el>Πιστεύουμε ότι τα μικρά τμήματα συμβάλλουν ουσιαστικά στην καλύτερη επικοινωνία μεταξύ μαθητή και καθηγητή, επιτρέποντας πιο εξατομικευμένη καθοδήγηση και ενεργή συμμετοχή στο μάθημα.</span><span data-lang-en>We believe small groups make a real difference to communication between student and teacher, allowing more personalised guidance and active participation in class.</span></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="wcard wcard--white">
+              <div class="wcard__media">
+                <img class="wcard__img" src="https://picsum.photos/seed/apes-why2/560/420" alt="" loading="lazy" width="560" height="300">
+                <span class="wcard__num">02</span>
+              </div>
+              <div class="wcard__body">
+                <div class="wcard__foot">
+                  <h3 class="wcard__title"><span data-lang-el>Αποδεδειγμένη Επιτυχία</span><span data-lang-en>Proven Success</span></h3>
+                  <p class="wcard__text"><span data-lang-el>Η πολυετής εμπειρία μας και η συστηματική προετοιμασία των μαθητών μας έχουν οδηγήσει σε υψηλά ποσοστά επιτυχίας στις εξετάσεις πιστοποίησης της αγγλικής γλώσσας.</span><span data-lang-en>Our years of experience and systematic preparation have led to high pass rates in English language certification exams.</span></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="wcard wcard--red">
+              <div class="wcard__media">
+                <img class="wcard__img" src="https://picsum.photos/seed/apes-why3/560/420" alt="" loading="lazy" width="560" height="300">
+                <span class="wcard__num">03</span>
+              </div>
+              <div class="wcard__body">
+                <div class="wcard__foot">
+                  <h3 class="wcard__title"><span data-lang-el>Προσιτές Τιμές</span><span data-lang-en>Affordable Fees</span></h3>
+                  <p class="wcard__text"><span data-lang-el>Προσπαθούμε να διατηρούμε τα δίδακτρα σε λογικά επίπεδα, προσφέροντας ποιοτική εκπαίδευση και ουσιαστική υποστήριξη χωρίς περιττές επιβαρύνσεις για τις οικογένειες.</span><span data-lang-en>We keep our fees at reasonable levels, offering quality education and meaningful support without unnecessary costs for families.</span></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="wcard wcard--navy">
+              <div class="wcard__media">
+                <img class="wcard__img" src="https://picsum.photos/seed/apes-why4/560/420" alt="" loading="lazy" width="560" height="300">
+                <span class="wcard__num">04</span>
+              </div>
+              <div class="wcard__body">
+                <div class="wcard__foot">
+                  <h3 class="wcard__title"><span data-lang-el>Προσωπική Διδασκαλία</span><span data-lang-en>Personal Teaching</span></h3>
+                  <p class="wcard__text"><span data-lang-el>Τα μαθήματα πραγματοποιούνται από την Αναστασία Παναγοπούλου, πτυχιούχο Αγγλικής Φιλολογίας, καθώς και από έμπειρους και πιστοποιημένους συνεργάτες, με έμφαση στη συνέπεια και την ποιότητα της διδασκαλίας.</span><span data-lang-en>Classes are taught by Anastasia Panagopoulou, a graduate in English Literature, along with experienced certified associates, with an emphasis on consistency and quality.</span></p>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>
@@ -163,43 +176,55 @@
           </h2>
           <p class="lead"><span data-lang-el>Από τα πρώτα βήματα στο δημοτικό μέχρι τα πτυχία και τα Αγγλικά για τη δουλειά.</span><span data-lang-en>From first steps in primary school to certificates and English for work.</span></p>
         </div>
-        <div class="grid cols-3">
-          <article class="course-card reveal">
-            <div class="course-card__media">
-              <img src="https://picsum.photos/seed/apes-junior/640/440" alt="Junior course" loading="lazy" width="640" height="440">
-              <span class="course-card__tag" data-lang-el>Ηλικίες 6–11</span><span class="course-card__tag" data-lang-en>Ages 6–11</span>
-            </div>
-            <div class="course-card__body">
-              <span class="course-card__age" data-lang-el>Δημοτικό</span><span class="course-card__age" data-lang-en>Primary</span>
-              <h3>Junior</h3>
-              <p class="card__text"><span data-lang-el>Παιχνίδι, τραγούδι και ιστορίες χτίζουν αγάπη για τα Αγγλικά από την πρώτη μέρα.</span><span data-lang-en>Play, song and stories build a love for English from day one.</span></p>
-              <div class="course-card__foot"><a class="link-arrow" href="pages/courses.html"><span data-lang-el>Μάθε περισσότερα</span><span data-lang-en>Learn more</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
-            </div>
-          </article>
-          <article class="course-card reveal" data-delay="1">
-            <div class="course-card__media">
-              <img src="https://picsum.photos/seed/apes-senior/640/440" alt="Senior course" loading="lazy" width="640" height="440">
-              <span class="course-card__tag" data-lang-el>Ηλικίες 12–17</span><span class="course-card__tag" data-lang-en>Ages 12–17</span>
-            </div>
-            <div class="course-card__body">
-              <span class="course-card__age" data-lang-el>Γυμνάσιο &amp; Λύκειο</span><span class="course-card__age" data-lang-en>Secondary</span>
-              <h3>Senior</h3>
-              <p class="card__text"><span data-lang-el>Στοχευμένη προετοιμασία για B2 και C2, με έμφαση σε ουσία και αυτοπεποίθηση.</span><span data-lang-en>Focused preparation for B2 and C2, with emphasis on substance and confidence.</span></p>
-              <div class="course-card__foot"><a class="link-arrow" href="pages/courses.html"><span data-lang-el>Μάθε περισσότερα</span><span data-lang-en>Learn more</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
-            </div>
-          </article>
-          <article class="course-card reveal" data-delay="2">
-            <div class="course-card__media">
-              <img src="https://picsum.photos/seed/apes-adults/640/440" alt="Adult courses" loading="lazy" width="640" height="440">
-              <span class="course-card__tag">18+</span>
-            </div>
-            <div class="course-card__body">
-              <span class="course-card__age" data-lang-el>Ενήλικες</span><span class="course-card__age" data-lang-en>Adults</span>
-              <h3><span data-lang-el>Ενήλικες</span><span data-lang-en>Adult Courses</span></h3>
-              <p class="card__text"><span data-lang-el>Αγγλικά για την καθημερινότητα, τη δουλειά και τα ταξίδια — με ευέλικτο ωράριο.</span><span data-lang-en>English for everyday life, work and travel — with a flexible schedule.</span></p>
-              <div class="course-card__foot"><a class="link-arrow" href="pages/courses.html"><span data-lang-el>Μάθε περισσότερα</span><span data-lang-en>Learn more</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
-            </div>
-          </article>
+        <div class="cslider">
+          <div class="cslider__track">
+
+            <article class="cslide cslide--navy">
+              <div class="cslide__top">
+                <img src="https://picsum.photos/seed/apes-junior/640/480" alt="Junior" loading="lazy" width="640" height="480">
+              </div>
+              <div class="cslide__bot">
+                <div class="cslide__tags">
+                  <span class="cslide__tag"><span data-lang-el>Ηλικίες 6–11</span><span data-lang-en>Ages 6–11</span></span>
+                  <span class="cslide__tag"><span data-lang-el>Δημοτικό</span><span data-lang-en>Primary</span></span>
+                </div>
+                <h3 class="cslide__name">Junior</h3>
+                <p class="cslide__desc"><span data-lang-el>Παιχνίδι, τραγούδι και ιστορίες χτίζουν αγάπη για τα Αγγλικά από την πρώτη μέρα.</span><span data-lang-en>Play, song and stories build a love for English from day one.</span></p>
+                <a class="cslide__arrow" href="pages/courses.html" aria-label="Junior"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+              </div>
+            </article>
+
+            <article class="cslide cslide--red">
+              <div class="cslide__top">
+                <img src="https://picsum.photos/seed/apes-senior/640/480" alt="Senior" loading="lazy" width="640" height="480">
+              </div>
+              <div class="cslide__bot">
+                <div class="cslide__tags">
+                  <span class="cslide__tag"><span data-lang-el>Ηλικίες 12–17</span><span data-lang-en>Ages 12–17</span></span>
+                  <span class="cslide__tag"><span data-lang-el>Γυμνάσιο &amp; Λύκειο</span><span data-lang-en>Secondary</span></span>
+                </div>
+                <h3 class="cslide__name">Senior</h3>
+                <p class="cslide__desc"><span data-lang-el>Στοχευμένη προετοιμασία για B2 και C2, με έμφαση σε ουσία και αυτοπεποίθηση.</span><span data-lang-en>Focused preparation for B2 and C2, with emphasis on substance and confidence.</span></p>
+                <a class="cslide__arrow" href="pages/courses.html" aria-label="Senior"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+              </div>
+            </article>
+
+            <article class="cslide cslide--warm">
+              <div class="cslide__top">
+                <img src="https://picsum.photos/seed/apes-adults/640/480" alt="Ενήλικες" loading="lazy" width="640" height="480">
+              </div>
+              <div class="cslide__bot">
+                <div class="cslide__tags">
+                  <span class="cslide__tag">18+</span>
+                  <span class="cslide__tag"><span data-lang-el>Ενήλικες</span><span data-lang-en>Adults</span></span>
+                </div>
+                <h3 class="cslide__name"><span data-lang-el>Ενήλικες</span><span data-lang-en>Adult Courses</span></h3>
+                <p class="cslide__desc"><span data-lang-el>Αγγλικά για την καθημερινότητα, τη δουλειά και τα ταξίδια — με ευέλικτο ωράριο.</span><span data-lang-en>English for everyday life, work and travel — with a flexible schedule.</span></p>
+                <a class="cslide__arrow" href="pages/courses.html" aria-label="Ενήλικες"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+              </div>
+            </article>
+
+          </div>
         </div>
       </div>
     </section>
@@ -255,77 +280,120 @@
     </section>
 
     <!-- ============ TESTIMONIALS ============ -->
-    <section class="section">
+    <section class="section testi-section">
       <div class="container">
         <div class="section-head reveal">
-          <span class="eyebrow"><span data-lang-el>Μαρτυρίες</span><span data-lang-en>Testimonials</span></span>
-          <h2 class="h2" style="margin-top:1rem">
+          <span class="eyebrow testi-eyebrow"><span data-lang-el>Μαρτυρίες</span><span data-lang-en>Testimonials</span></span>
+          <h2 class="h2" style="margin-top:1rem;color:#fff">
             <span data-lang-el>Αγαπημένο από γονείς &amp; μαθητές</span>
             <span data-lang-en>Loved by parents &amp; students</span>
           </h2>
         </div>
-        <div class="tslider reveal">
-          <div class="ttrack">
-            <article class="tcard">
-              <div class="tcard__quote-mark">&ldquo;</div>
-              <div class="tcard__stars">★★★★★</div>
-              <p class="tcard__text"><span data-lang-el>Η κόρη μου μπήκε ντροπαλή και βγήκε να μιλάει Αγγλικά με αυτοπεποίθηση. Η φροντίδα εδώ είναι αληθινή.</span><span data-lang-en>My daughter started shy and now speaks English with real confidence. The care here is genuine.</span></p>
-              <div class="tcard__person">
-                <img class="tcard__avatar" src="https://i.pravatar.cc/120?img=47" alt="" loading="lazy" width="52" height="52">
-                <div><div class="tcard__name">Μαρία Κ.</div><div class="tcard__role" data-lang-el>Μητέρα μαθήτριας</div><div class="tcard__role" data-lang-en>Parent</div></div>
-              </div>
-            </article>
-            <article class="tcard">
-              <div class="tcard__quote-mark">&ldquo;</div>
-              <div class="tcard__stars">★★★★★</div>
-              <p class="tcard__text"><span data-lang-el>Πέρασα το C2 Proficiency με την πρώτη. Οι καθηγητές ήξεραν ακριβώς πού να με σπρώξουν.</span><span data-lang-en>I passed C2 Proficiency on the first try. The teachers knew exactly where to push me.</span></p>
-              <div class="tcard__person">
-                <img class="tcard__avatar" src="https://i.pravatar.cc/120?img=12" alt="" loading="lazy" width="52" height="52">
-                <div><div class="tcard__name">Γιώργος Π.</div><div class="tcard__role" data-lang-el>Μαθητής Senior</div><div class="tcard__role" data-lang-en>Senior student</div></div>
-              </div>
-            </article>
-            <article class="tcard">
-              <div class="tcard__quote-mark">&ldquo;</div>
-              <div class="tcard__stars">★★★★★</div>
-              <p class="tcard__text"><span data-lang-el>Τρία παιδιά, ένα σχολείο, καμία ανησυχία. Τους εμπιστευόμαστε εδώ και χρόνια.</span><span data-lang-en>Three kids, one school, zero worries. We have trusted them for years.</span></p>
-              <div class="tcard__person">
-                <img class="tcard__avatar" src="https://i.pravatar.cc/120?img=32" alt="" loading="lazy" width="52" height="52">
-                <div><div class="tcard__name">Ελένη Δ.</div><div class="tcard__role" data-lang-el>Μητέρα</div><div class="tcard__role" data-lang-en>Parent</div></div>
-              </div>
-            </article>
-            <article class="tcard">
-              <div class="tcard__quote-mark">&ldquo;</div>
-              <div class="tcard__stars">★★★★★</div>
-              <p class="tcard__text"><span data-lang-el>Ξεκίνησα Αγγλικά στα 40 μου. Με έκαναν να νιώσω άνετα από το πρώτο μάθημα.</span><span data-lang-en>I started English in my forties. They made me feel at ease from the first lesson.</span></p>
-              <div class="tcard__person">
-                <img class="tcard__avatar" src="https://i.pravatar.cc/120?img=15" alt="" loading="lazy" width="52" height="52">
-                <div><div class="tcard__name">Νίκος Α.</div><div class="tcard__role" data-lang-el>Μαθητής ενηλίκων</div><div class="tcard__role" data-lang-en>Adult learner</div></div>
-              </div>
-            </article>
-          </div>
-          <div class="tnav">
-            <button data-tslide="prev" aria-label="Previous"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button>
-            <button data-tslide="next" aria-label="Next"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
-          </div>
+      </div>
+
+      <!-- Row 1 — scrolls left -->
+      <div class="tmarquee__row tmarquee__row--fwd" aria-hidden="true">
+        <div class="tmarquee__track">
+          <div class="tmarquee__set">
+          <article class="tmcard">
+            <p class="tmcard__text"><span data-lang-el>Η κόρη μου μπήκε ντροπαλή και βγήκε να μιλάει Αγγλικά με αυτοπεποίθηση. Η φροντίδα εδώ είναι αληθινή.</span><span data-lang-en>My daughter started shy and now speaks English with real confidence. The care here is genuine.</span></p>
+            <div class="tmcard__person"><img class="tmcard__avatar" src="https://i.pravatar.cc/120?img=47" alt="" loading="lazy" width="52" height="52"><div><div class="tmcard__name">Μαρία Κ.</div><div class="tmcard__role"><span data-lang-el>Μητέρα μαθήτριας</span><span data-lang-en>Parent</span></div></div></div>
+          </article>
+          <article class="tmcard">
+            <p class="tmcard__text"><span data-lang-el>Πέρασα το C2 Proficiency με την πρώτη. Οι καθηγητές ήξεραν ακριβώς πού να με σπρώξουν.</span><span data-lang-en>I passed C2 Proficiency on the first try. The teachers knew exactly where to push me.</span></p>
+            <div class="tmcard__person"><img class="tmcard__avatar" src="https://i.pravatar.cc/120?img=12" alt="" loading="lazy" width="52" height="52"><div><div class="tmcard__name">Γιώργος Π.</div><div class="tmcard__role"><span data-lang-el>Μαθητής Senior</span><span data-lang-en>Senior student</span></div></div></div>
+          </article>
+          <article class="tmcard">
+            <p class="tmcard__text"><span data-lang-el>Τρία παιδιά, ένα σχολείο, καμία ανησυχία. Τους εμπιστευόμαστε εδώ και χρόνια.</span><span data-lang-en>Three kids, one school, zero worries. We have trusted them for years.</span></p>
+            <div class="tmcard__person"><img class="tmcard__avatar" src="https://i.pravatar.cc/120?img=32" alt="" loading="lazy" width="52" height="52"><div><div class="tmcard__name">Ελένη Δ.</div><div class="tmcard__role"><span data-lang-el>Μητέρα</span><span data-lang-en>Parent</span></div></div></div>
+          </article>
+          <article class="tmcard">
+            <p class="tmcard__text"><span data-lang-el>Ξεκίνησα Αγγλικά στα 40 μου. Με έκαναν να νιώσω άνετα από το πρώτο μάθημα.</span><span data-lang-en>I started English in my forties. They made me feel at ease from the first lesson.</span></p>
+            <div class="tmcard__person"><img class="tmcard__avatar" src="https://i.pravatar.cc/120?img=15" alt="" loading="lazy" width="52" height="52"><div><div class="tmcard__name">Νίκος Α.</div><div class="tmcard__role"><span data-lang-el>Μαθητής ενηλίκων</span><span data-lang-en>Adult learner</span></div></div></div>
+          </article>          </div>
+          <!-- duplicate set for seamless loop -->
+          <div class="tmarquee__set">          <article class="tmcard">
+            <p class="tmcard__text"><span data-lang-el>Η κόρη μου μπήκε ντροπαλή και βγήκε να μιλάει Αγγλικά με αυτοπεποίθηση. Η φροντίδα εδώ είναι αληθινή.</span><span data-lang-en>My daughter started shy and now speaks English with real confidence. The care here is genuine.</span></p>
+            <div class="tmcard__person"><img class="tmcard__avatar" src="https://i.pravatar.cc/120?img=47" alt="" loading="lazy" width="52" height="52"><div><div class="tmcard__name">Μαρία Κ.</div><div class="tmcard__role"><span data-lang-el>Μητέρα μαθήτριας</span><span data-lang-en>Parent</span></div></div></div>
+          </article>
+          <article class="tmcard">
+            <p class="tmcard__text"><span data-lang-el>Πέρασα το C2 Proficiency με την πρώτη. Οι καθηγητές ήξεραν ακριβώς πού να με σπρώξουν.</span><span data-lang-en>I passed C2 Proficiency on the first try. The teachers knew exactly where to push me.</span></p>
+            <div class="tmcard__person"><img class="tmcard__avatar" src="https://i.pravatar.cc/120?img=12" alt="" loading="lazy" width="52" height="52"><div><div class="tmcard__name">Γιώργος Π.</div><div class="tmcard__role"><span data-lang-el>Μαθητής Senior</span><span data-lang-en>Senior student</span></div></div></div>
+          </article>
+          <article class="tmcard">
+            <p class="tmcard__text"><span data-lang-el>Τρία παιδιά, ένα σχολείο, καμία ανησυχία. Τους εμπιστευόμαστε εδώ και χρόνια.</span><span data-lang-en>Three kids, one school, zero worries. We have trusted them for years.</span></p>
+            <div class="tmcard__person"><img class="tmcard__avatar" src="https://i.pravatar.cc/120?img=32" alt="" loading="lazy" width="52" height="52"><div><div class="tmcard__name">Ελένη Δ.</div><div class="tmcard__role"><span data-lang-el>Μητέρα</span><span data-lang-en>Parent</span></div></div></div>
+          </article>
+          <article class="tmcard">
+            <p class="tmcard__text"><span data-lang-el>Ξεκίνησα Αγγλικά στα 40 μου. Με έκαναν να νιώσω άνετα από το πρώτο μάθημα.</span><span data-lang-en>I started English in my forties. They made me feel at ease from the first lesson.</span></p>
+            <div class="tmcard__person"><img class="tmcard__avatar" src="https://i.pravatar.cc/120?img=15" alt="" loading="lazy" width="52" height="52"><div><div class="tmcard__name">Νίκος Α.</div><div class="tmcard__role"><span data-lang-el>Μαθητής ενηλίκων</span><span data-lang-en>Adult learner</span></div></div></div>
+          </article>
+                  </div>
+        </div>
+      </div>
+
+      <!-- Row 2 — scrolls right (reversed order) -->
+      <div class="tmarquee__row tmarquee__row--rev" aria-hidden="true">
+        <div class="tmarquee__track">
+          <div class="tmarquee__set">
+          <article class="tmcard">
+            <p class="tmcard__text"><span data-lang-el>Τρία παιδιά, ένα σχολείο, καμία ανησυχία. Τους εμπιστευόμαστε εδώ και χρόνια.</span><span data-lang-en>Three kids, one school, zero worries. We have trusted them for years.</span></p>
+            <div class="tmcard__person"><img class="tmcard__avatar" src="https://i.pravatar.cc/120?img=32" alt="" loading="lazy" width="52" height="52"><div><div class="tmcard__name">Ελένη Δ.</div><div class="tmcard__role"><span data-lang-el>Μητέρα</span><span data-lang-en>Parent</span></div></div></div>
+          </article>
+          <article class="tmcard">
+            <p class="tmcard__text"><span data-lang-el>Ξεκίνησα Αγγλικά στα 40 μου. Με έκαναν να νιώσω άνετα από το πρώτο μάθημα.</span><span data-lang-en>I started English in my forties. They made me feel at ease from the first lesson.</span></p>
+            <div class="tmcard__person"><img class="tmcard__avatar" src="https://i.pravatar.cc/120?img=15" alt="" loading="lazy" width="52" height="52"><div><div class="tmcard__name">Νίκος Α.</div><div class="tmcard__role"><span data-lang-el>Μαθητής ενηλίκων</span><span data-lang-en>Adult learner</span></div></div></div>
+          </article>
+          <article class="tmcard">
+            <p class="tmcard__text"><span data-lang-el>Η κόρη μου μπήκε ντροπαλή και βγήκε να μιλάει Αγγλικά με αυτοπεποίθηση. Η φροντίδα εδώ είναι αληθινή.</span><span data-lang-en>My daughter started shy and now speaks English with real confidence. The care here is genuine.</span></p>
+            <div class="tmcard__person"><img class="tmcard__avatar" src="https://i.pravatar.cc/120?img=47" alt="" loading="lazy" width="52" height="52"><div><div class="tmcard__name">Μαρία Κ.</div><div class="tmcard__role"><span data-lang-el>Μητέρα μαθήτριας</span><span data-lang-en>Parent</span></div></div></div>
+          </article>
+          <article class="tmcard">
+            <p class="tmcard__text"><span data-lang-el>Πέρασα το C2 Proficiency με την πρώτη. Οι καθηγητές ήξεραν ακριβώς πού να με σπρώξουν.</span><span data-lang-en>I passed C2 Proficiency on the first try. The teachers knew exactly where to push me.</span></p>
+            <div class="tmcard__person"><img class="tmcard__avatar" src="https://i.pravatar.cc/120?img=12" alt="" loading="lazy" width="52" height="52"><div><div class="tmcard__name">Γιώργος Π.</div><div class="tmcard__role"><span data-lang-el>Μαθητής Senior</span><span data-lang-en>Senior student</span></div></div></div>
+          </article>          </div>
+          <!-- duplicate set -->
+          <div class="tmarquee__set">          <article class="tmcard">
+            <p class="tmcard__text"><span data-lang-el>Τρία παιδιά, ένα σχολείο, καμία ανησυχία. Τους εμπιστευόμαστε εδώ και χρόνια.</span><span data-lang-en>Three kids, one school, zero worries. We have trusted them for years.</span></p>
+            <div class="tmcard__person"><img class="tmcard__avatar" src="https://i.pravatar.cc/120?img=32" alt="" loading="lazy" width="52" height="52"><div><div class="tmcard__name">Ελένη Δ.</div><div class="tmcard__role"><span data-lang-el>Μητέρα</span><span data-lang-en>Parent</span></div></div></div>
+          </article>
+          <article class="tmcard">
+            <p class="tmcard__text"><span data-lang-el>Ξεκίνησα Αγγλικά στα 40 μου. Με έκαναν να νιώσω άνετα από το πρώτο μάθημα.</span><span data-lang-en>I started English in my forties. They made me feel at ease from the first lesson.</span></p>
+            <div class="tmcard__person"><img class="tmcard__avatar" src="https://i.pravatar.cc/120?img=15" alt="" loading="lazy" width="52" height="52"><div><div class="tmcard__name">Νίκος Α.</div><div class="tmcard__role"><span data-lang-el>Μαθητής ενηλίκων</span><span data-lang-en>Adult learner</span></div></div></div>
+          </article>
+          <article class="tmcard">
+            <p class="tmcard__text"><span data-lang-el>Η κόρη μου μπήκε ντροπαλή και βγήκε να μιλάει Αγγλικά με αυτοπεποίθηση. Η φροντίδα εδώ είναι αληθινή.</span><span data-lang-en>My daughter started shy and now speaks English with real confidence. The care here is genuine.</span></p>
+            <div class="tmcard__person"><img class="tmcard__avatar" src="https://i.pravatar.cc/120?img=47" alt="" loading="lazy" width="52" height="52"><div><div class="tmcard__name">Μαρία Κ.</div><div class="tmcard__role"><span data-lang-el>Μητέρα μαθήτριας</span><span data-lang-en>Parent</span></div></div></div>
+          </article>
+          <article class="tmcard">
+            <p class="tmcard__text"><span data-lang-el>Πέρασα το C2 Proficiency με την πρώτη. Οι καθηγητές ήξεραν ακριβώς πού να με σπρώξουν.</span><span data-lang-en>I passed C2 Proficiency on the first try. The teachers knew exactly where to push me.</span></p>
+            <div class="tmcard__person"><img class="tmcard__avatar" src="https://i.pravatar.cc/120?img=12" alt="" loading="lazy" width="52" height="52"><div><div class="tmcard__name">Γιώργος Π.</div><div class="tmcard__role"><span data-lang-el>Μαθητής Senior</span><span data-lang-en>Senior student</span></div></div></div>
+          </article>
+                  </div>
         </div>
       </div>
     </section>
 
     <!-- ============ STATISTICS ============ -->
-    <section class="section section--navy">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow"><span data-lang-el>Με αριθμούς</span><span data-lang-en>By the numbers</span></span>
-          <h2 class="h2" style="margin-top:1rem">
-            <span data-lang-el>Μια κληρονομιά που χτίζεται κάθε χρόνο</span>
-            <span data-lang-en>A legacy built year after year</span>
-          </h2>
+    <section class="section section--navy stats-section">
+      <div class="container stats-wrap">
+        <div class="stats-content">
+          <div class="section-head reveal" style="text-align:left;margin-inline:0">
+            <span class="eyebrow"><span data-lang-el>Με αριθμούς</span><span data-lang-en>By the numbers</span></span>
+            <h2 class="h2" style="margin-top:1rem">
+              <span data-lang-el>Μια κληρονομιά που χτίζεται κάθε χρόνο</span>
+              <span data-lang-en>A legacy built year after year</span>
+            </h2>
+          </div>
+          <div class="stats">
+            <div class="stat reveal"><div class="stat__num">1988</div><div class="stat__label" data-lang-el>Έτος ίδρυσης</div><div class="stat__label" data-lang-en>Founded</div></div>
+            <div class="stat reveal" data-delay="2"><div class="stat__num"><span class="js-val" data-count="36">0</span><span class="stat__suffix">+</span></div><div class="stat__label" data-lang-el>Χρόνια εμπειρίας</div><div class="stat__label" data-lang-en>Years of experience</div></div>
+            <div class="stat reveal" data-delay="3"><div class="stat__num"><span class="js-val" data-count="95">0</span><span class="stat__suffix">%</span></div><div class="stat__label" data-lang-el>Επιτυχία σε εξετάσεις</div><div class="stat__label" data-lang-en>Exam pass rate</div></div>
+          </div>
         </div>
-        <div class="stats">
-          <div class="stat reveal"><div class="stat__num">1988</div><div class="stat__label" data-lang-el>Έτος ίδρυσης</div><div class="stat__label" data-lang-en>Founded</div></div>
-          <div class="stat reveal" data-delay="1"><div class="stat__num"><span class="js-val" data-count="2500">0</span><span class="stat__suffix">+</span></div><div class="stat__label" data-lang-el>Μαθητές μέχρι σήμερα</div><div class="stat__label" data-lang-en>Students taught</div></div>
-          <div class="stat reveal" data-delay="2"><div class="stat__num"><span class="js-val" data-count="36">0</span><span class="stat__suffix">+</span></div><div class="stat__label" data-lang-el>Χρόνια εμπειρίας</div><div class="stat__label" data-lang-en>Years of experience</div></div>
-          <div class="stat reveal" data-delay="3"><div class="stat__num"><span class="js-val" data-count="95">0</span><span class="stat__suffix">%</span></div><div class="stat__label" data-lang-el>Επιτυχία σε εξετάσεις</div><div class="stat__label" data-lang-en>Exam pass rate</div></div>
+        <div class="stats-img reveal">
+          <img class="stats-img__back" src="Images/tzami.png" alt="Αίθουσα διδασκαλίας" loading="lazy">
+          <img class="stats-img__front" src="Images/front.png" alt="" loading="lazy" aria-hidden="true">
         </div>
       </div>
     </section>
@@ -403,24 +471,6 @@
       </div>
     </section>
 
-    <!-- ============ FINAL CTA ============ -->
-    <section class="section">
-      <div class="container">
-        <div class="cta-band reveal">
-          <span class="eyebrow"><span data-lang-el>Ας ξεκινήσουμε</span><span data-lang-en>Let's begin</span></span>
-          <h2 class="h2" style="margin-top:1rem">
-            <span data-lang-el>Δώστε στο παιδί σας τα Αγγλικά που του αξίζουν</span>
-            <span data-lang-en>Give your child the English they deserve</span>
-          </h2>
-          <p class="lead"><span data-lang-el>Κλείστε μια δωρεάν αξιολόγηση και δείτε τη διαφορά μιας πραγματικά προσωπικής διδασκαλίας.</span><span data-lang-en>Book a free assessment and see the difference of truly personal teaching.</span></p>
-          <div class="cta-band__actions">
-            <a class="btn btn--light" href="pages/contact.html"><span data-lang-el>Κλείσε Αξιολόγηση</span><span data-lang-en>Book an Assessment</span></a>
-            <a class="btn btn--white-ghost" href="tel:+306932384633">+30 693 238 4633</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ============ CONTACT PREVIEW ============ -->
     <section class="section section--soft">
       <div class="container">
@@ -428,10 +478,10 @@
           <div class="reveal">
             <span class="eyebrow"><span data-lang-el>Επικοινωνία</span><span data-lang-en>Get in touch</span></span>
             <h2 class="h2" style="margin-top:1rem">
-              <span data-lang-el>Είμαστε εδώ, στο Κορωπί</span>
-              <span data-lang-en>We're here, in Koropi</span>
+              <span data-lang-el>Που θα μας βρείτε</span>
+              <span data-lang-en>Where to find us</span>
             </h2>
-            <p class="lead" style="margin-top:1rem"><span data-lang-el>Περάστε για έναν καφέ και μια κουβέντα — με χαρά θα σας γνωρίσουμε.</span><span data-lang-en>Drop by for a coffee and a chat — we'd love to meet you.</span></p>
+            <p class="lead" style="margin-top:1rem"><span data-lang-el>Βρισκόμαστε στο Κορωπί, πλησίον της Εκκλησίας της Ανάληψης. Επικοινωνήστε μαζί μας ή επισκεφθείτε τον χώρο μας για να γνωριστούμε και να συζητήσουμε πώς μπορούμε να σας βοηθήσουμε να πετύχετε τους στόχους σας.</span><span data-lang-en>We're located in Koropi, near the Church of the Ascension. Get in touch or visit us so we can meet and discuss how we can help you reach your goals.</span></p>
             <div class="contact-info" style="margin-top:2rem">
               <div class="contact-row">
                 <span class="contact-row__ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
