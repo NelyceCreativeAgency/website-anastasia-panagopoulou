@@ -28,9 +28,27 @@ JavaScript** — no frameworks, no build step.
 
 ## How to run
 
-It's a static site — just open `index.html` in a browser, or serve the folder
-with any static server (e.g. the Live Server VS Code extension, or
-`python3 -m http.server` from a non-restricted location).
+It's a static site — you can just open `index.html` in a browser. For real
+development, use the live-reload dev server below.
+
+### Live reload (recommended)
+
+Powered by [browser-sync](https://browsersync.io) — no build step. CSS edits are
+injected **instantly** (the page doesn't even reload); HTML/JS edits trigger a
+fast auto-refresh.
+
+```bash
+npm install     # first time only — installs browser-sync locally
+npm run dev      # starts the server and opens http://localhost:3000
+```
+
+Leave it running and edit any file in `css/`, `js/`, `pages/` or `index.html` —
+the browser updates on save. Stop the server with `Ctrl+C`.
+
+Configuration lives in [`bs-config.js`](bs-config.js) (port, watched files, etc.).
+
+> Tip: if `npm install` ever fails with an `EACCES` cache error, run it once with
+> a local cache: `npm install --cache .npmcache` (already git-ignored).
 
 ## Bilingual content (GR / EN)
 

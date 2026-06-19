@@ -161,6 +161,30 @@
     nums.forEach(function (n) { io.observe(n); });
   }
 
+  /* ---------------- Testimonial marquee — seamless infinite loop ---------------- */
+  function initMarquee() {
+    document.querySelectorAll('.tmarquee__track').forEach(function (track) {
+      var set = track.querySelector('.tmarquee__set');
+      if (!set) return;
+
+      function fill() {
+        var setW = set.offsetWidth;
+        if (!setW) return;
+        // Remove all clones (keep only the original first set)
+        while (track.children.length > 1) track.lastChild.remove();
+        // Clone until track content covers at least 4× the viewport width
+        while (track.scrollWidth < window.innerWidth * 4) {
+          track.appendChild(set.cloneNode(true));
+        }
+        // Set exact translation = negative width of one set
+        track.style.setProperty('--marquee-x', '-' + setW + 'px');
+      }
+
+      fill();
+      window.addEventListener('resize', fill, { passive: true });
+    });
+  }
+
   /* Why-choose-us cards stack with pure CSS position:sticky — no JS needed. */
 
   /* ---------------- Course card tilt ---------------- */
@@ -221,6 +245,7 @@
     initReveal();
     initAccordion();
     initTestimonials();
+    initMarquee();
     initCounters();
     initCslider();
     initFooterArt();
