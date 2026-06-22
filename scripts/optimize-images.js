@@ -44,7 +44,7 @@ function updateRefs(content) {
 async function main() {
   const images = [...walkImages(IMAGES_DIR)];
   if (images.length === 0) {
-    console.log('No images to convert — all good!');
+    console.log('No images to convert - all good!');
   }
 
   for (const src of images) {
@@ -70,7 +70,7 @@ async function main() {
     }
   }
 
-  console.log(`\n✅ Done — ${images.length} image(s) converted, ${updatedFiles} file(s) updated.`);
+  console.log(`\n✅ Done - ${images.length} image(s) converted, ${updatedFiles} file(s) updated.`);
 }
 
 main().catch(err => { console.error('Error:', err.message); process.exit(1); });

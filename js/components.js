@@ -1,5 +1,5 @@
 /* =============================================================
-   Shared header + footer — injected on every page so the
+   Shared header + footer - injected on every page so the
    navigation lives in ONE place. Bilingual text is inlined with
    data-lang-el / data-lang-en spans toggled via the <html lang> attr.
    ============================================================= */

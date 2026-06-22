@@ -1,5 +1,5 @@
 /* =============================================================
-   Site behaviour — language switch, sticky nav, mobile menu,
+   Site behaviour - language switch, sticky nav, mobile menu,
    scroll reveal, accordion, testimonials, counters, forms.
    Runs after components.js has injected the header/footer.
    ============================================================= */
@@ -161,7 +161,7 @@
     nums.forEach(function (n) { io.observe(n); });
   }
 
-  /* ---------------- Testimonial marquee — seamless infinite loop ---------------- */
+  /* ---------------- Testimonial marquee - seamless infinite loop ---------------- */
   function initMarquee() {
     document.querySelectorAll('.tmarquee__track').forEach(function (track) {
       var set = track.querySelector('.tmarquee__set');
@@ -185,7 +185,7 @@
     });
   }
 
-  /* Why-choose-us cards stack with pure CSS position:sticky — no JS needed. */
+  /* Why-choose-us cards stack with pure CSS position:sticky - no JS needed. */
 
   /* ---------------- Course card tilt ---------------- */
   function initCslider() {

@@ -249,7 +249,7 @@ h1, h2, h3, h4, h5 {
 .link-arrow svg { transition: transform 0.3s var(--ease); }
 .link-arrow:hover { gap: 0.75rem; }
 
-/* "modern button" — uiverse.io / gharsh11032000 adapted to brand red */
+/* "modern button" - uiverse.io / gharsh11032000 adapted to brand red */
 .btn-modern {
   position: relative;
   display: inline-flex;
@@ -315,7 +315,7 @@ h1, h2, h3, h4, h5 {
   opacity: 1;
 }
 
-/* Hero variant — filled dark red for contrast on navy */
+/* Hero variant - filled dark red for contrast on navy */
 .hero .btn-modern {
   background-color: var(--accent);
   color: #fff;
@@ -355,7 +355,7 @@ h1, h2, h3, h4, h5 {
   top: 0.75rem;
 }
 
-/* Dual logos — light version hidden by default, swapped in on dark hero */
+/* Dual logos - light version hidden by default, swapped in on dark hero */
 .nav__logo-light { display: none; }
 
 /* Dark-hero pill: navy frosted glass so white text stays legible */
@@ -369,11 +369,11 @@ h1, h2, h3, h4, h5 {
 .hero-dark .nav:not(.is-stuck) .nav__logo-dark  { display: none; }
 .hero-dark .nav:not(.is-stuck) .nav__logo-light { display: block; }
 .hero-dark .nav:not(.is-stuck) .nav__burger { background: rgba(255, 255, 255, 0.18); }
-/* Lang switch lives in the pill at every breakpoint — fix colors at all widths */
+/* Lang switch lives in the pill at every breakpoint - fix colors at all widths */
 .hero-dark .nav:not(.is-stuck) .lang { background: rgba(255, 255, 255, 0.14); }
 .hero-dark .nav:not(.is-stuck) .lang__btn { color: #fff; }
 .hero-dark .nav:not(.is-stuck) .lang__btn.is-active { background: #fff; color: var(--navy); }
-/* Nav links only go white on desktop — on mobile they live in the white drawer */
+/* Nav links only go white on desktop - on mobile they live in the white drawer */
 @media (min-width: 941px) {
   .hero-dark .nav:not(.is-stuck) .nav__link { color: #fff; }
   .hero-dark .nav:not(.is-stuck) .nav__link.is-active { color: var(--accent-soft); }
@@ -413,7 +413,7 @@ h1, h2, h3, h4, h5 {
   position: relative;
 }
 
-/* Pencil-drawn underline — inline SVG stroke-dashoffset animation */
+/* Pencil-drawn underline - inline SVG stroke-dashoffset animation */
 .nav__underline {
   position: absolute;
   bottom: -4px;
@@ -533,7 +533,7 @@ h1, h2, h3, h4, h5 {
 .nav__burger span::before { top: -8px; }   /* 8px above span = 14px from button top */
 .nav__burger span::after  { top:  8px; }   /* 8px below span = 30px from button top */
 
-/* X: middle bar hidden via background (not opacity — opacity hides ::before/::after too) */
+/* X: middle bar hidden via background (not opacity - opacity hides ::before/::after too) */
 .nav.is-open .nav__burger span         { background: transparent; }
 .nav.is-open .nav__burger span::before { top: 0; transform: rotate(45deg); }
 .nav.is-open .nav__burger span::after  { top: 0; transform: rotate(-45deg); }
@@ -577,7 +577,7 @@ h1, h2, h3, h4, h5 {
     box-shadow: var(--shadow-lg);
     border-radius: 1.5rem;
     /* bottom edge sits at (top - offset) = 5.25rem - 14rem = -8.75rem; shadow-lg extends
-       30px+70px below, so shadow bottom ≈ -8.75rem+6.25rem = -2.5rem — fully off-screen */
+       30px+70px below, so shadow bottom ≈ -8.75rem+6.25rem = -2.5rem - fully off-screen */
     transform: translateY(calc(-100% - 14rem));
     transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
     z-index: 99;
@@ -630,7 +630,7 @@ h1, h2, h3, h4, h5 {
 .hero-line:nth-child(3) > span { animation-delay: 0.39s; }
 @keyframes hero-line-up { to { transform: translateY(0); } }
 
-/* Highlighted word — brush stroke */
+/* Highlighted word - brush stroke */
 .hero-highlight {
   display: inline-block;
   position: relative;
@@ -733,7 +733,7 @@ h1, h2, h3, h4, h5 {
 .card__title { font-size: 1.25rem; margin-bottom: 0.7rem; }
 .card__text { font-size: 0.98rem; }
 
-/* ---- Why Choose Us — split + scroll stack ---- */
+/* ---- Why Choose Us - split + scroll stack ---- */
 .why-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -755,13 +755,13 @@ h1, h2, h3, h4, h5 {
 }
 .why-text .lead { margin-top: 1.5rem; }
 
-/* Pure CSS sticky stack — no JS. Each card scrolls up to centre, pins, and the
+/* Pure CSS sticky stack - no JS. Each card scrolls up to centre, pins, and the
    next card rises over it. The big gap is the scroll distance between cards;
    it's what keeps only one card on screen at a time. Native scroll = effortless. */
 .why-cards {
   display: flex;
   flex-direction: column;
-  gap: 40vh;                 /* scroll distance between cards — keep it brisk */
+  gap: 40vh;                 /* scroll distance between cards - keep it brisk */
   /* small tail so the finished stack settles a beat, then the whole section
      (text + stack) releases and scrolls away together */
   padding-bottom: 12vh;
@@ -782,7 +782,7 @@ h1, h2, h3, h4, h5 {
   animation: wcard-rise linear both;
   animation-timeline: view();
   /* straighten quickly in the stretch just before centre, not across the
-     whole rise — keeps it snappy/effortless */
+     whole rise - keeps it snappy/effortless */
   animation-range: cover 22% cover 46%;
 }
 @keyframes wcard-rise {
@@ -795,7 +795,7 @@ h1, h2, h3, h4, h5 {
 
 /* Later cards sit a little lower and on top, so the previous card's
    top edge peeks out above as the deck builds up. */
-/* the first card is the base of the stack — no tilt, just sits straight */
+/* the first card is the base of the stack - no tilt, just sits straight */
 .wcard:nth-child(1) { z-index: 1; animation: none; transform: none; }
 .wcard:nth-child(2) { top: calc(50vh - 250px + 14px); z-index: 2; }
 .wcard:nth-child(3) { top: calc(50vh - 250px + 28px); z-index: 3; }
@@ -991,7 +991,7 @@ h1, h2, h3, h4, h5 {
   box-shadow: var(--shadow-md);
 }
 
-/* top half — light, image */
+/* top half - light, image */
 .cslide__top {
   flex: 0 0 auto;
   aspect-ratio: 4 / 3;
@@ -1007,7 +1007,7 @@ h1, h2, h3, h4, h5 {
 }
 .cslide:hover .cslide__top img { transform: scale(1.05); }
 
-/* bottom half — colored, connected flush to top */
+/* bottom half - colored, connected flush to top */
 .cslide__bot {
   flex: 1;
   padding: 1.4rem 1.5rem 1.5rem;
@@ -1020,7 +1020,7 @@ h1, h2, h3, h4, h5 {
 .cslide--red  .cslide__bot { background: #E53914; }
 .cslide--warm .cslide__bot { background: #FACE8D; }
 
-/* warm card — dark text */
+/* warm card - dark text */
 .cslide--warm .cslide__name  { color: #0B3048; }
 .cslide--warm .cslide__desc  { color: rgba(11,48,72,0.68); }
 .cslide--warm .cslide__tag   { background: rgba(11,48,72,0.1); color: rgba(11,48,72,0.75); }
@@ -1215,7 +1215,7 @@ h1, h2, h3, h4, h5 {
   margin-bottom: 0.65rem;
 }
 .tmarquee__row:last-child { margin-bottom: 0; }
-/* edge fade via overlay — doesn't clip shadows unlike mask-image */
+/* edge fade via overlay - doesn't clip shadows unlike mask-image */
 .tmarquee__row::before,
 .tmarquee__row::after {
   content: '';
@@ -1245,7 +1245,7 @@ h1, h2, h3, h4, h5 {
   padding-right: 1.4rem; /* matches gap so -50% lands exactly on the clone seam */
 }
 
-/* row-level animation — pause on hover */
+/* row-level animation - pause on hover */
 .tmarquee__row--fwd .tmarquee__track {
   animation: marquee-left 36s linear infinite;
 }
@@ -1910,7 +1910,7 @@ h1, h2, h3, h4, h5 {
   margin: 0 clamp(0.5rem, 1.6vw, 1.25rem) clamp(0.5rem, 1.6vw, 1.25rem);
   border-radius: clamp(22px, 3vw, 40px);
 }
-/* bold decorative art — anchored to the footer bottom; the top is clipped so
+/* bold decorative art - anchored to the footer bottom; the top is clipped so
    only its lower portion shows inside the footer */
 .footer__art {
   position: absolute;
@@ -1941,7 +1941,7 @@ h1, h2, h3, h4, h5 {
      on the right for the illustration */
   grid-template-columns: 1.5fr 1fr 1fr 1.2fr 1.5fr;
   gap: 1.75rem;
-  /* large gap before the copyright row — this is the space the illustration
+  /* large gap before the copyright row - this is the space the illustration
      base shows through, while the copyright sits at the bottom */
   padding-bottom: clamp(4.5rem, 9vw, 8.5rem);
 }
