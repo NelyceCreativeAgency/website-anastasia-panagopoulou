@@ -49,8 +49,8 @@
     '<header class="nav" id="nav">' +
       '<div class="container nav__inner">' +
         '<a class="nav__logo" href="' + href("index.html") + '" aria-label="Anastasia Panagopoulou English School">' +
-          '<img class="nav__logo-dark" src="' + href("Images/LOGO.png") + '" alt="Anastasia Panagopoulou English School" width="170" height="38">' +
-          '<img class="nav__logo-light" src="' + href("Images/LOGOlight.png") + '" alt="Anastasia Panagopoulou English School" width="170" height="38" aria-hidden="true">' +
+          '<img class="nav__logo-dark" src="' + href("Images/LOGO.webp") + '" alt="Anastasia Panagopoulou English School" width="170" height="38">' +
+          '<img class="nav__logo-light" src="' + href("Images/LOGOlight.webp") + '" alt="Anastasia Panagopoulou English School" width="170" height="38" aria-hidden="true">' +
         '</a>' +
         '<nav aria-label="Primary">' +
           '<ul class="nav__menu" id="navMenu">' + links + '</ul>' +
@@ -81,7 +81,7 @@
       '<div class="container">' +
         '<div class="footer__grid">' +
           '<div class="footer__about">' +
-            '<a class="footer__logo" href="' + href("index.html") + '"><img src="' + href("Images/LOGOlight.png") + '" alt="Anastasia Panagopoulou English School"></a>' +
+            '<a class="footer__logo" href="' + href("index.html") + '"><img src="' + href("Images/LOGOlight.webp") + '" alt="Anastasia Panagopoulou English School"></a>' +
             '<p>' + dual(
               "36 χρόνια εκπαίδευσης στην αγγλική γλώσσα",
               "36 years of English language education"

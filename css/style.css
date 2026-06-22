@@ -1477,7 +1477,7 @@ h1, h2, h3, h4, h5 {
   opacity: 0.4;
   background-image:
     linear-gradient(to bottom, rgba(255,255,255,0) 0%, var(--bg) 100%),
-    url('../Images/background.png');
+    url('../Images/background.webp');
   background-size: auto, cover;
   background-position: center, center top;
   background-repeat: no-repeat, no-repeat;
@@ -1501,7 +1501,7 @@ h1, h2, h3, h4, h5 {
   inset: 0;
   background:
     linear-gradient(to bottom, rgba(255,255,255,0.25) 0%, var(--bg) 100%),
-    url('../Images/Mask%20group.png') center top / cover no-repeat;
+    url('../Images/Mask%20group.webp') center top / cover no-repeat;
 }
 .page-hero--certs .container,
 .page-hero--about .container,

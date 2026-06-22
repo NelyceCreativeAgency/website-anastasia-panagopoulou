@@ -5,9 +5,11 @@
   "description": "Bilingual (GR/EN) marketing website for Anastasia Panagopoulou English School.",
   "scripts": {
     "dev": "browser-sync start --config bs-config.js",
-    "start": "browser-sync start --config bs-config.js"
+    "start": "browser-sync start --config bs-config.js",
+    "optimize": "node scripts/optimize-images.js"
   },
   "devDependencies": {
-    "browser-sync": "^3.0.3"
+    "browser-sync": "^3.0.3",
+    "sharp": "^0.35.2"
   }
 }
