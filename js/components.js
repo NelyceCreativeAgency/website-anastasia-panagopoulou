@@ -12,7 +12,7 @@
   // [file, el-label, en-label]
   var NAV = [
     ["index.html", "Αρχική", "Home"],
-    ["pages/about.html", "Το Σχολείο", "About"],
+    ["pages/about.html", "Το Φροντιστήριο", "About"],
     ["pages/courses.html", "Τμήματα", "Courses"],
     ["pages/certificates.html", "Πτυχία", "Certificates"],
     ["pages/blog.html", "Τα νέα μας", "News"],
@@ -83,8 +83,8 @@
           '<div class="footer__about">' +
             '<a class="footer__logo" href="' + href("index.html") + '"><img src="' + href("Images/LOGOlight.png") + '" alt="Anastasia Panagopoulou English School"></a>' +
             '<p>' + dual(
-              "Από το 1988 διδάσκουμε Αγγλικά με αγάπη, συνέπεια και αποτελέσματα — σε μια ζεστή, οικογενειακή ατμόσφαιρα.",
-              "Since 1988 we have taught English with care, consistency and results — in a warm, family atmosphere."
+              "36 χρόνια εκπαίδευσης στην αγγλική γλώσσα",
+              "36 years of English language education"
             ) + '</p>' +
             '<div class="footer__social">' +
               '<a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V8c0-1.1.3-2 2-2h2V2.1C18.7 2 17.5 2 16.5 2 13.7 2 12 3.7 12 6.7V10H9v4h3v8z"/></svg></a>' +

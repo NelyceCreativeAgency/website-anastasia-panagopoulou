@@ -238,6 +238,78 @@
 
   /* ---------------- Footer year handled in components.js ---------------- */
 
+  /* ---------------- Blog tag filter + search ---------------- */
+  function initBlogFilters() {
+    var tags    = document.querySelectorAll('.blog-tag[data-filter]');
+    var grid    = document.getElementById('postGrid');
+    var search  = document.querySelector('.blog-search input');
+    var empty   = document.querySelector('.blog-empty');
+    var reset   = document.getElementById('resetFilter');
+    if (!tags.length || !grid) return;
+
+    var activeFilter = 'all';
+    var activeQuery  = '';
+
+    function applyFilter() {
+      var cards   = grid.querySelectorAll('.post-card');
+      var visible = 0;
+      cards.forEach(function (card) {
+        var cat   = card.getAttribute('data-category') || '';
+        var title = card.querySelector('h3') ? card.querySelector('h3').textContent.toLowerCase() : '';
+        var matchTag    = activeFilter === 'all' || cat === activeFilter;
+        var matchSearch = !activeQuery || title.indexOf(activeQuery) !== -1;
+        if (matchTag && matchSearch) {
+          card.style.display = '';
+          card.classList.remove('card-in');
+          void card.offsetWidth;
+          card.classList.add('card-in');
+          visible++;
+        } else {
+          card.style.display = 'none';
+          card.classList.remove('card-in');
+        }
+      });
+      if (empty) empty.style.display = visible === 0 ? 'flex' : 'none';
+    }
+
+    tags.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        tags.forEach(function (b) { b.classList.remove('blog-tag--active'); });
+        btn.classList.add('blog-tag--active');
+        activeFilter = btn.getAttribute('data-filter');
+        applyFilter();
+      });
+    });
+
+    if (search) {
+      search.addEventListener('input', function () {
+        activeQuery = this.value.trim().toLowerCase();
+        applyFilter();
+      });
+    }
+
+    if (reset) {
+      reset.addEventListener('click', function () {
+        activeFilter = 'all';
+        activeQuery  = '';
+        if (search) search.value = '';
+        tags.forEach(function (b) { b.classList.remove('blog-tag--active'); });
+        var allBtn = document.querySelector('.blog-tag[data-filter="all"]');
+        if (allBtn) allBtn.classList.add('blog-tag--active');
+        applyFilter();
+      });
+    }
+  }
+
+  /* ---------------- SVG squiggle draw-on animation ---------------- */
+  function initSquiggle() {
+    document.querySelectorAll('.blog-squiggle path').forEach(function (path) {
+      var len = path.getTotalLength();
+      path.style.strokeDasharray = len;
+      path.style.strokeDashoffset = len;
+    });
+  }
+
   function init() {
     initLang();
     initStickyNav();
@@ -250,6 +322,8 @@
     initCslider();
     initFooterArt();
     initForm();
+    initSquiggle();
+    initBlogFilters();
   }
 
   if (document.readyState === "loading") {
