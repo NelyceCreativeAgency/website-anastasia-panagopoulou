@@ -1875,14 +1875,29 @@ h1, h2, h3, h4, h5 {
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(to bottom, rgba(255,255,255,0.25) 0%, var(--bg) 100%),
-    url('../Images/Mask%20group.webp') center top / cover no-repeat;
+  opacity: 0.4;
+  background-image:
+    linear-gradient(to bottom, rgba(255,255,255,0) 0%, var(--bg) 100%),
+    url('../Images/background.webp');
+  background-size: auto, cover;
+  background-position: center, center top;
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: scroll, fixed;
 }
 .page-hero--certs .container,
 .page-hero--about .container,
 .page-hero--courses .container {
   position: relative;
+}
+
+/* Mobile: fixed background attachment is janky / zooms on iOS — use scroll */
+@media (max-width: 768px) {
+  .page-hero--blog::before,
+  .page-hero--certs::before,
+  .page-hero--about::before,
+  .page-hero--courses::before {
+    background-attachment: scroll, scroll;
+  }
 }
 .page-hero .lead { margin-inline: auto; margin-top: 1.1rem; }
 .breadcrumb {
@@ -1989,7 +2004,7 @@ h1, h2, h3, h4, h5 {
 .post-card__body h3 a::after { content: ''; position: absolute; inset: 0; z-index: 2; }
 .post-card__arrow-btn { position: relative; z-index: 3; }
 .post-card .card__text { color: rgba(255,255,255,0.62); line-height: 1.6; font-size: 0.95rem; margin: 0; }
-.post-card__foot { margin-top: 1.5rem; display: flex; justify-content: flex-end; }
+.post-card__foot { position: absolute; top: 2rem; right: 2rem; z-index: 3; display: flex; }
 .post-card__arrow-btn {
   position: relative;
   overflow: hidden;
