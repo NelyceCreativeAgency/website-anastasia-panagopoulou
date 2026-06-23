@@ -308,6 +308,11 @@
       path.style.strokeDasharray = len;
       path.style.strokeDashoffset = len;
     });
+    // hero pencil ink line: expose true path length so the CSS draw stays in
+    // step with the pencil tip (avoids the line finishing early)
+    document.querySelectorAll('.write-line__path').forEach(function (path) {
+      path.style.setProperty('--len', path.getTotalLength());
+    });
   }
 
   function init() {

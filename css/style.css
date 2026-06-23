@@ -207,6 +207,32 @@ html:has(.cert-stack) { background: var(--navy); }
 }
 .section--navy .eyebrow { color: var(--accent-soft); background: rgba(255,255,255,0.08); }
 
+/* hand-drawn smutz mark inside eyebrows (homepage) — recoloured via mask */
+.eyebrow__mark {
+  flex-shrink: 0;
+  width: 58px;          /* only as wide as the dense scribble; clips trailing specks */
+  height: 26px;
+  -webkit-mask: url('../Images/smutz.svg') left center / auto 100% no-repeat;
+  mask: url('../Images/smutz.svg') left center / auto 100% no-repeat;
+  background: var(--accent);
+}
+.eyebrow__mark--blue { background: var(--navy); }
+
+/* eyebrows carrying a smutz mark (homepage): drop the pill, match text to mark */
+.eyebrow:has(.eyebrow__mark) {
+  background: none;
+  padding: 0;
+  gap: 0.1rem;
+  color: var(--accent);
+}
+.eyebrow:has(.eyebrow__mark--blue) { color: var(--navy); }
+
+/* on coloured (navy / red) backgrounds the mark + text go white */
+.section--navy .eyebrow__mark,
+.testi-eyebrow .eyebrow__mark { background: #fff; }
+.section--navy .eyebrow:has(.eyebrow__mark),
+.eyebrow.testi-eyebrow:has(.eyebrow__mark) { color: #fff; }
+
 .display {
   font-size: clamp(1.9rem, 4vw, 3.1rem);
   line-height: 1.05;
@@ -641,18 +667,13 @@ html:has(.cert-stack) { background: var(--navy); }
   justify-content: center;
   padding-top: clamp(5rem, 8vw, 7rem);
   padding-bottom: clamp(4rem, 6vw, 6rem);
-  background:
-    radial-gradient(120% 120% at 82% 8%, var(--navy-600) 0%, var(--navy) 55%);
-  color: #cfe0ec;
+  background: #fff;
+  color: var(--body);
   overflow: hidden;
 }
-/* Light text treatment on the navy hero */
-.hero .hero__title { color: #fff; }
-.hero .lead, .hero__text { color: #b8d0e2; }
-.hero .eyebrow { color: var(--accent-soft); background: rgba(255, 255, 255, 0.08); }
-.hero__trust { border-top-color: rgba(255, 255, 255, 0.14); }
-.hero__trust-num { color: #fff; }
-.hero__trust-label { color: #93b2c9; }
+/* Dark text treatment on the white hero */
+.hero .hero__title { color: var(--navy); }
+.hero .lead, .hero__text { color: var(--body); }
 .hero__grid {
   display: grid;
   grid-template-columns: 1fr 1.1fr;
@@ -708,19 +729,89 @@ html:has(.cert-stack) { background: var(--navy); }
 .hero__trust-label { font-size: 0.85rem; color: var(--muted); }
 
 .hero__media { position: relative; display: flex; justify-content: center; }
-.hero__illustration {
-  width: 110%;
-  max-width: none;
-  height: auto;
-  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.35));
-  animation: hero-float 6s var(--ease) infinite;
+/* fixed-size stage so the ink line and the motion-path share one coordinate box */
+.pencil-scene { position: relative; width: 100%; height: clamp(360px, 50vh, 580px); }
+
+/* ink line — 150×40 box centred at the bottom of the stage */
+.write-line {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 150px;
+  height: 40px;
+  transform: translateX(-50%);
+  overflow: visible;
+  pointer-events: none;
 }
-@keyframes hero-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-14px); }
+.write-line__path {
+  stroke-dasharray: var(--len, 160);
+  stroke-dashoffset: var(--len, 160);
+  /* same path %, easing, duration as the follow → tip stays on the ink front */
+  animation: write-draw 3.2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+/* the pencil's tip follows the EXACT same path as the ink (CSS Motion Path).
+   Same 150×40 box centred at the bottom, so the path coordinates line up. */
+.pencil-follow {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 150px;
+  height: 40px;
+  margin-left: -75px;                /* centre without a transform (transform = motion path) */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  offset-path: path('M8 26 C 28 10, 48 34, 72 22 S 112 10, 144 22');
+  offset-rotate: 0deg;               /* keep the pencil upright, don't spin along the path */
+  offset-anchor: 50% 100%;           /* the tip (bottom-centre) rides the path */
+  offset-distance: 0%;
+  animation: pencil-follow-anim 3.2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+.pencil-tilt {
+  transform-origin: bottom center;   /* lean pivots at the tip → doesn't break the follow */
+  animation: pencil-wiggle 3.2s ease-in-out infinite;
+}
+.hero__illustration {
+  display: block;
+  width: auto;
+  height: clamp(340px, 48vh, 560px);
+  filter: drop-shadow(0 30px 60px rgba(11, 48, 72, 0.18));
+}
+
+/* tip travels along the ink path; same %, easing, duration as the draw → exact follow */
+@keyframes pencil-follow-anim {
+  0%   { offset-distance: 0%; }
+  50%  { offset-distance: 100%; }
+  65%  { offset-distance: 100%; }
+  80%  { offset-distance: 0%; }
+  100% { offset-distance: 0%; }
+}
+/* subtle writing lean + wiggle; pivots at the tip so it doesn't break sync */
+@keyframes pencil-wiggle {
+  0%   { transform: rotate(13deg); }
+  25%  { transform: rotate(15deg); }
+  50%  { transform: rotate(13deg); }
+  100% { transform: rotate(13deg); }
+}
+/* ink draws on in step with the pencil, holds, fades, then resets */
+@keyframes write-draw {
+  0%   { stroke-dashoffset: var(--len, 160); opacity: 1; }
+  50%  { stroke-dashoffset: 0;               opacity: 1; }
+  65%  { stroke-dashoffset: 0;               opacity: 1; }
+  80%  { stroke-dashoffset: 0;               opacity: 0; }
+  81%  { stroke-dashoffset: var(--len, 160); opacity: 0; }
+  100% { stroke-dashoffset: var(--len, 160); opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero__illustration { animation: none; }
+  .pencil-follow, .pencil-tilt, .hero__illustration { animation: none; }
+  .pencil-follow { offset-distance: 0%; }
+  .write-line { display: none; }
+}
+/* small devices: smaller, tighter stage — leaves the path/line geometry untouched */
+@media (max-width: 600px) {
+  .pencil-scene { height: clamp(250px, 40vh, 330px); }
+  .hero__illustration { height: clamp(210px, 34vh, 290px); }
 }
 .hero__badge {
   position: absolute;
@@ -778,6 +869,28 @@ html:has(.cert-stack) { background: var(--navy); }
 .card__text { font-size: 0.98rem; }
 
 /* ---- Why Choose Us - split + scroll stack ---- */
+/* full-bleed decorative background photo behind the section — zoomed out,
+   fixed (stays still on scroll) and faded back */
+.why-section { position: relative; }
+.why-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../Images/background.webp');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-attachment: fixed;
+  opacity: 0.22;
+  z-index: 0;
+  pointer-events: none;
+}
+/* fixed attachment is janky on mobile — let it scroll there */
+@media (max-width: 768px) {
+  .why-section::before { background-attachment: scroll; }
+}
+.why-section > .container { position: relative; z-index: 1; }
+
 .why-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1155,88 +1268,21 @@ html:has(.cert-stack) { background: var(--navy); }
 .cert-card h3 { font-size: 1.2rem; margin-bottom: 0.4rem; }
 .cert-card__level { font-size: 0.82rem; font-weight: 700; color: var(--muted); font-family: var(--font-head); }
 
-/* ---------- 9. Stats ---------- */
-/* stats two-column layout */
-.stats-wrap {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
-  align-items: center;
-}
-.stats-content { display: flex; flex-direction: column; gap: 2.5rem; }
-/* left-align numbers inside this two-col context */
-.stats-section .stat { text-align: left; }
-.stats-section .stat__num { justify-content: flex-start; }
-.stats-img {
-  position: relative;
-  justify-self: end;
-  width: 100%;
-  max-width: 560px;
-  /* padding carves out room for the smaller front image at top-right */
-  padding-top: 32%;
-  padding-right: 30%;
-}
-.stats-img__deco {
+/* Decorative saita arrows around the courses section */
+.courses-section { position: relative; }
+.saita {
   position: absolute;
-  top: 32%;
-  left: 0;
-  right: 30%;
-  bottom: 0;
-  border-radius: var(--r-lg);
-  background: var(--accent);
-  transform: rotate(-4deg) translate(-10px, 12px);
-  opacity: 0.92;
+  width: clamp(130px, 13vw, 220px);
+  height: auto;
   z-index: 0;
+  pointer-events: none;
+  user-select: none;
 }
-.stats-img__back {
-  display: block;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: var(--r-lg);
-  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-  position: relative;
-  z-index: 1;
+.saita--tl { top: 17rem; left: clamp(5rem, 13vw, 13rem); transform: scale(-1, -1); }
+.saita--br { bottom: 4.5rem; right: clamp(5rem, 13vw, 13rem); }
+@media (max-width: 1024px) {
+  .saita { display: none; }
 }
-.stats-img:hover .stats-img__back {
-  transform: scale(1.03);
-}
-.stats-img__deco-front {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 54%;
-  aspect-ratio: 1 / 1;
-  border-radius: var(--r-lg);
-  background: rgba(255, 255, 255, 0.12);
-  transform: rotate(3.5deg) translate(6px, -6px);
-  z-index: 2;
-}
-.stats-img__front {
-  position: absolute;
-  z-index: 3;
-  top: 0;
-  right: 0;
-  width: 54%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: var(--r-lg);
-  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-}
-.stats-img:hover .stats-img__front {
-  transform: translate(4px, -4px);
-}
-
-.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-.stat { text-align: center; }
-.stat__num {
-  font-family: var(--font-head); font-weight: 700;
-  font-size: clamp(2.4rem, 5vw, 3.4rem);
-  color: #fff; line-height: 1;
-  display: flex; justify-content: center; align-items: baseline; gap: 2px;
-}
-.stat__suffix { color: var(--accent-soft); }
-.stat__label { color: #aecadd; margin-top: 0.6rem; font-size: 0.95rem; }
 
 /* ---------- 10. Testimonials ---------- */
 .testi-section {
@@ -2432,18 +2478,7 @@ html[lang="en"] [data-lang-en] { display: revert; }
 /* ---------- 21. Responsive ---------- */
 @media (max-width: 1024px) {
   .cols-4 { grid-template-columns: repeat(2, 1fr); }
-  .stats { grid-template-columns: repeat(3, 1fr); gap: 1rem 0.5rem; }
-  .stat__num { font-size: clamp(1.5rem, 5.5vw, 2.2rem); }
-  .stat__label { font-size: 0.78rem; }
   .footer__grid { grid-template-columns: 1fr 1fr; }
-  .stats-wrap { grid-template-columns: 1fr; gap: 1rem; }
-  /* flatten stats-content so its children join the grid directly */
-  .stats-content { display: contents; }
-  .stats-content .section-head { order: 1; text-align: center !important; margin-inline: auto !important; margin-bottom: 0 !important; }
-  .stats-img { order: 2; justify-self: center; max-width: 520px; padding-top: 8%; padding-right: 26%; margin-top: 2.5rem; }
-  .stats-content .stats { order: 3; margin-top: 2.5rem; }
-  .stats-section .stat { text-align: center; }
-  .stats-section .stat__num { justify-content: center; }
 }
 @media (max-width: 860px) {
   .hero__grid { grid-template-columns: 1fr; }
@@ -2458,7 +2493,6 @@ html[lang="en"] [data-lang-en] { display: revert; }
   .section--about .split > div:last-child .btn-modern { margin-inline: auto; }
   .cols-3 { grid-template-columns: 1fr; }
   .cols-2 { grid-template-columns: 1fr; }
-  .stats-wrap { gap: 2rem; }
   /* FAQ: extra lateral padding so items sit centred on narrow screens */
   .faq { padding-inline: 1rem; }
   /* contact section: break long email/address, constrain map */
@@ -2478,6 +2512,4 @@ html[lang="en"] [data-lang-en] { display: revert; }
   .btn-modern { padding: 14px 36px; font-size: 15px; }
   /* testimonial cards narrower on small phones */
   .tmcard { width: clamp(240px, 80vw, 300px); }
-  /* stats image composition smaller on phones */
-  .stats-img { max-width: 420px; padding-top: 6%; padding-right: 24%; }
 }

@@ -18,7 +18,7 @@
   
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="hero-dark"
+<body
   data-title-el="Anastasia Panagopoulou English School | Αγγλικά από το 1988"
   data-title-en="Anastasia Panagopoulou English School | English since 1988"
   data-desc-el="Φροντιστήριο Αγγλικών στο Κορωπί από το 1988. Μικρά τμήματα και αποδεδειγμένα αποτελέσματα."
@@ -59,7 +59,16 @@
           </div>
 
           <div class="hero__media reveal" data-delay="2">
-            <img class="hero__illustration" src="Images/heroimage2.svg" alt="Βιβλίο Αγγλικών με σημαίες ΗΠΑ και Ηνωμένου Βασιλείου" width="921" height="751" fetchpriority="high">
+            <div class="pencil-scene">
+              <svg class="write-line" viewBox="0 0 150 40" fill="none" aria-hidden="true">
+                <path class="write-line__path" d="M8 26 C 28 10, 48 34, 72 22 S 112 10, 144 22" stroke="#E53914" stroke-width="4" stroke-linecap="round"/>
+              </svg>
+              <span class="pencil-follow">
+                <span class="pencil-tilt">
+                  <img class="hero__illustration" src="Images/pencil.svg" alt="Μολύβι" width="225" height="709" fetchpriority="high">
+                </span>
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -77,6 +86,7 @@
           </div>
           <div class="reveal" data-delay="2">
             <span class="eyebrow">
+              <span class="eyebrow__mark" aria-hidden="true"></span>
               <span data-lang-el>Το Φροντιστήριό μας</span><span data-lang-en>About Us</span>
             </span>
             <h2 class="h2" style="margin-top:1rem">
@@ -101,12 +111,12 @@
     </section>
 
     <!-- ============ WHY CHOOSE US ============ -->
-    <section class="section section--soft">
+    <section class="section section--soft why-section">
       <div class="container">
         <div class="why-split">
 
           <div class="why-text reveal">
-            <span class="eyebrow"><span data-lang-el>Γιατί εμάς</span><span data-lang-en>Why Choose Us</span></span>
+            <span class="eyebrow"><span class="eyebrow__mark eyebrow__mark--blue" aria-hidden="true"></span><span data-lang-el>Γιατί εμάς</span><span data-lang-en>Why Choose Us</span></span>
             <h2 class="h2" style="margin-top:1rem">
               <span data-lang-el>Αξιοποιώντας τη γνώση και την εμπειρία.</span>
               <span data-lang-en>Putting knowledge and experience to work.</span>
@@ -177,10 +187,12 @@
     </section>
 
     <!-- ============ COURSES PREVIEW ============ -->
-    <section class="section">
+    <section class="section courses-section">
+      <img class="saita saita--tl" src="Images/saita.png" alt="" aria-hidden="true">
+      <img class="saita saita--br" src="Images/saita.png" alt="" aria-hidden="true">
       <div class="container">
         <div class="section-head reveal">
-          <span class="eyebrow"><span data-lang-el>Τμήματα</span><span data-lang-en>Courses</span></span>
+          <span class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span><span data-lang-el>Τμήματα</span><span data-lang-en>Courses</span></span>
           <h2 class="h2" style="margin-top:1rem">
             <span data-lang-el>Μαθαίνουμε μαζί, βήμα βήμα</span>
             <span data-lang-en>A path for every age</span>
@@ -245,10 +257,10 @@
     <section class="section testi-section">
       <div class="container">
         <div class="section-head reveal">
-          <span class="eyebrow testi-eyebrow"><span data-lang-el>Τι είπαν για εμάς</span><span data-lang-en>What they said about us</span></span>
+          <span class="eyebrow testi-eyebrow"><span class="eyebrow__mark eyebrow__mark--blue" aria-hidden="true"></span><span data-lang-el>Οι αξιολογήσεις μας</span><span data-lang-en>Our reviews</span></span>
           <h2 class="h2" style="margin-top:1rem;color:#fff">
-            <span data-lang-el>Αγαπημένο από γονείς &amp; μαθητές</span>
-            <span data-lang-en>Loved by parents &amp; students</span>
+            <span data-lang-el>Τι λένε για εμάς γονείς &amp; μαθητές</span>
+            <span data-lang-en>What parents &amp; students say about us</span>
           </h2>
         </div>
       </div>
@@ -302,37 +314,11 @@
       </div>
     </section>
 
-    <!-- ============ STATISTICS ============ -->
-    <section class="section section--navy stats-section">
-      <div class="container stats-wrap">
-        <div class="stats-content">
-          <div class="section-head reveal" style="text-align:left;margin-inline:0">
-            <span class="eyebrow"><span data-lang-el>Με αριθμούς</span><span data-lang-en>By the numbers</span></span>
-            <h2 class="h2" style="margin-top:1rem">
-              <span data-lang-el>Μια κληρονομιά που χτίζεται κάθε χρόνο</span>
-              <span data-lang-en>A legacy built year after year</span>
-            </h2>
-          </div>
-          <div class="stats">
-            <div class="stat reveal"><div class="stat__num">1988</div><div class="stat__label" data-lang-el>Έτος ίδρυσης</div><div class="stat__label" data-lang-en>Founded</div></div>
-            <div class="stat reveal" data-delay="2"><div class="stat__num"><span class="js-val" data-count="36">0</span><span class="stat__suffix">+</span></div><div class="stat__label" data-lang-el>Χρόνια εμπειρίας</div><div class="stat__label" data-lang-en>Years of experience</div></div>
-            <div class="stat reveal" data-delay="3"><div class="stat__num"><span class="js-val" data-count="95">0</span><span class="stat__suffix">%</span></div><div class="stat__label" data-lang-el>Επιτυχία σε εξετάσεις</div><div class="stat__label" data-lang-en>Exam pass rate</div></div>
-          </div>
-        </div>
-        <div class="stats-img reveal">
-          <div class="stats-img__deco" aria-hidden="true"></div>
-          <div class="stats-img__deco-front" aria-hidden="true"></div>
-          <img class="stats-img__back" src="Images/tzami.webp" alt="Αίθουσα διδασκαλίας" loading="lazy">
-          <img class="stats-img__front" src="Images/front.webp" alt="" loading="lazy" aria-hidden="true">
-        </div>
-      </div>
-    </section>
-
     <!-- ============ LATEST ARTICLES ============ -->
     <section class="section">
       <div class="container">
         <div class="section-head reveal" style="margin-bottom:2rem">
-          <span class="eyebrow"><span data-lang-el>Άρθρα</span><span data-lang-en>Blog</span></span>
+          <span class="eyebrow"><span class="eyebrow__mark eyebrow__mark--blue" aria-hidden="true"></span><span data-lang-el>Άρθρα</span><span data-lang-en>Blog</span></span>
           <h2 class="h2" style="margin-top:1rem">
             <span data-lang-el>Νέα, Άρθρα &amp; Συμβουλές</span>
             <span data-lang-en>News, Articles &amp; Tips</span>
@@ -374,7 +360,7 @@
     <section class="section section--soft" style="padding-bottom: clamp(3.5rem, 6vw, 5rem)">
       <div class="container">
         <div class="section-head reveal">
-          <span class="eyebrow"><span data-lang-el>Συχνές ερωτήσεις</span><span data-lang-en>FAQ</span></span>
+          <span class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span><span data-lang-el>Συχνές ερωτήσεις</span><span data-lang-en>FAQ</span></span>
           <h2 class="h2" style="margin-top:1rem">
             <span data-lang-el>Ό,τι θέλετε να ρωτήσετε</span>
             <span data-lang-en>Everything you want to ask</span>
@@ -406,7 +392,7 @@
       <div class="container">
         <div class="split">
           <div class="reveal">
-            <span class="eyebrow"><span data-lang-el>Επικοινωνία</span><span data-lang-en>Get in touch</span></span>
+            <span class="eyebrow"><span class="eyebrow__mark eyebrow__mark--blue" aria-hidden="true"></span><span data-lang-el>Επικοινωνία</span><span data-lang-en>Get in touch</span></span>
             <h2 class="h2" style="margin-top:1rem">
               <span data-lang-el>Που θα μας βρείτε</span>
               <span data-lang-en>Where to find us</span>
