@@ -126,6 +126,50 @@ h1, h2, h3, h4, h5 {
 .section--tint { background: var(--bg-tint); }
 .section--navy { background: var(--navy); color: #cfe0ec; }
 .section--navy h1, .section--navy h2, .section--navy h3 { color: #fff; }
+.section--navy .lead { color: #cfe0ec; }
+.section--navy .check-list strong { color: #fff; }
+.section--navy .check-list .ic { background: rgba(255,255,255,0.14); color: #fff; }
+
+/* Red feature section — text adapts for contrast */
+.section--accent { background: var(--accent); color: rgba(255,255,255,0.92); }
+.section--accent h1, .section--accent h2, .section--accent h3 { color: #fff; }
+.section--accent .lead { color: rgba(255,255,255,0.92); }
+.section--accent .eyebrow { color: #fff; background: rgba(255,255,255,0.18); }
+.section--accent .check-list strong { color: #fff; }
+.section--accent .check-list .ic { background: #fff; color: var(--accent); }
+
+/* Stacking cards (certificates) — pure CSS sticky, native scroll. Each panel
+   fills the viewport, pins at the top, and the next colour slides up over it.
+   The stack is pulled up so the first panel also slides over the section above. */
+@media (min-width: 861px) {
+  .cert-stack {
+    position: relative;
+    z-index: 1;
+  }
+  .cert-stack > .section {
+    position: sticky;
+    top: 0;
+    min-height: 100vh;
+    margin: 0;
+    display: grid;
+    align-content: center;
+    padding-block: clamp(2rem, 5vh, 4rem);
+    box-shadow: 0 -18px 50px rgba(8, 28, 45, 0.20);
+  }
+  /* base panel (overview) sits flat under the hero — no slide-over styling.
+     Sizes to its content (not full height) so the first card rises over it soon. */
+  .cert-stack > .section:first-child {
+    box-shadow: none;
+    min-height: 0;
+    align-content: start;
+    padding-block: clamp(1.5rem, 3vw, 2.5rem) clamp(6rem, 12vw, 10rem);
+  }
+}
+
+/* Certificates page: navy behind the footer (top and bottom) so the stack's
+   trailing area blends — page background goes navy below the content too */
+body:has(.cert-stack) #site-footer { background: var(--navy); }
+html:has(.cert-stack) { background: var(--navy); }
 
 .grid { display: grid; gap: 1.75rem; }
 .cols-2 { grid-template-columns: repeat(2, 1fr); }
