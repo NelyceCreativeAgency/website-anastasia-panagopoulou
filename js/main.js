@@ -47,7 +47,7 @@
     var nav = document.getElementById("nav");
     if (!nav) return;
     var onScroll = function () {
-      nav.classList.toggle("is-stuck", window.scrollY > 24);
+      nav.classList.toggle("is-stuck", window.scrollY > 160);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
