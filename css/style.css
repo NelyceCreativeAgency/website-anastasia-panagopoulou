@@ -1217,25 +1217,36 @@ html:has(.cert-stack) { background: var(--navy); }
 }
 .cslide:hover .cslide__top img { transform: scale(1.05); }
 
-/* bottom half - colored, connected flush to top */
+/* bottom half - neutral by default, colored only on hover */
 .cslide__bot {
   flex: 1;
   padding: 1.4rem 1.5rem 1.5rem;
   display: flex;
   flex-direction: column;
+  background: #fff;
+  transition: background-color 0.4s ease;
 }
 
-/* per-card colors */
-.cslide--navy .cslide__bot { background: #0B3048; }
-.cslide--red  .cslide__bot { background: #E53914; }
-.cslide--warm .cslide__bot { background: #FACE8D; }
+/* per-card colors - applied on hover only */
+.cslide--navy:hover .cslide__bot { background: #0B3048; }
+.cslide--red:hover  .cslide__bot { background: #E53914; }
+.cslide--warm:hover .cslide__bot { background: #FACE8D; }
 
-/* warm card - dark text */
+/* default - dark text on the neutral background */
+.cslide--navy .cslide__name, .cslide--red .cslide__name { color: var(--ink); }
+.cslide--navy .cslide__desc, .cslide--red .cslide__desc { color: rgba(11,48,72,0.68); }
+.cslide--navy .cslide__tag,  .cslide--red .cslide__tag  { background: rgba(11,48,72,0.1); color: rgba(11,48,72,0.75); }
+
+/* on hover - flip to light text over the colored background */
+.cslide--navy:hover .cslide__name,  .cslide--red:hover .cslide__name  { color: #fff; }
+.cslide--navy:hover .cslide__desc,  .cslide--red:hover .cslide__desc  { color: rgba(255,255,255,0.62); }
+.cslide--navy:hover .cslide__tag,   .cslide--red:hover .cslide__tag   { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); }
+
+/* warm card - dark text, stays dark on hover too */
 .cslide--warm .cslide__name  { color: #0B3048; }
 .cslide--warm .cslide__desc  { color: rgba(11,48,72,0.68); }
 .cslide--warm .cslide__tag   { background: rgba(11,48,72,0.1); color: rgba(11,48,72,0.75); }
-.cslide--warm .cslide__arrow { border-color: rgba(11,48,72,0.28); color: #0B3048; }
-.cslide--warm:hover .cslide__arrow { background: #0B3048; border-color: #0B3048; color: #fff; }
+.cslide__name, .cslide__desc, .cslide__tag { transition: color 0.4s ease, background-color 0.4s ease, border-color 0.4s ease; }
 
 .cslide__tags {
   display: flex;
@@ -1273,26 +1284,37 @@ html:has(.cert-stack) { background: var(--navy); }
   overflow: hidden;
 }
 
+/* modern arrow button - diagonal swap (exit top-right / enter bottom-left), same as .post-card__arrow-btn */
 .cslide__arrow {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  position: relative;
+  overflow: hidden;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: var(--r-sm);
   color: #fff;
+  flex-shrink: 0;
   margin-top: 1.1rem;
   align-self: flex-end;
-  transition: background 0.3s var(--ease), border-color 0.3s var(--ease), transform 0.3s var(--ease);
   text-decoration: none;
-  flex-shrink: 0;
 }
-.cslide:hover .cslide__arrow {
-  background: var(--accent);
-  border-color: var(--accent);
-  transform: translateX(3px);
+.cslide__arrow svg { width: 22px; height: 22px; }
+.cslide__arrow .arrow-out,
+.cslide__arrow .arrow-in {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
 }
+.cslide__arrow .arrow-out { transform: translate(-50%, -50%); }
+.cslide__arrow .arrow-in  { transform: translate(calc(-50% - 140%), calc(-50% + 140%)); }
+.cslide:hover .cslide__arrow .arrow-out { transform: translate(calc(-50% + 140%), calc(-50% - 140%)); }
+.cslide:hover .cslide__arrow .arrow-in  { transform: translate(-50%, -50%); }
+
+.cslide--navy .cslide__arrow { background: #0B3048; }
+.cslide--red  .cslide__arrow { background: #E53914; }
+.cslide--warm .cslide__arrow { background: #FACE8D; color: #0B3048; }
 
 @media (max-width: 767px) {
   .cslider__track { grid-template-columns: 1fr; }
@@ -1431,14 +1453,36 @@ html:has(.cert-stack) { background: var(--navy); }
 .faq-layout {
   display: grid;
   grid-template-columns: minmax(220px, 320px) 1fr;
-  gap: clamp(2rem, 5vw, 4rem);
+  grid-template-areas:
+    "eyebrow eyebrow"
+    "title   faq";
+  column-gap: clamp(2rem, 5vw, 4rem);
+  row-gap: 1rem;
   align-items: start;
 }
+.faq-eyebrow { grid-area: eyebrow; }
+.section-head--left { grid-area: title; }
+.faq-layout > .faq { grid-area: faq; }
 .section-head--left {
   text-align: left;
   margin-inline: 0;
   margin-bottom: 0;
   max-width: none;
+}
+.faq-flags {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 2.25rem;
+}
+.faq-flags img {
+  width: clamp(220px, 28vw, 340px);
+  height: auto;
+  object-fit: contain;
+  animation: faq-flags-float 3.2s ease-in-out infinite;
+}
+@keyframes faq-flags-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(-1.5deg); }
 }
 .section-head--left .lead { margin-inline: 0; }
 .faq { display: grid; gap: 1rem; max-width: none; margin-inline: 0; }
@@ -2561,9 +2605,14 @@ html[lang="en"] [data-lang-en] { display: revert; }
   .cols-2 { grid-template-columns: 1fr; }
   /* FAQ: extra lateral padding so items sit centred on narrow screens */
   .faq { padding-inline: 1rem; }
-  .faq-layout { grid-template-columns: 1fr; }
+  .faq-layout {
+    grid-template-columns: 1fr;
+    grid-template-areas: "eyebrow" "title" "faq";
+  }
   .section-head--left { text-align: center; }
   .section-head--left .lead { margin-inline: auto; }
+  .faq-eyebrow { justify-content: center; }
+  .faq-flags { justify-content: center; }
   /* contact section: break long email/address, constrain map */
   .contact-row a, .contact-row p { overflow-wrap: break-word; word-break: break-word; }
   .map-wrap { min-height: 280px; max-width: 100%; }
