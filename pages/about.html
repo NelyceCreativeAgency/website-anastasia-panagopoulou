@@ -32,7 +32,7 @@
     </section>
 
     <!-- HISTORY / STORY -->
-    <section class="section">
+    <section class="section" style="padding-top:clamp(2rem,4vw,3rem)">
       <div class="container">
         <div class="split">
           <div class="split__media reveal">
@@ -101,6 +101,8 @@
 
     <!-- CLASSROOM GALLERY -->
     <section class="section section--navy">
+      <div class="torn-edge torn-edge--top torn-edge--navy" aria-hidden="true"><span class="torn-edge__shape"></span></div>
+      <div class="torn-edge torn-edge--bottom torn-edge--navy" aria-hidden="true"><span class="torn-edge__shape"></span></div>
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span><span data-lang-el>Ο χώρος μας</span><span data-lang-en>Our space</span></span>
@@ -153,21 +155,32 @@
     <!-- MISSION & VALUES -->
     <section class="section">
       <div class="container">
-        <div class="split split--reverse">
-          <div class="split__media reveal">
-            <img src="https://picsum.photos/seed/apes-mission/800/640" alt="Η αποστολή μας" loading="lazy" width="800" height="640">
-          </div>
-          <div class="reveal" data-delay="2">
-            <span class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span><span data-lang-el>Αποστολή &amp; Αξίες</span><span data-lang-en>Mission &amp; Values</span></span>
-            <h2 class="h2" style="margin:1rem 0"><span data-lang-el>Αυτό που μας οδηγεί</span><span data-lang-en>What drives us</span></h2>
-            <p class="lead"><span data-lang-el>Να δίνουμε σε κάθε μαθητή τις γλωσσικές δεξιότητες και την αυτοπεποίθηση που χρειάζεται για να πετύχει στη ζωή.</span><span data-lang-en>To give every student the language skills and confidence they need to succeed in life.</span></p>
-            <ul class="check-list">
-              <li><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span><strong data-lang-el>Φροντίδα</strong><strong data-lang-en>Care</strong><span data-lang-el>, κάθε παιδί μετράει.</span><span data-lang-en>, every child matters.</span></span></li>
-              <li><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span><strong data-lang-el>Συνέπεια</strong><strong data-lang-en>Consistency</strong><span data-lang-el>, ίδια ποιότητα, κάθε χρόνο.</span><span data-lang-en>, the same quality, every year.</span></span></li>
-              <li><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span><strong data-lang-el>Εμπιστοσύνη</strong><strong data-lang-en>Trust</strong><span data-lang-el>, διαφάνεια με γονείς και μαθητές.</span><span data-lang-en>, transparency with parents and students.</span></span></li>
-              <li><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span><strong data-lang-el>Αριστεία</strong><strong data-lang-en>Excellence</strong><span data-lang-el>, υψηλοί στόχοι για όλους.</span><span data-lang-en>, high standards for everyone.</span></span></li>
-            </ul>
-          </div>
+        <div class="section-head reveal">
+          <span class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span><span data-lang-el>Αποστολή &amp; Αξίες</span><span data-lang-en>Mission &amp; Values</span></span>
+          <h2 class="h2" style="margin-top:1rem"><span data-lang-el>Αυτό που μας οδηγεί</span><span data-lang-en>What drives us</span></h2>
+          <p class="lead"><span data-lang-el>Να δίνουμε σε κάθε μαθητή τις γλωσσικές δεξιότητες και την αυτοπεποίθηση που χρειάζεται για να πετύχει στη ζωή.</span><span data-lang-en>To give every student the language skills and confidence they need to succeed in life.</span></p>
+        </div>
+        <div class="grid cols-4">
+          <article class="value-card reveal">
+            <span class="value-card__icon-wrap"><img class="value-card__icon" src="../Images/care.png" alt="" loading="lazy" width="64" height="64"></span>
+            <h3 class="value-card__title"><span data-lang-el>Φροντίδα</span><span data-lang-en>Care</span></h3>
+            <p class="card__text"><span data-lang-el>Κάθε παιδί μετράει.</span><span data-lang-en>Every child matters.</span></p>
+          </article>
+          <article class="value-card reveal" data-delay="1">
+            <span class="value-card__icon-wrap"><img class="value-card__icon" src="../Images/sunepeia.png" alt="" loading="lazy" width="64" height="64"></span>
+            <h3 class="value-card__title"><span data-lang-el>Συνέπεια</span><span data-lang-en>Consistency</span></h3>
+            <p class="card__text"><span data-lang-el>Ίδια ποιότητα, κάθε χρόνο.</span><span data-lang-en>The same quality, every year.</span></p>
+          </article>
+          <article class="value-card reveal" data-delay="2">
+            <span class="value-card__icon-wrap"><img class="value-card__icon" src="../Images/trust.png" alt="" loading="lazy" width="64" height="64"></span>
+            <h3 class="value-card__title"><span data-lang-el>Εμπιστοσύνη</span><span data-lang-en>Trust</span></h3>
+            <p class="card__text"><span data-lang-el>Διαφάνεια με γονείς και μαθητές.</span><span data-lang-en>Transparency with parents and students.</span></p>
+          </article>
+          <article class="value-card reveal" data-delay="3">
+            <span class="value-card__icon-wrap"><img class="value-card__icon" src="../Images/excellence.png" alt="" loading="lazy" width="64" height="64"></span>
+            <h3 class="value-card__title"><span data-lang-el>Αριστεία</span><span data-lang-en>Excellence</span></h3>
+            <p class="card__text"><span data-lang-el>Υψηλοί στόχοι για όλους.</span><span data-lang-en>High standards for everyone.</span></p>
+          </article>
         </div>
       </div>
     </section>

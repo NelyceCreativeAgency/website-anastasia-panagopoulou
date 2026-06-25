@@ -1343,6 +1343,48 @@ html:has(.cert-stack) { background: var(--navy); }
 .cert-card h3 { font-size: 1.2rem; margin-bottom: 0.4rem; }
 .cert-card__level { font-size: 0.82rem; font-weight: 700; color: var(--muted); font-family: var(--font-head); }
 
+.value-card {
+  position: relative;
+  padding: 1rem 1.6rem;
+  text-align: center;
+  transition: transform 0.4s var(--ease);
+}
+.value-card:hover { transform: translateY(-6px); }
+.value-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 25%; bottom: 25%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--line), transparent);
+}
+.value-card:first-child::before { display: none; }
+.value-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 20%; right: 20%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--line), transparent);
+  display: none;
+}
+.value-card__icon-wrap {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 1.1rem;
+  display: block;
+}
+.value-card__icon {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.value-card:nth-child(odd):hover  .value-card__icon { transform: scale(1.12) rotate(-6deg); }
+.value-card:nth-child(even):hover .value-card__icon { transform: scale(1.12) rotate(6deg); }
+.value-card__title { font-size: 1.1rem; margin-bottom: 0.4rem; }
+.value-card .card__text { color: var(--muted); }
+
 /* Decorative saita arrows around the courses section */
 .courses-section { position: relative; }
 .saita {
@@ -1932,7 +1974,7 @@ html:has(.cert-stack) { background: var(--navy); }
 
 @media (max-width: 600px) {
   .gallery-scene { height: 400px; }
-  .gallery-item  { width: 85%; }
+  .gallery-item  { left: 12%; right: 12%; width: 76%; }
   .insta-card    { width: min(300px, 92%); }
 }
 
@@ -2589,6 +2631,10 @@ html[lang="en"] [data-lang-en] { display: revert; }
 @media (max-width: 1024px) {
   .cols-4 { grid-template-columns: repeat(2, 1fr); }
   .footer__grid { grid-template-columns: 1fr 1fr; }
+  .value-card::before { display: none; }
+  .value-card:nth-child(even)::before { display: block; }
+  .value-card:nth-child(n+3)::after { display: block; }
+  .value-card:nth-child(n+3) { padding-top: 1.8rem; }
 }
 @media (max-width: 860px) {
   .hero__grid { grid-template-columns: 1fr; }
@@ -2622,6 +2668,9 @@ html[lang="en"] [data-lang-en] { display: revert; }
   .cols-4 { grid-template-columns: 1fr; }
   .footer__grid { grid-template-columns: 1fr; gap: 2rem; }
   .footer__bottom { flex-direction: column; }
+  .value-card:nth-child(even)::before { display: none; }
+  .value-card:not(:first-child)::after { display: block; }
+  .value-card:not(:first-child) { padding-top: 1.8rem; }
   .hero__badge--bl { left: 0.5rem; }
   .hero__badge--tr { right: 0.5rem; }
   .card { padding: 1.7rem; }
