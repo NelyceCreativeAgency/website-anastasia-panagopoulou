@@ -361,9 +361,11 @@
     carousel.addEventListener('mouseleave', startAutoplay);
     window.addEventListener('resize', render);
 
-    /* swipe / drag to navigate on touch */
+    /* swipe / drag to navigate on touch (desktop/tablet only — on mobile
+       navigation is pill-taps-only, see MOBILE_QUERY) */
     var dragging = false, startX = 0, deltaX = 0;
     track.addEventListener('touchstart', function (e) {
+      if (MOBILE_QUERY.matches) return;
       dragging = true;
       deltaX = 0;
       startX = e.touches[0].clientX;
@@ -378,6 +380,7 @@
       track.style.transform = 'translateX(' + (-offset + deltaX) + 'px)';
     }, { passive: true });
     track.addEventListener('touchend', function () {
+      if (!dragging) return;
       dragging = false;
       track.style.transition = '';
       var THRESHOLD = 40;
