@@ -124,14 +124,14 @@ h1, h2, h3, h4, h5 {
 .section { padding-block: var(--section-y); }
 .section--soft { background: var(--bg-soft); }
 .section--tint { background: var(--bg-tint); }
-.section--navy { background: var(--navy); color: #cfe0ec; }
+.section--navy { background: var(--navy); color: #cfe0ec; position: relative; }
 .section--navy h1, .section--navy h2, .section--navy h3 { color: #fff; }
 .section--navy .lead { color: #cfe0ec; }
 .section--navy .check-list strong { color: #fff; }
 .section--navy .check-list .ic { background: rgba(255,255,255,0.14); color: #fff; }
 
 /* Red feature section — text adapts for contrast */
-.section--accent { background: var(--accent); color: rgba(255,255,255,0.92); }
+.section--accent { background: var(--accent); color: rgba(255,255,255,0.92); position: relative; }
 .section--accent h1, .section--accent h2, .section--accent h3 { color: #fff; }
 .section--accent .lead { color: rgba(255,255,255,0.92); }
 .section--accent .eyebrow { color: #fff; background: rgba(255,255,255,0.18); }
