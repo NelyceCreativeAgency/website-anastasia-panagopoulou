@@ -359,6 +359,32 @@
     carousel.addEventListener('mouseleave', startAutoplay);
     window.addEventListener('resize', render);
 
+    /* swipe / drag to navigate on touch */
+    var dragging = false, startX = 0, deltaX = 0;
+    track.addEventListener('touchstart', function (e) {
+      dragging = true;
+      deltaX = 0;
+      startX = e.touches[0].clientX;
+      stopAutoplay();
+      track.style.transition = 'none';
+    }, { passive: true });
+    track.addEventListener('touchmove', function (e) {
+      if (!dragging) return;
+      deltaX = e.touches[0].clientX - startX;
+      var active = panels[index];
+      var offset = active.offsetLeft - (carousel.clientWidth - active.offsetWidth) / 2;
+      track.style.transform = 'translateX(' + (-offset + deltaX) + 'px)';
+    }, { passive: true });
+    track.addEventListener('touchend', function () {
+      dragging = false;
+      track.style.transition = '';
+      var THRESHOLD = 40;
+      if (deltaX <= -THRESHOLD) goTo(index + 1);
+      else if (deltaX >= THRESHOLD) goTo(index - 1);
+      else render();
+      startAutoplay();
+    });
+
     render();
     startAutoplay();
   }
