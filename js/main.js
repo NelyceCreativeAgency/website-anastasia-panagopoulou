@@ -315,6 +315,54 @@
     });
   }
 
+  /* ---------------- Courses tab carousel ---------------- */
+  function initCourseTabs() {
+    var carousel = document.querySelector('.course-carousel');
+    if (!carousel) return;
+    var track = carousel.querySelector('.course-track');
+    var panels = Array.prototype.slice.call(track.children);
+    var tabs = document.querySelectorAll('.course-tabs__btn');
+    var AUTOPLAY_MS = 6000; // dwell time per card before auto-advancing
+    var index = 0;
+    var timer = null;
+
+    function render() {
+      var active = panels[index];
+      var offset = active.offsetLeft - (carousel.clientWidth - active.offsetWidth) / 2;
+      track.style.transform = 'translateX(' + (-offset) + 'px)';
+      panels.forEach(function (p, i) { p.classList.toggle('is-active', i === index); });
+      tabs.forEach(function (b, i) { b.classList.toggle('is-active', i === index); });
+    }
+
+    function goTo(i) {
+      index = (i + panels.length) % panels.length;
+      render();
+    }
+
+    function stopAutoplay() {
+      if (timer) { clearInterval(timer); timer = null; }
+    }
+    function startAutoplay() {
+      stopAutoplay();
+      timer = setInterval(function () { goTo(index + 1); }, AUTOPLAY_MS);
+    }
+
+    tabs.forEach(function (btn, i) {
+      btn.addEventListener('click', function () { goTo(i); startAutoplay(); });
+    });
+    panels.forEach(function (p, i) {
+      p.addEventListener('click', function () {
+        if (i !== index) { goTo(i); startAutoplay(); }
+      });
+    });
+    carousel.addEventListener('mouseenter', stopAutoplay);
+    carousel.addEventListener('mouseleave', startAutoplay);
+    window.addEventListener('resize', render);
+
+    render();
+    startAutoplay();
+  }
+
   function init() {
     initLang();
     initStickyNav();
@@ -325,6 +373,7 @@
     initMarquee();
     initCounters();
     initCslider();
+    initCourseTabs();
     initFooterArt();
     initForm();
     initSquiggle();
