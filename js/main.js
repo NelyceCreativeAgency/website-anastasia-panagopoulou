@@ -323,6 +323,7 @@
     var panels = Array.prototype.slice.call(track.children);
     var tabs = document.querySelectorAll('.course-tabs__btn');
     var AUTOPLAY_MS = 6000; // dwell time per card before auto-advancing
+    var MOBILE_QUERY = window.matchMedia('(max-width: 600px)');
     var index = 0;
     var timer = null;
 
@@ -344,6 +345,7 @@
     }
     function startAutoplay() {
       stopAutoplay();
+      if (MOBILE_QUERY.matches) return; // manual tap-only navigation on mobile
       timer = setInterval(function () { goTo(index + 1); }, AUTOPLAY_MS);
     }
 
