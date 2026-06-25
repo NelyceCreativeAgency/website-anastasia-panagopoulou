@@ -788,7 +788,6 @@ html:has(.cert-stack) { background: var(--navy); }
   display: block;
   width: auto;
   height: clamp(340px, 48vh, 560px);
-  filter: drop-shadow(0 30px 60px rgba(11, 48, 72, 0.18));
 }
 
 /* tip travels along the ink path; same %, easing, duration as the draw → exact follow */
