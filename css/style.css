@@ -1098,7 +1098,7 @@ html:has(.cert-stack) { background: var(--navy); }
   background: #fff;
   border-radius: var(--r-xl);
   box-shadow: 0 18px 40px rgba(11, 48, 72, 0.05);
-  padding: 0.9rem;
+  padding: 0.9rem 0.9rem 1.6rem;
   opacity: 0.35;
   transform: scale(0.92);
   cursor: pointer;
@@ -1136,7 +1136,7 @@ html:has(.cert-stack) { background: var(--navy); }
   .course-panel { flex: 0 0 84%; }
 }
 @media (max-width: 860px) {
-  .course-panel { flex: 0 0 92%; padding: 0.6rem; }
+  .course-panel { flex: 0 0 92%; padding: 0.6rem 0.6rem 1.4rem; }
   .course-panel .split { grid-template-columns: 1fr; min-height: 0; gap: 0.6rem; }
   .course-panel .split__media { height: auto; }
   .course-panel .split__media img { aspect-ratio: 5/4; height: auto; }
