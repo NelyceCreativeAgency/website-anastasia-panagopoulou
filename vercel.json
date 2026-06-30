@@ -2,5 +2,17 @@
   "framework": null,
   "buildCommand": "",
   "outputDirectory": ".",
-  "installCommand": ""
+  "installCommand": "",
+  "redirects": [
+    { "source": "/profile.html", "destination": "/pages/about.html", "permanent": true },
+    { "source": "/spoudes.html", "destination": "/pages/about.html", "permanent": true },
+    { "source": "/tmimata.html", "destination": "/pages/courses.html", "permanent": true },
+    { "source": "/test.html", "destination": "/pages/certificates.html", "permanent": true },
+    { "source": "/perivalon.html", "destination": "/pages/about.html", "permanent": true },
+    { "source": "/drastiriotites.html", "destination": "/pages/courses.html", "permanent": true },
+    { "source": "/epikinonia.html", "destination": "/pages/contact.html", "permanent": true },
+    { "source": "/optikoakoustika.html", "destination": "/pages/about.html", "permanent": true },
+    { "source": "/ypologistes.html", "destination": "/pages/about.html", "permanent": true },
+    { "source": "/link.html", "destination": "/", "permanent": true }
+  ]
 }
