@@ -1,8 +1,8 @@
 {
   "framework": null,
-  "buildCommand": "",
+  "buildCommand": "npm run build",
   "outputDirectory": ".",
-  "installCommand": "",
+  "installCommand": "npm install",
   "redirects": [
     { "source": "/profile.html", "destination": "/pages/about.html", "permanent": true },
     { "source": "/spoudes.html", "destination": "/pages/about.html", "permanent": true },
@@ -13,6 +13,7 @@
     { "source": "/epikinonia.html", "destination": "/pages/contact.html", "permanent": true },
     { "source": "/optikoakoustika.html", "destination": "/pages/about.html", "permanent": true },
     { "source": "/ypologistes.html", "destination": "/pages/about.html", "permanent": true },
-    { "source": "/link.html", "destination": "/", "permanent": true }
+    { "source": "/link.html", "destination": "/", "permanent": true },
+    { "source": "/pages/blog-details.html", "destination": "/pages/blog.html", "permanent": true }
   ]
 }

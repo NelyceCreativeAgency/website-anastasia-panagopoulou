@@ -2714,6 +2714,7 @@ h1, h2, h3, h4, h5 {
 .article__author-name { font-family: var(--font-head); font-weight: 700; color: var(--ink); font-size: 0.95rem; }
 .article__author-meta { font-size: 0.8rem; color: var(--muted); }
 .article__body > * { margin-bottom: 1.3rem; }
+.article__body > [data-lang-el] > *, .article__body > [data-lang-en] > * { margin-bottom: 1.3rem; }
 .article__body h2 { font-size: 1.7rem; margin-top: 2.2rem; }
 .article__body h3 { font-size: 1.3rem; margin-top: 1.6rem; }
 .article__body p { color: var(--body); }

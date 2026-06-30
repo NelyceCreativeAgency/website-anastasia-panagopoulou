@@ -1,0 +1,50 @@
+backend:
+  name: github
+  repo: NelyceCreativeAgency/website-anastasia-panagopoulou
+  branch: main
+  # Where the OAuth proxy (api/auth + api/callback) is hosted.
+  # Replace with the site's real production domain once it's live.
+  base_url: https://website-anastasia-panagopoulou.vercel.app
+  auth_endpoint: api/auth
+
+# Content changes are committed straight to `main` and Vercel auto-deploys
+# (the build step runs scripts/build-blog.js to regenerate the HTML pages).
+publish_mode: simple
+
+media_folder: "Images"
+public_folder: "/Images"
+
+locale: "en"
+
+collections:
+  - name: "blog"
+    label: "Άρθρα (Blog)"
+    label_singular: "Άρθρο"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title_el}}"
+    sortable_fields: ["date", "title_el"]
+    fields:
+      - { label: "URL slug (λατινικά, χωρίς κενά)", name: "slug", widget: "string", hint: "π.χ. pos-na-xtisete-synitheia-meletis — γίνεται και όνομα αρχείου, μην το αλλάζετε μετά τη δημοσίευση." }
+      - { label: "Τίτλος (Ελληνικά)", name: "title_el", widget: "string" }
+      - { label: "Title (English)", name: "title_en", widget: "string" }
+      - { label: "Κατηγορία (Ελληνικά)", name: "category_el", widget: "string" }
+      - { label: "Category (English)", name: "category_en", widget: "string" }
+      - label: "Φίλτρο κατηγορίας"
+        name: "filter_tag"
+        widget: "select"
+        hint: "Καθορίζει σε ποιο φίλτρο εμφανίζεται το άρθρο στη σελίδα Τα νέα μας."
+        options:
+          - { label: "Συμβουλές / Tips", value: "tips" }
+          - { label: "Εξετάσεις / Exams", value: "exams" }
+          - { label: "Κίνητρο / Motivation", value: "motivation" }
+          - { label: "Γονείς / Parents", value: "parents" }
+      - { label: "Ημερομηνία δημοσίευσης", name: "date", widget: "date", format: "YYYY-MM-DD" }
+      - { label: "Λεπτά ανάγνωσης", name: "read_minutes", widget: "number", value_type: "int", min: 1, max: 30, default: 5 }
+      - { label: "Κεντρική εικόνα", name: "image", widget: "image" }
+      - { label: "Συγγραφέας", name: "author", widget: "string", default: "Anastasia Panagopoulou" }
+      - { label: "Περίληψη (Ελληνικά)", name: "excerpt_el", widget: "text" }
+      - { label: "Excerpt (English)", name: "excerpt_en", widget: "text" }
+      - { label: "Κείμενο άρθρου (Ελληνικά)", name: "body_el", widget: "markdown" }
+      - { label: "Article body (English)", name: "body_en", widget: "markdown" }

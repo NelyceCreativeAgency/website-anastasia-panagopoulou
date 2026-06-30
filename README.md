@@ -2,53 +2,90 @@
 
 A modern, bilingual (Greek / English) marketing website for an English language
 school founded in 1988 in Koropi, Attica. Built with **vanilla HTML, CSS and
-JavaScript** — no frameworks, no build step.
+JavaScript** — no frontend framework. The only generated part is the blog,
+built from markdown so it can be edited through a CMS (see below).
 
 ## Project structure
 
 ```
 .
-├── index.html              # Home page
+├── index.html               # Home page
+├── 404.html
 ├── css/
-│   └── style.css           # Single design-system stylesheet (tokens, components)
+│   └── style.css            # Single design-system stylesheet (tokens, components)
 ├── js/
 │   ├── components.js        # Shared header + footer, injected on every page
-│   └── main.js              # Behaviour: language, nav, reveal, accordion, etc.
+│   └── main.js               # Behaviour: language, nav, reveal, accordion, etc.
 ├── pages/
-│   ├── about.html
-│   ├── courses.html
-│   ├── certificates.html
-│   ├── blog.html
-│   ├── blog-details.html
-│   └── contact.html
+│   ├── about.html, courses.html, certificates.html, contact.html, privacy.html
+│   ├── blog.html             # GENERATED — see content/blog below, don't hand-edit
+│   └── <post-slug>.html      # GENERATED — one per article
+├── content/
+│   └── blog/*.md             # Blog post source (frontmatter + markdown), CMS-managed
+├── scripts/
+│   └── build-blog.js         # Reads content/blog → writes pages/blog.html + pages/<slug>.html
+├── admin/                    # Decap CMS admin panel (visit /admin)
+│   ├── index.html
+│   └── config.yml
+├── api/
+│   ├── auth.js                # GitHub OAuth proxy, step 1 (used by /admin login)
+│   └── callback.js            # GitHub OAuth proxy, step 2
 ├── Images/
-│   └── LOGO.png
 └── README.md
 ```
 
 ## How to run
 
-It's a static site — you can just open `index.html` in a browser. For real
-development, use the live-reload dev server below.
-
-### Live reload (recommended)
-
-Powered by [browser-sync](https://browsersync.io) — no build step. CSS edits are
-injected **instantly** (the page doesn't even reload); HTML/JS edits trigger a
-fast auto-refresh.
-
 ```bash
-npm install     # first time only — installs browser-sync locally
-npm run dev      # starts the server and opens http://localhost:3000
+npm install      # first time only
+npm run dev      # builds the blog, then starts the live-reload server on :3000
 ```
 
-Leave it running and edit any file in `css/`, `js/`, `pages/` or `index.html` —
-the browser updates on save. Stop the server with `Ctrl+C`.
+`npm run dev` runs `scripts/build-blog.js` first (so `pages/blog.html` and the
+post pages reflect whatever's in `content/blog/`), then starts
+[browser-sync](https://browsersync.io). CSS edits are injected **instantly**;
+HTML/JS edits trigger a fast auto-refresh.
+
+If you edit a file in `content/blog/` while the dev server is running, re-run
+`npm run build:blog` (or restart `npm run dev`) to regenerate the pages —
+browser-sync doesn't watch `content/` automatically.
 
 Configuration lives in [`bs-config.js`](bs-config.js) (port, watched files, etc.).
 
 > Tip: if `npm install` ever fails with an `EACCES` cache error, run it once with
 > a local cache: `npm install --cache .npmcache` (already git-ignored).
+
+## Blog CMS (Decap CMS)
+
+Blog posts live as markdown files in `content/blog/`, each with bilingual
+frontmatter (`title_el`/`title_en`, `body_el`/`body_en`, etc.). `scripts/build-blog.js`
+turns them into `pages/blog.html` (listing) and `pages/<slug>.html` (one per
+post) — this runs automatically on every Vercel deploy (`vercel.json`
+`buildCommand`).
+
+To edit content without touching code, visit **`/admin`** on the live site.
+It's [Decap CMS](https://decapcms.org) (free, open-source), backed by GitHub —
+every save there is a real commit to this repo, which Vercel then redeploys
+automatically.
+
+**One-time setup required** (not yet done — needed before `/admin` works):
+
+1. Create a GitHub OAuth App: GitHub → Settings → Developer settings → OAuth
+   Apps → New OAuth App.
+   - Homepage URL: the site's production URL
+   - Authorization callback URL: `https://<your-domain>/api/callback`
+2. In the Vercel project settings, add two environment variables from the
+   OAuth App you just created:
+   - `GITHUB_CLIENT_ID`
+   - `GITHUB_CLIENT_SECRET`
+3. Update `base_url` in `admin/config.yml` to match the real production domain
+   (it currently points at the default `*.vercel.app` URL).
+4. Redeploy. Visit `/admin`, log in with GitHub, and you'll see the "Άρθρα"
+   collection ready to edit.
+
+The 5 existing posts are sample content (seeded from the placeholder articles
+the site launched with) — edit or delete them freely once there's real content
+to replace them with.
 
 ## Bilingual content (GR / EN)
 

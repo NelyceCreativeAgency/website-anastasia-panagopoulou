@@ -20,9 +20,12 @@
   ];
 
   function href(path) { return BASE + path; }
+  // Generated blog post pages (pages/<slug>.html) carry data-generated="blog-post"
+  // on <html> — treat them as "on the blog" for nav highlighting purposes.
+  var onBlogPost = document.documentElement.getAttribute("data-generated") === "blog-post";
   function isActive(path) {
     var file = path.split("/").pop();
-    if (current === "blog-details.html" && file === "blog.html") return true;
+    if (onBlogPost && file === "blog.html") return true;
     return file === current;
   }
 
