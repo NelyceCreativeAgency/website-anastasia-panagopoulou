@@ -1,0 +1,95 @@
+# Homepage editable content.
+# Managed via /admin (Decap CMS) → "Σελίδες" → "Αρχική".
+# scripts/build-pages.js flattens this (section.field → section_field) and
+# writes the matching text/images into index.html on every build — don't
+# hand-edit index.html for these fields, edit here instead (or via /admin).
+
+hero:
+  lead_el: "Με περισσότερα από 35 χρόνια εμπειρίας, βοηθάμε κάθε μαθητή να εξελίσσεται με αυτοπεποίθηση, συνέπεια και προσωπική καθοδήγηση."
+  lead_en: "With over 35 years of experience, we help every student grow with confidence, consistency and personal guidance."
+
+about:
+  eyebrow_el: "Το Φροντιστήριό μας"
+  eyebrow_en: "About Us"
+  title_el: "Μια ιστορία που συνεχίζεται καθημερινά."
+  title_en: "A story that continues every day."
+  text_el: "Για περισσότερες από τρεις δεκαετίες, η διδασκαλία της αγγλικής γλώσσας αποτελεί μέρος της καθημερινότητάς μας. Μέσα από ολιγομελή τμήματα και προσωπική καθοδήγηση, έχουμε σταθεί δίπλα σε εκατοντάδες μαθητές, παρακολουθώντας την πορεία τους από τα πρώτα τους βήματα στα Αγγλικά μέχρι την επίτευξη των στόχων τους."
+  text_en: "For more than three decades, teaching the English language has been part of our everyday life. Through small groups and personal guidance, we have stood by hundreds of students, watching their journey from their first steps in English all the way to achieving their goals."
+  image: "Images/mainroom.webp"
+
+why:
+  eyebrow_el: "Γιατί εμάς"
+  eyebrow_en: "Why Choose Us"
+  title_el: "Αξιοποιώντας τη γνώση και την εμπειρία."
+  title_en: "Putting knowledge and experience to work."
+  lead_el: "Όλοι οι μαθητές και οι γονείς που μας έχουν δείξει εμπιστοσύνη όλα αυτά τα χρόνια, γνωρίζουν τα σημαντικά πλεονεκτήματα της φοίτησης στο φροντιστήριό μας."
+  lead_en: "Every student and parent who has trusted us over the years knows the real advantages of studying with us."
+  card1:
+    title_el: "Ολιγομελή Τμήματα"
+    title_en: "Small Classes"
+    text_el: "Πιστεύουμε ότι τα μικρά τμήματα συμβάλλουν ουσιαστικά στην καλύτερη επικοινωνία μεταξύ μαθητή και καθηγητή, επιτρέποντας πιο εξατομικευμένη καθοδήγηση και ενεργή συμμετοχή στο μάθημα."
+    text_en: "We believe small groups make a real difference to communication between student and teacher, allowing more personalised guidance and active participation in class."
+    image: "Images/oligomeloi.webp"
+  card2:
+    title_el: "Αποδεδειγμένη Επιτυχία"
+    title_en: "Proven Success"
+    text_el: "Η πολυετής εμπειρία μας και η συστηματική προετοιμασία των μαθητών μας έχουν οδηγήσει σε υψηλά ποσοστά επιτυχίας στις εξετάσεις πιστοποίησης της αγγλικής γλώσσας."
+    text_en: "Our years of experience and systematic preparation have led to high pass rates in English language certification exams."
+    image: "Images/sucess.webp"
+  card3:
+    title_el: "Προσιτές Τιμές"
+    title_en: "Affordable Fees"
+    text_el: "Προσπαθούμε να διατηρούμε τα δίδακτρα σε λογικά επίπεδα, προσφέροντας ποιοτική εκπαίδευση και ουσιαστική υποστήριξη χωρίς περιττές επιβαρύνσεις για τις οικογένειες."
+    text_en: "We keep our fees at reasonable levels, offering quality education and meaningful support without unnecessary costs for families."
+    image: "Images/times.webp"
+  card4:
+    title_el: "Προσωπική Διδασκαλία"
+    title_en: "Personal Teaching"
+    text_el: "Τα μαθήματα πραγματοποιούνται από την Αναστασία Παναγοπούλου, πτυχιούχο Αγγλικής Φιλολογίας, καθώς και από έμπειρους και πιστοποιημένους συνεργάτες, με έμφαση στη συνέπεια και την ποιότητα της διδασκαλίας."
+    text_en: "Classes are taught by Anastasia Panagopoulou, a graduate in English Literature, along with experienced certified associates, with an emphasis on consistency and quality."
+    image: "Images/prosopiki.webp"
+
+courses:
+  eyebrow_el: "Τμήματα"
+  eyebrow_en: "Courses"
+  title_el: "Μαθαίνουμε μαζί, βήμα βήμα"
+  title_en: "A path for every age"
+  lead_el: "Από τις πρώτες τάξεις έως τις πιστοποιήσεις Αγγλικών."
+  lead_en: "From first steps in primary school to certificates and English for work."
+
+faq:
+  eyebrow_el: "Συχνές ερωτήσεις"
+  eyebrow_en: "FAQ"
+  title_el: "Ό,τι θέλετε να ρωτήσετε"
+  title_en: "Everything you want to ask"
+  q1:
+    q_el: "Σε ποια ηλικία να ξεκινήσει το παιδί μου;"
+    q_en: "At what age should my child start?"
+    a_el: "Τα περισσότερα παιδιά ξεκινούν στην Α' ή Β' Δημοτικού, αλλά σχεδιάζουμε πρόγραμμα για κάθε ηλικία και επίπεδο. Μια δωρεάν αξιολόγηση μάς βοηθά να βρούμε το ιδανικό σημείο εκκίνησης."
+    a_en: "Most children start in the first or second grade of primary school, but we design a plan for every age and level. A free assessment helps us find the ideal starting point."
+  q2:
+    q_el: "Πόσοι μαθητές υπάρχουν σε κάθε τμήμα;"
+    q_en: "How many students are in each class?"
+    a_el: "Τα τμήματά μας έχουν έως 8 μαθητές. Έτσι εξασφαλίζουμε προσοχή, συμμετοχή και πρόοδο για τον καθένα ξεχωριστά."
+    a_en: "Our classes have up to 8 students. This ensures attention, participation and progress for each individual."
+  q3:
+    q_el: "Προετοιμάζετε για Cambridge και Michigan;"
+    q_en: "Do you prepare for Cambridge and Michigan?"
+    a_el: "Ναι. Προετοιμάζουμε για όλα τα αναγνωρισμένα πτυχία, Cambridge B2 First & C2 Proficiency, Michigan ECCE & ECPE και άλλα, με υψηλά ποσοστά επιτυχίας."
+    a_en: "Yes. We prepare for all recognised certificates, Cambridge B2 First & C2 Proficiency, Michigan ECCE & ECPE and more, with high success rates."
+  q4:
+    q_el: "Μπορώ να κλείσω δωρεάν αξιολόγηση;"
+    q_en: "Can I book a free assessment?"
+    a_el: "Φυσικά! Επικοινωνήστε μαζί μας και θα κανονίσουμε μια φιλική, δωρεάν συνάντηση γνωριμίας και αξιολόγησης επιπέδου."
+    a_en: "Of course! Contact us and we will arrange a friendly, free meeting and level assessment."
+
+contact:
+  eyebrow_el: "Επικοινωνία"
+  eyebrow_en: "Get in touch"
+  title_el: "Που θα μας βρείτε"
+  title_en: "Where to find us"
+  lead_el: "Βρισκόμαστε στο Κορωπί, πλησίον της Εκκλησίας της Ανάληψης. Επικοινωνήστε μαζί μας ή επισκεφθείτε τον χώρο μας για να γνωριστούμε και να συζητήσουμε πώς μπορούμε να σας βοηθήσουμε να πετύχετε τους στόχους σας."
+  lead_en: "We're located in Koropi, near the Church of the Ascension. Get in touch or visit us so we can meet and discuss how we can help you reach your goals."
+  address: "D. Papanikolaou 12, 19400 Koropi, Attica, Greece"
+  phone: "+30 693 238 4633"
+  email: "hello@englishpanagopoulou.com"

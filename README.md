@@ -2,8 +2,8 @@
 
 A modern, bilingual (Greek / English) marketing website for an English language
 school founded in 1988 in Koropi, Attica. Built with **vanilla HTML, CSS and
-JavaScript** — no frontend framework. The only generated part is the blog,
-built from markdown so it can be edited through a CMS (see below).
+JavaScript** — no frontend framework. The blog and the homepage's copy are
+generated from markdown/YAML so they can be edited through a CMS (see below).
 
 ## Project structure
 
@@ -21,9 +21,11 @@ built from markdown so it can be edited through a CMS (see below).
 │   ├── blog.html             # GENERATED — see content/blog below, don't hand-edit
 │   └── <post-slug>.html      # GENERATED — one per article
 ├── content/
-│   └── blog/*.md             # Blog post source (frontmatter + markdown), CMS-managed
+│   ├── blog/*.md              # Blog post source (frontmatter + markdown), CMS-managed
+│   └── pages/home.yml         # Homepage copy/images, CMS-managed
 ├── scripts/
-│   └── build-blog.js         # Reads content/blog → writes pages/blog.html + pages/<slug>.html
+│   ├── build-blog.js          # Reads content/blog → writes pages/blog.html + pages/<slug>.html
+│   └── build-pages.js         # Reads content/pages/home.yml → fills index.html's data-cms="..." elements
 ├── admin/                    # Decap CMS admin panel (visit /admin)
 │   ├── index.html
 │   └── config.yml
@@ -41,13 +43,14 @@ npm install      # first time only
 npm run dev      # builds the blog, then starts the live-reload server on :3000
 ```
 
-`npm run dev` runs `scripts/build-blog.js` first (so `pages/blog.html` and the
-post pages reflect whatever's in `content/blog/`), then starts
+`npm run dev` runs `npm run build` first (`build:blog` + `build:pages`, so
+`pages/blog.html`, the post pages, and `index.html`'s CMS-managed copy all
+reflect whatever's in `content/`), then starts
 [browser-sync](https://browsersync.io). CSS edits are injected **instantly**;
 HTML/JS edits trigger a fast auto-refresh.
 
-If you edit a file in `content/blog/` while the dev server is running, re-run
-`npm run build:blog` (or restart `npm run dev`) to regenerate the pages —
+If you edit a file in `content/` while the dev server is running, re-run
+`npm run build` (or restart `npm run dev`) to regenerate the pages —
 browser-sync doesn't watch `content/` automatically.
 
 Configuration lives in [`bs-config.js`](bs-config.js) (port, watched files, etc.).
@@ -55,18 +58,27 @@ Configuration lives in [`bs-config.js`](bs-config.js) (port, watched files, etc.
 > Tip: if `npm install` ever fails with an `EACCES` cache error, run it once with
 > a local cache: `npm install --cache .npmcache` (already git-ignored).
 
-## Blog CMS (Decap CMS)
+## CMS (Decap CMS)
 
-Blog posts live as markdown files in `content/blog/`, each with bilingual
-frontmatter (`title_el`/`title_en`, `body_el`/`body_en`, etc.). `scripts/build-blog.js`
-turns them into `pages/blog.html` (listing) and `pages/<slug>.html` (one per
-post) — this runs automatically on every Vercel deploy (`vercel.json`
-`buildCommand`).
-
-To edit content without touching code, visit **`/admin`** on the live site.
-It's [Decap CMS](https://decapcms.org) (free, open-source), backed by GitHub —
+Visit **`/admin`** to edit content without touching code. It's
+[Decap CMS](https://decapcms.org) (free, open-source), backed by GitHub —
 every save there is a real commit to this repo, which Vercel then redeploys
-automatically.
+automatically. Two collections:
+
+- **Άρθρα (Blog)** — markdown files in `content/blog/`, each with bilingual
+  frontmatter (`title_el`/`title_en`, `body_el`/`body_en`, etc.).
+  `scripts/build-blog.js` turns them into `pages/blog.html` (listing) and
+  `pages/<slug>.html` (one per post).
+- **Σελίδες → Αρχική** — `content/pages/home.yml`, a single YAML file with
+  the homepage's editable copy and images (hero, about, why-choose-us cards,
+  FAQ, contact info). `scripts/build-pages.js` writes each value into the
+  matching `data-cms="..."` element in `index.html`. **Don't hand-edit those
+  elements' text/src in `index.html`** — edit `home.yml` (or `/admin`)
+  instead, or the next build will overwrite your change. Adding a new
+  editable field means tagging the element with `data-cms="key"` in
+  `index.html` *and* adding `key` to both `home.yml` and `admin/config.yml`.
+
+Both run automatically on every Vercel deploy (`vercel.json` `buildCommand`).
 
 **One-time setup required** (not yet done — needed before `/admin` works):
 
@@ -80,12 +92,12 @@ automatically.
    - `GITHUB_CLIENT_SECRET`
 3. Update `base_url` in `admin/config.yml` to match the real production domain
    (it currently points at the default `*.vercel.app` URL).
-4. Redeploy. Visit `/admin`, log in with GitHub, and you'll see the "Άρθρα"
-   collection ready to edit.
+4. Redeploy. Visit `/admin`, log in with GitHub, and you'll see both
+   collections ready to edit.
 
-The 5 existing posts are sample content (seeded from the placeholder articles
-the site launched with) — edit or delete them freely once there's real content
-to replace them with.
+The 5 existing blog posts are sample content (seeded from the placeholder
+articles the site launched with) — edit or delete them freely once there's
+real content to replace them with.
 
 ## Bilingual content (GR / EN)
 

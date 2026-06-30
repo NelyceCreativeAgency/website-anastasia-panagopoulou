@@ -48,3 +48,156 @@ collections:
       - { label: "Excerpt (English)", name: "excerpt_en", widget: "text" }
       - { label: "Κείμενο άρθρου (Ελληνικά)", name: "body_el", widget: "markdown" }
       - { label: "Article body (English)", name: "body_en", widget: "markdown" }
+
+  - name: "pages"
+    label: "Σελίδες"
+    files:
+      - name: "home"
+        label: "Αρχική"
+        file: "content/pages/home.yml"
+        fields:
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Κείμενο κάτω από τον τίτλο (Ελληνικά)", name: "lead_el", widget: "text" }
+              - { label: "Lead text (English)", name: "lead_en", widget: "text" }
+
+          - label: "Ενότητα «Το Φροντιστήριό μας»"
+            name: "about"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Υπέρτιτλος (Ελληνικά)", name: "eyebrow_el", widget: "string" }
+              - { label: "Eyebrow (English)", name: "eyebrow_en", widget: "string" }
+              - { label: "Τίτλος (Ελληνικά)", name: "title_el", widget: "string" }
+              - { label: "Title (English)", name: "title_en", widget: "string" }
+              - { label: "Κείμενο (Ελληνικά)", name: "text_el", widget: "text" }
+              - { label: "Text (English)", name: "text_en", widget: "text" }
+              - { label: "Εικόνα", name: "image", widget: "image" }
+
+          - label: "Ενότητα «Γιατί εμάς»"
+            name: "why"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Υπέρτιτλος (Ελληνικά)", name: "eyebrow_el", widget: "string" }
+              - { label: "Eyebrow (English)", name: "eyebrow_en", widget: "string" }
+              - { label: "Τίτλος (Ελληνικά)", name: "title_el", widget: "string" }
+              - { label: "Title (English)", name: "title_en", widget: "string" }
+              - { label: "Κείμενο (Ελληνικά)", name: "lead_el", widget: "text" }
+              - { label: "Lead (English)", name: "lead_en", widget: "text" }
+              - label: "Κάρτα 1 — Ολιγομελή Τμήματα"
+                name: "card1"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Τίτλος (Ελληνικά)", name: "title_el", widget: "string" }
+                  - { label: "Title (English)", name: "title_en", widget: "string" }
+                  - { label: "Κείμενο (Ελληνικά)", name: "text_el", widget: "text" }
+                  - { label: "Text (English)", name: "text_en", widget: "text" }
+                  - { label: "Εικόνα", name: "image", widget: "image" }
+              - label: "Κάρτα 2 — Αποδεδειγμένη Επιτυχία"
+                name: "card2"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Τίτλος (Ελληνικά)", name: "title_el", widget: "string" }
+                  - { label: "Title (English)", name: "title_en", widget: "string" }
+                  - { label: "Κείμενο (Ελληνικά)", name: "text_el", widget: "text" }
+                  - { label: "Text (English)", name: "text_en", widget: "text" }
+                  - { label: "Εικόνα", name: "image", widget: "image" }
+              - label: "Κάρτα 3 — Προσιτές Τιμές"
+                name: "card3"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Τίτλος (Ελληνικά)", name: "title_el", widget: "string" }
+                  - { label: "Title (English)", name: "title_en", widget: "string" }
+                  - { label: "Κείμενο (Ελληνικά)", name: "text_el", widget: "text" }
+                  - { label: "Text (English)", name: "text_en", widget: "text" }
+                  - { label: "Εικόνα", name: "image", widget: "image" }
+              - label: "Κάρτα 4 — Προσωπική Διδασκαλία"
+                name: "card4"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Τίτλος (Ελληνικά)", name: "title_el", widget: "string" }
+                  - { label: "Title (English)", name: "title_en", widget: "string" }
+                  - { label: "Κείμενο (Ελληνικά)", name: "text_el", widget: "text" }
+                  - { label: "Text (English)", name: "text_en", widget: "text" }
+                  - { label: "Εικόνα", name: "image", widget: "image" }
+
+          - label: "Ενότητα «Τμήματα» (τίτλος, χωρίς τις 3 κάρτες)"
+            name: "courses"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Υπέρτιτλος (Ελληνικά)", name: "eyebrow_el", widget: "string" }
+              - { label: "Eyebrow (English)", name: "eyebrow_en", widget: "string" }
+              - { label: "Τίτλος (Ελληνικά)", name: "title_el", widget: "string" }
+              - { label: "Title (English)", name: "title_en", widget: "string" }
+              - { label: "Κείμενο (Ελληνικά)", name: "lead_el", widget: "text" }
+              - { label: "Lead (English)", name: "lead_en", widget: "text" }
+
+          - label: "Συχνές Ερωτήσεις (FAQ)"
+            name: "faq"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Υπέρτιτλος (Ελληνικά)", name: "eyebrow_el", widget: "string" }
+              - { label: "Eyebrow (English)", name: "eyebrow_en", widget: "string" }
+              - { label: "Τίτλος (Ελληνικά)", name: "title_el", widget: "string" }
+              - { label: "Title (English)", name: "title_en", widget: "string" }
+              - label: "Ερώτηση 1"
+                name: "q1"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Ερώτηση (Ελληνικά)", name: "q_el", widget: "string" }
+                  - { label: "Question (English)", name: "q_en", widget: "string" }
+                  - { label: "Απάντηση (Ελληνικά)", name: "a_el", widget: "text" }
+                  - { label: "Answer (English)", name: "a_en", widget: "text" }
+              - label: "Ερώτηση 2"
+                name: "q2"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Ερώτηση (Ελληνικά)", name: "q_el", widget: "string" }
+                  - { label: "Question (English)", name: "q_en", widget: "string" }
+                  - { label: "Απάντηση (Ελληνικά)", name: "a_el", widget: "text" }
+                  - { label: "Answer (English)", name: "a_en", widget: "text" }
+              - label: "Ερώτηση 3"
+                name: "q3"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Ερώτηση (Ελληνικά)", name: "q_el", widget: "string" }
+                  - { label: "Question (English)", name: "q_en", widget: "string" }
+                  - { label: "Απάντηση (Ελληνικά)", name: "a_el", widget: "text" }
+                  - { label: "Answer (English)", name: "a_en", widget: "text" }
+              - label: "Ερώτηση 4"
+                name: "q4"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Ερώτηση (Ελληνικά)", name: "q_el", widget: "string" }
+                  - { label: "Question (English)", name: "q_en", widget: "string" }
+                  - { label: "Απάντηση (Ελληνικά)", name: "a_el", widget: "text" }
+                  - { label: "Answer (English)", name: "a_en", widget: "text" }
+
+          - label: "Ενότητα Επικοινωνίας"
+            name: "contact"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Υπέρτιτλος (Ελληνικά)", name: "eyebrow_el", widget: "string" }
+              - { label: "Eyebrow (English)", name: "eyebrow_en", widget: "string" }
+              - { label: "Τίτλος (Ελληνικά)", name: "title_el", widget: "string" }
+              - { label: "Title (English)", name: "title_en", widget: "string" }
+              - { label: "Κείμενο (Ελληνικά)", name: "lead_el", widget: "text" }
+              - { label: "Lead (English)", name: "lead_en", widget: "text" }
+              - { label: "Διεύθυνση", name: "address", widget: "string" }
+              - { label: "Τηλέφωνο", name: "phone", widget: "string", hint: "π.χ. +30 693 238 4633" }
+              - { label: "Email", name: "email", widget: "string" }
