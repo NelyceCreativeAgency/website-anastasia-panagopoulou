@@ -6,6 +6,10 @@
   <meta name="robots" content="noindex" />
   <title>Διαχείριση Περιεχομένου | Anastasia Panagopoulou English School</title>
   <link rel="icon" href="../Images/favicon.webp">
+  <!-- Explicit absolute path — without this, visiting /admin (no trailing
+       slash) makes the browser resolve "config.yml" against the site root
+       instead of /admin/, causing a 404. -->
+  <link rel="cms-config-url" href="/admin/config.yml">
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3.1.0/dist/decap-cms.js"></script>
