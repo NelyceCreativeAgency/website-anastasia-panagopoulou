@@ -118,12 +118,12 @@
           '</div>' +
         '</div>' +
         '<div class="footer__bottom">' +
-          '<span>© <span id="year"></span> Anastasia Panagopoulou English School.</span>' +
           '<span class="footer__credit">' +
             '<a href="' + href("pages/privacy.html") + '">' + dual("Πολιτική Απορρήτου", "Privacy Policy") + '</a>' +
             '<span class="footer__credit-sep">·</span>' +
             dual("Σχεδίαση από ", "Website by ") + '<a href="https://www.nelycedesign.com/gr" target="_blank" rel="noopener">Nelyce</a>' +
           '</span>' +
+          '<span>© <span id="year"></span> Anastasia Panagopoulou English School.</span>' +
         '</div>' +
       '</div>' +
     '</footer>';
