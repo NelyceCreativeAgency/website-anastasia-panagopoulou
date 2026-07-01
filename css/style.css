@@ -437,25 +437,36 @@ h1, h2, h3, h4, h5 {
   transform: translateX(-50%);
   width: min(calc(100% - 2rem), 1200px);
   z-index: 100;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: saturate(180%) blur(18px);
-  -webkit-backdrop-filter: saturate(180%) blur(18px);
-  border: 1px solid rgba(11, 48, 72, 0.12);
-  box-shadow: none;
-  padding-block: 0.9rem;
-  transition: background 0.4s var(--ease), box-shadow 0.4s var(--ease),
-              padding 0.4s var(--ease), top 0.4s var(--ease),
-              border-color 0.4s var(--ease);
+  transition: top 0.4s var(--ease);
 }
-.nav.is-stuck {
-  background: #fff;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  box-shadow: 0 8px 36px rgba(11, 48, 72, 0.12);
-  border-color: rgba(11, 48, 72, 0.07);
-  padding-block: 0.75rem;
-  top: 0.75rem;
+.nav.is-stuck { top: 0.75rem; }
+
+/* EXPERIMENT: the hand-drawn wobbly-pill artwork itself IS the header shape
+   now (a real <img>, not a CSS background) - its own alpha silhouette and
+   drop-shadow define the visible edges, nothing simulated with border-radius. */
+.nav__art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 6px 16px rgba(11, 48, 72, 0.10));
+}
+/* On desktop, size the nav box to the artwork's true aspect ratio so the
+   wobble edges render undistorted (not stretched/cropped to fit). */
+@media (min-width: 941px) {
+  .nav { aspect-ratio: 4935 / 405; }
+  .nav__art { object-fit: fill; }
+}
+/* Below that, the drawer/burger layout needs its own comfortable height -
+   the artwork just covers whatever box results, cropped rather than
+   stretched, so it still reads as a clean pill even if not pixel-true. */
+@media (max-width: 940px) {
+  .nav { padding-block: 1.1rem; }
+  .nav.is-stuck { padding-block: 0.9rem; }
+  .nav__art { object-fit: cover; }
 }
 
 /* Dual logos - light version hidden by default, swapped in on dark hero */
@@ -486,10 +497,14 @@ h1, h2, h3, h4, h5 {
 .nav > .container {
   width: 100%;
   max-width: none;
+  height: 100%;
   padding-inline: 1.5rem;
 }
 
 .nav__inner {
+  position: relative;
+  z-index: 1;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -2198,6 +2213,10 @@ h1, h2, h3, h4, h5 {
   background: var(--navy); color: #fff;
   display: grid; place-items: center;
 }
+/* cycle the same 3 brand colors used on the course-card arrows */
+.contact-row:nth-child(3n+1) .contact-row__ic { background: var(--navy); color: #fff; }
+.contact-row:nth-child(3n+2) .contact-row__ic { background: var(--accent); color: #fff; }
+.contact-row:nth-child(3n+3) .contact-row__ic { background: #FACE8D; color: var(--navy); }
 .contact-row h4 { font-size: 1rem; margin-bottom: 0.2rem; }
 .contact-row a, .contact-row p { color: var(--body); font-size: 0.98rem; }
 .contact-row a:hover { color: var(--accent); }
@@ -2914,7 +2933,17 @@ h1, h2, h3, h4, h5 {
   display: inline-block; margin-bottom: 1.5rem;
 }
 .footer__logo img { height: 74px; }
-.footer__about p { font-size: 0.95rem; max-width: 32ch; }
+.footer__about p { font-size: 1.15rem; font-weight: 600; letter-spacing: -0.015em; line-height: 1.3; max-width: 32ch; margin-top: -0.9rem; }
+
+/* This paragraph itself doesn't fade as a block - only its words do (below) */
+.footer__tagline.reveal { opacity: 1; transform: none; transition: none; }
+.footer__tagline .word-reveal {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+.footer__tagline.is-visible .word-reveal { opacity: 1; transform: none; }
 .footer__social { display: flex; gap: 0.7rem; margin-top: 1.4rem; }
 .footer__social a {
   width: 42px; height: 42px; border-radius: 12px;
@@ -2925,8 +2954,37 @@ h1, h2, h3, h4, h5 {
 .footer__social a:hover { background: var(--accent); transform: translateY(-3px); }
 .footer h4 { color: #fff; font-size: 1.05rem; margin-bottom: 1.2rem; }
 .footer__links { display: grid; gap: 0.7rem; }
-.footer__links a { font-size: 0.95rem; transition: color 0.2s var(--ease), padding-left 0.2s var(--ease); }
-.footer__links a:hover { color: #fff; padding-left: 4px; }
+.footer__links a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  font-size: 0.95rem;
+  transition: color 0.2s var(--ease);
+}
+.footer__links a:hover { color: #fff; }
+
+/* Pencil-drawn underline - same draw-on animation as the header nav links */
+.footer__underline {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  overflow: visible;
+  pointer-events: none;
+}
+.footer__underline path {
+  stroke: currentColor;
+  stroke-width: 1.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 130;
+  stroke-dashoffset: 130;
+  transition: stroke-dashoffset 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.footer__links a:hover .footer__underline path { stroke-dashoffset: 0; }
 .footer__contact li { display: flex; gap: 0.7rem; margin-bottom: 0.9rem; font-size: 0.95rem; }
 .footer__contact .ic { color: var(--accent-soft); flex: none; margin-top: 2px; }
 .footer__bottom {

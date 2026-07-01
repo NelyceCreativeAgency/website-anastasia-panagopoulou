@@ -33,12 +33,21 @@
     return '<span data-lang-el>' + el + '</span><span data-lang-en>' + en + '</span>';
   }
 
+  // Wrap each word in its own span with a staggered transition-delay, so a
+  // parent toggling .is-visible reveals the text one word at a time.
+  function wordsReveal(text) {
+    return text.split(" ").map(function (word, i) {
+      return '<span class="word-reveal" style="transition-delay:' + (i * 0.07).toFixed(2) + 's">' + word + '</span>';
+    }).join(" ");
+  }
+
   /* ---------- Header ---------- */
   // Separate contact from the main menu so it can sit on the right
   var mainLinks = NAV.filter(function (n) { return n[0] !== "pages/contact.html"; });
   var contactItem = NAV.find(function (n) { return n[0] === "pages/contact.html"; });
 
   var pencilSVG = '<svg class="nav__underline" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M1,5 C12,2 25,7 38,4 S58,2 72,5 C82,7 91,3 99,5"/></svg>';
+  var footerPencilSVG = '<svg class="footer__underline" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M1,5 C12,2 25,7 38,4 S58,2 72,5 C82,7 91,3 99,5"/></svg>';
 
   var links = mainLinks.map(function (n) {
     return '<li><a class="nav__link ' + (isActive(n[0]) ? "is-active" : "") +
@@ -50,6 +59,7 @@
   var header =
     '<a class="skip-link" href="#main">' + dual("Μετάβαση στο περιεχόμενο", "Skip to content") + '</a>' +
     '<header class="nav" id="nav">' +
+      '<img class="nav__art" src="' + href("Images/headertest.svg") + '" alt="" aria-hidden="true">' +
       '<div class="container nav__inner">' +
         '<a class="nav__logo" href="' + href("index.html") + '" aria-label="Anastasia Panagopoulou English School">' +
           '<img class="nav__logo-dark" src="' + href("Images/LOGO.webp") + '" alt="Anastasia Panagopoulou English School" width="170" height="38">' +
@@ -75,7 +85,7 @@
 
   /* ---------- Footer ---------- */
   var fLinks = NAV.map(function (n) {
-    return '<a href="' + href(n[0]) + '">' + dual(n[1], n[2]) + '</a>';
+    return '<a href="' + href(n[0]) + '">' + dual(n[1], n[2]) + footerPencilSVG + '</a>';
   }).join("");
 
   var footer =
@@ -86,12 +96,12 @@
         '<div class="footer__grid">' +
           '<div class="footer__about">' +
             '<a class="footer__logo" href="' + href("index.html") + '"><img src="' + href("Images/LOGOlight.webp") + '" alt="Anastasia Panagopoulou English School"></a>' +
-            '<p>' + dual(
-              "36 χρόνια εκπαίδευσης στην αγγλική γλώσσα",
-              "36 years of English language education"
+            '<p class="footer__tagline reveal">' + dual(
+              wordsReveal("36 χρόνια εκπαίδευσης στην αγγλική γλώσσα."),
+              wordsReveal("36 years of English language education.")
             ) + '</p>' +
             '<div class="footer__social">' +
-              '<a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V8c0-1.1.3-2 2-2h2V2.1C18.7 2 17.5 2 16.5 2 13.7 2 12 3.7 12 6.7V10H9v4h3v8z"/></svg></a>' +
+              '<a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 13.5h2.5l.5-3H14V9c0-.97.28-1.62 1.84-1.62H17V4.14C16.69 4.1 15.61 4 14.34 4 11.7 4 10 5.62 10 8.6V10.5H7v3h3V21h4v-7.5z"/></svg></a>' +
               '<a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.7 0 3.1 0 4.1.05 1.1.05 1.8.2 2.5.5.7.3 1.2.6 1.7 1.15.5.5.85 1 1.15 1.7.3.7.45 1.4.5 2.5.05 1 .05 1.4.05 4.1s0 3.1-.05 4.1c-.05 1.1-.2 1.8-.5 2.5-.3.7-.65 1.2-1.15 1.7-.5.5-1 .85-1.7 1.15-.7.3-1.4.45-2.5.5-1 .05-1.4.05-4.1.05s-3.1 0-4.1-.05c-1.1-.05-1.8-.2-2.5-.5-.7-.3-1.2-.65-1.7-1.15-.5-.5-.85-1-1.15-1.7-.3-.7-.45-1.4-.5-2.5C2 15.1 2 14.7 2 12s0-3.1.05-4.1c.05-1.1.2-1.8.5-2.5.3-.7.65-1.2 1.15-1.7.5-.5 1-.85 1.7-1.15.7-.3 1.4-.45 2.5-.5C8.9 2 9.3 2 12 2zm0 1.8c-2.65 0-2.97 0-4 .05-.9.05-1.4.2-1.7.3-.45.17-.75.4-1.1.7-.3.35-.5.65-.7 1.1-.1.3-.25.8-.3 1.7C4.15 8.7 4.15 9.02 4.15 12s0 3.3.05 4.35c.05.9.2 1.4.3 1.7.17.45.4.75.7 1.1.35.3.65.5 1.1.7.3.1.8.25 1.7.3 1.03.05 1.35.05 4 .05s2.97 0 4-.05c.9-.05 1.4-.2 1.7-.3.45-.17.75-.4 1.1-.7.3-.35.5-.65.7-1.1.1-.3.25-.8.3-1.7.05-1.05.05-1.37.05-4.35s0-3.3-.05-4.35c-.05-.9-.2-1.4-.3-1.7-.17-.45-.4-.75-.7-1.1-.35-.3-.65-.5-1.1-.7-.3-.1-.8-.25-1.7-.3-1.03-.05-1.35-.05-4-.05zm0 3.5a4.7 4.7 0 1 1 0 9.4 4.7 4.7 0 0 1 0-9.4zm0 1.8a2.9 2.9 0 1 0 0 5.8 2.9 2.9 0 0 0 0-5.8zm5.95-2.6a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/></svg></a>' +
               '<a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 8.2a3 3 0 0 0-2.1-2.1C18 5.6 12 5.6 12 5.6s-6 0-7.9.5A3 3 0 0 0 2 8.2 31 31 0 0 0 1.6 12 31 31 0 0 0 2 15.8a3 3 0 0 0 2.1 2.1c1.9.5 7.9.5 7.9.5s6 0 7.9-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 22.4 12 31 31 0 0 0 22 8.2zM10 15V9l5.2 3z"/></svg></a>' +
             '</div>' +
@@ -103,10 +113,10 @@
           '<div>' +
             '<h4>' + dual("Τμήματα", "Courses") + '</h4>' +
             '<div class="footer__links">' +
-              '<a href="' + href("pages/courses.html") + '">' + dual("Junior", "Junior") + '</a>' +
-              '<a href="' + href("pages/courses.html") + '">' + dual("Senior", "Senior") + '</a>' +
-              '<a href="' + href("pages/courses.html") + '">' + dual("Ενήλικες", "Adults") + '</a>' +
-              '<a href="' + href("pages/certificates.html") + '">' + dual("Πτυχία", "Certificates") + '</a>' +
+              '<a href="' + href("pages/courses.html") + '">' + dual("Junior", "Junior") + footerPencilSVG + '</a>' +
+              '<a href="' + href("pages/courses.html") + '">' + dual("Senior", "Senior") + footerPencilSVG + '</a>' +
+              '<a href="' + href("pages/courses.html") + '">' + dual("Ενήλικες", "Adults") + footerPencilSVG + '</a>' +
+              '<a href="' + href("pages/certificates.html") + '">' + dual("Πτυχία", "Certificates") + footerPencilSVG + '</a>' +
             '</div>' +
           '</div>' +
           '<div>' +
