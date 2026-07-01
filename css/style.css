@@ -2997,6 +2997,7 @@ h1, h2, h3, h4, h5 {
 .footer__credit-sep { color: rgba(255,255,255,0.3); }
 .footer__credit a { color: #9fbcd0; text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s var(--ease); }
 .footer__credit a:hover { color: #fff; }
+.footer__heart { color: var(--accent); flex-shrink: 0; position: relative; top: 1px; }
 
 /* ---------- 19. Scroll reveal ---------- */
 .reveal {
