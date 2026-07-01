@@ -2846,12 +2846,25 @@ h1, h2, h3, h4, h5 {
 .footer {
   background: var(--navy);
   color: #9fbcd0;
-  padding-top: clamp(3.5rem, 6vw, 5rem);
+  /* extra top padding so the torn banner has room and never sits over content */
+  padding-top: clamp(5rem, 8vw, 7rem);
   padding-bottom: 1.75rem;
   position: relative;
+  /* edge-to-edge, no rounded corners; overflow visible so the torn banner
+     can rise above the top edge (the pencil is clipped by .footer__clip) */
+  margin: 0;
+  border-radius: 0;
+  overflow: visible;
+}
+/* torn-paper banner across the very top of the footer, behind the content */
+.footer__torn { z-index: 0; }
+/* clip box for the decorative pencil (kept, since .footer no longer clips) */
+.footer__clip {
+  position: absolute;
+  inset: 0;
   overflow: clip;
-  margin: 0 clamp(0.5rem, 1.6vw, 1.25rem) clamp(0.5rem, 1.6vw, 1.25rem);
-  border-radius: clamp(22px, 3vw, 40px);
+  pointer-events: none;
+  z-index: 0;
 }
 /* bold decorative art - anchored to the footer bottom; the top is clipped so
    only its lower portion shows inside the footer */

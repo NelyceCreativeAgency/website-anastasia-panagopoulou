@@ -80,7 +80,8 @@
 
   var footer =
     '<footer class="footer">' +
-      '<img class="footer__art" src="' + href("Images/big-pencil.svg") + '" alt="" aria-hidden="true">' +
+      '<span class="torn-edge torn-edge--top torn-edge--navy footer__torn" aria-hidden="true"><span class="torn-edge__shape"></span></span>' +
+      '<span class="footer__clip" aria-hidden="true"><img class="footer__art" src="' + href("Images/big-pencil.svg") + '" alt=""></span>' +
       '<div class="container">' +
         '<div class="footer__grid">' +
           '<div class="footer__about">' +
