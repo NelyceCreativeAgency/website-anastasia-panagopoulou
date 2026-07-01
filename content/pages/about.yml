@@ -1,0 +1,72 @@
+# "Το Φροντιστήριο" (About) page editable content.
+# Managed via /admin (Decap CMS) → "Σελίδες" → "Το Φροντιστήριο".
+# scripts/build-pages.js flattens this (section.field → section_field) and
+# writes the matching text/images into pages/about.html on every build —
+# don't hand-edit pages/about.html for these fields, edit here instead
+# (or via /admin).
+
+hero:
+  eyebrow_el: "Το Φροντιστήριό μας"
+  eyebrow_en: "About Us"
+  title_el: "Η εκπαιδευτική μας πορεία"
+  title_en: "Our educational journey"
+  lead_el: "Μια ιστορία που συνεχίζει να μεγαλώνει."
+  lead_en: "A story that keeps growing."
+
+history:
+  eyebrow_el: "Η ιστορία μας"
+  eyebrow_en: "Our history"
+  title_el: "Ξεκινήσαμε το 1988"
+  title_en: "We started in 1988"
+  text1_el: "Από το 1988 βρισκόμαστε στο Κορωπί, βοηθώντας παιδιά, εφήβους και ενήλικες να χτίσουν τη σχέση τους με την αγγλική γλώσσα."
+  text1_en: "Since 1988 we have been based in Koropi, helping children, teenagers and adults build their relationship with the English language."
+  text2_el: "Όλα αυτά τα χρόνια, είχαμε τη χαρά να γνωρίσουμε εκατοντάδες μαθητές και να γίνουμε μέρος της εκπαιδευτικής τους πορείας. Σήμερα, συνεχίζουμε με την ίδια αγάπη για τη διδασκαλία και την ίδια προσωπική προσέγγιση που μας χαρακτηρίζει από την πρώτη μέρα."
+  text2_en: "Over all these years, we have had the joy of getting to know hundreds of students and becoming part of their educational journey. Today, we continue with the same love for teaching and the same personal approach that has defined us from day one."
+  image: "../Images/front.webp"
+
+teacher:
+  eyebrow_el: "Η καθηγήτρια"
+  eyebrow_en: "Our teacher"
+  text1_el: "Η Αναστασία Παναγοπούλου είναι πτυχιούχος Αγγλικής Φιλολογίας και κάτοχος του Proficiency του Πανεπιστημίου του Cambridge."
+  text1_en: "Anastasia Panagopoulou holds a degree in English Literature and a Cambridge Proficiency certificate from the University of Cambridge."
+  text2_el: "Η πορεία της στην εκπαίδευση ξεκίνησε το 1983, όταν άρχισε να διδάσκει Αγγλικά σε μαθητές στην Αθήνα και το Κορωπί. Με ιδιαίτερη έμφαση στην προετοιμασία για τις εξετάσεις Lower και Proficiency του Cambridge, έχει αφιερώσει περισσότερες από τέσσερις δεκαετίες στη διδασκαλία και την υποστήριξη μαθητών κάθε ηλικίας."
+  text2_en: "Her journey in education began in 1983, when she started teaching English to students in Athens and Koropi. With particular emphasis on preparation for Cambridge Lower and Proficiency exams, she has devoted more than four decades to teaching and supporting students of all ages."
+  image: "../Images/anastasia.webp"
+
+gallery:
+  eyebrow_el: "Ο χώρος μας"
+  eyebrow_en: "Our space"
+  title_el: "Φωτεινή, φιλόξενη τάξη"
+  title_en: "Bright, welcoming classroom"
+
+mission:
+  eyebrow_el: "Αποστολή & Αξίες"
+  eyebrow_en: "Mission & Values"
+  title_el: "Αυτό που μας οδηγεί"
+  title_en: "What drives us"
+  lead_el: "Να δίνουμε σε κάθε μαθητή τις γλωσσικές δεξιότητες και την αυτοπεποίθηση που χρειάζεται για να πετύχει στη ζωή."
+  lead_en: "To give every student the language skills and confidence they need to succeed in life."
+  card1:
+    title_el: "Φροντίδα"
+    title_en: "Care"
+    text_el: "Κάθε παιδί μετράει."
+    text_en: "Every child matters."
+    image: "../Images/care.webp"
+  card2:
+    title_el: "Συνέπεια"
+    title_en: "Consistency"
+    text_el: "Ίδια ποιότητα, κάθε χρόνο."
+    text_en: "The same quality, every year."
+    image: "../Images/sunepeia.webp"
+  card3:
+    title_el: "Εμπιστοσύνη"
+    title_en: "Trust"
+    text_el: "Διαφάνεια με γονείς και μαθητές."
+    text_en: "Transparency with parents and students."
+    image: "../Images/trust.webp"
+  card4:
+    title_el: "Αριστεία"
+    title_en: "Excellence"
+    text_el: "Υψηλοί στόχοι για όλους."
+    text_en: "High standards for everyone."
+    image: "../Images/excellence.webp"

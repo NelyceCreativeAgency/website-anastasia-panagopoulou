@@ -1,12 +1,12 @@
 /* =============================================================
-   Inject CMS-managed copy into index.html.
-   Elements tagged data-cms="key" in index.html get their text (or
+   Inject CMS-managed copy into static pages.
+   Elements tagged data-cms="key" in a page get their text (or
    src/href, for images and the phone/email links) overwritten from
-   content/pages/home.yml on every build, so editors only ever touch
-   the YAML (directly or via /admin) — never the HTML.
+   the matching content/pages/*.yml on every build, so editors only
+   ever touch the YAML (directly or via /admin) — never the HTML.
 
    Uses precise string slicing rather than a full HTML parser/
-   serializer, so every other byte of index.html (formatting,
+   serializer, so every other byte of the page (formatting,
    attribute order, whitespace) is left completely untouched.
    ============================================================= */
 const fs = require("fs");
@@ -14,8 +14,12 @@ const path = require("path");
 const yaml = require("js-yaml");
 
 const ROOT = path.join(__dirname, "..");
-const HOME_YML = path.join(ROOT, "content", "pages", "home.yml");
-const INDEX_HTML = path.join(ROOT, "index.html");
+
+// One entry per CMS-managed page: which YAML feeds which HTML file.
+const PAGES = [
+  { yml: path.join(ROOT, "content", "pages", "home.yml"), html: path.join(ROOT, "index.html") },
+  { yml: path.join(ROOT, "content", "pages", "about.yml"), html: path.join(ROOT, "pages", "about.html") },
+];
 
 // { hero: { lead_el: "x" } } -> { hero_lead_el: "x" } — matches the
 // data-cms="section_field" naming used in index.html.
@@ -72,15 +76,16 @@ function applyField(html, key, rawValue) {
   return { html: html.slice(0, tagEnd + 1) + escapeHtml(rawValue) + html.slice(closeIdx), found: true };
 }
 
-function build() {
-  if (!fs.existsSync(HOME_YML)) {
-    console.warn("[build-pages] content/pages/home.yml not found — skipping.");
+function buildOne(ymlPath, htmlPath) {
+  const label = path.relative(ROOT, htmlPath);
+  if (!fs.existsSync(ymlPath)) {
+    console.warn(`[build-pages] ${path.relative(ROOT, ymlPath)} not found — skipping ${label}.`);
     return;
   }
 
-  const nested = yaml.load(fs.readFileSync(HOME_YML, "utf8")) || {};
+  const nested = yaml.load(fs.readFileSync(ymlPath, "utf8")) || {};
   const data = flatten(nested);
-  let html = fs.readFileSync(INDEX_HTML, "utf8");
+  let html = fs.readFileSync(htmlPath, "utf8");
 
   let applied = 0;
   const missing = [];
@@ -93,11 +98,15 @@ function build() {
   });
 
   if (missing.length) {
-    console.warn(`[build-pages] No data-cms="..." element found for: ${missing.join(", ")}`);
+    console.warn(`[build-pages] ${label}: no data-cms="..." element found for: ${missing.join(", ")}`);
   }
 
-  fs.writeFileSync(INDEX_HTML, html, "utf8");
-  console.log(`[build-pages] Applied ${applied} field(s) to index.html`);
+  fs.writeFileSync(htmlPath, html, "utf8");
+  console.log(`[build-pages] Applied ${applied} field(s) to ${label}`);
+}
+
+function build() {
+  PAGES.forEach((page) => buildOne(page.yml, page.html));
 }
 
 build();

@@ -201,3 +201,109 @@ collections:
               - { label: "Διεύθυνση", name: "address", widget: "string" }
               - { label: "Τηλέφωνο", name: "phone", widget: "string", hint: "π.χ. +30 693 238 4633" }
               - { label: "Email", name: "email", widget: "string" }
+
+      - name: "about"
+        label: "Το Φροντιστήριο"
+        file: "content/pages/about.yml"
+        fields:
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Υπέρτιτλος (Ελληνικά)", name: "eyebrow_el", widget: "string" }
+              - { label: "Eyebrow (English)", name: "eyebrow_en", widget: "string" }
+              - { label: "Τίτλος (Ελληνικά)", name: "title_el", widget: "string" }
+              - { label: "Title (English)", name: "title_en", widget: "string" }
+              - { label: "Κείμενο (Ελληνικά)", name: "lead_el", widget: "text" }
+              - { label: "Lead (English)", name: "lead_en", widget: "text" }
+
+          - label: "Ενότητα «Η ιστορία μας»"
+            name: "history"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Υπέρτιτλος (Ελληνικά)", name: "eyebrow_el", widget: "string" }
+              - { label: "Eyebrow (English)", name: "eyebrow_en", widget: "string" }
+              - { label: "Τίτλος (Ελληνικά)", name: "title_el", widget: "string" }
+              - { label: "Title (English)", name: "title_en", widget: "string" }
+              - { label: "Κείμενο 1ο (Ελληνικά)", name: "text1_el", widget: "text" }
+              - { label: "Text 1 (English)", name: "text1_en", widget: "text" }
+              - { label: "Κείμενο 2ο (Ελληνικά)", name: "text2_el", widget: "text" }
+              - { label: "Text 2 (English)", name: "text2_en", widget: "text" }
+              - { label: "Εικόνα", name: "image", widget: "image" }
+
+          - label: "Ενότητα Καθηγήτριας"
+            name: "teacher"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Υπέρτιτλος (Ελληνικά)", name: "eyebrow_el", widget: "string" }
+              - { label: "Eyebrow (English)", name: "eyebrow_en", widget: "string" }
+              - { label: "Βιογραφικό 1ο (Ελληνικά)", name: "text1_el", widget: "text" }
+              - { label: "Bio 1 (English)", name: "text1_en", widget: "text" }
+              - { label: "Βιογραφικό 2ο (Ελληνικά)", name: "text2_el", widget: "text" }
+              - { label: "Bio 2 (English)", name: "text2_en", widget: "text" }
+              - { label: "Φωτογραφία", name: "image", widget: "image" }
+
+          - label: "Ενότητα Χώρου (τίτλος - χωρίς τη γκαλερί εικόνων)"
+            name: "gallery"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Υπέρτιτλος (Ελληνικά)", name: "eyebrow_el", widget: "string" }
+              - { label: "Eyebrow (English)", name: "eyebrow_en", widget: "string" }
+              - { label: "Τίτλος (Ελληνικά)", name: "title_el", widget: "string" }
+              - { label: "Title (English)", name: "title_en", widget: "string" }
+
+          - label: "Αποστολή & Αξίες"
+            name: "mission"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Υπέρτιτλος (Ελληνικά)", name: "eyebrow_el", widget: "string" }
+              - { label: "Eyebrow (English)", name: "eyebrow_en", widget: "string" }
+              - { label: "Τίτλος (Ελληνικά)", name: "title_el", widget: "string" }
+              - { label: "Title (English)", name: "title_en", widget: "string" }
+              - { label: "Κείμενο (Ελληνικά)", name: "lead_el", widget: "text" }
+              - { label: "Lead (English)", name: "lead_en", widget: "text" }
+              - label: "Κάρτα 1 — Φροντίδα"
+                name: "card1"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Τίτλος (Ελληνικά)", name: "title_el", widget: "string" }
+                  - { label: "Title (English)", name: "title_en", widget: "string" }
+                  - { label: "Κείμενο (Ελληνικά)", name: "text_el", widget: "text" }
+                  - { label: "Text (English)", name: "text_en", widget: "text" }
+                  - { label: "Εικόνα", name: "image", widget: "image" }
+              - label: "Κάρτα 2 — Συνέπεια"
+                name: "card2"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Τίτλος (Ελληνικά)", name: "title_el", widget: "string" }
+                  - { label: "Title (English)", name: "title_en", widget: "string" }
+                  - { label: "Κείμενο (Ελληνικά)", name: "text_el", widget: "text" }
+                  - { label: "Text (English)", name: "text_en", widget: "text" }
+                  - { label: "Εικόνα", name: "image", widget: "image" }
+              - label: "Κάρτα 3 — Εμπιστοσύνη"
+                name: "card3"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Τίτλος (Ελληνικά)", name: "title_el", widget: "string" }
+                  - { label: "Title (English)", name: "title_en", widget: "string" }
+                  - { label: "Κείμενο (Ελληνικά)", name: "text_el", widget: "text" }
+                  - { label: "Text (English)", name: "text_en", widget: "text" }
+                  - { label: "Εικόνα", name: "image", widget: "image" }
+              - label: "Κάρτα 4 — Αριστεία"
+                name: "card4"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Τίτλος (Ελληνικά)", name: "title_el", widget: "string" }
+                  - { label: "Title (English)", name: "title_en", widget: "string" }
+                  - { label: "Κείμενο (Ελληνικά)", name: "text_el", widget: "text" }
+                  - { label: "Text (English)", name: "text_en", widget: "text" }
+                  - { label: "Εικόνα", name: "image", widget: "image" }
