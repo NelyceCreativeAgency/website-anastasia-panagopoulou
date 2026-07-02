@@ -314,6 +314,49 @@
 
   /* ---------------- Footer year handled in components.js ---------------- */
 
+  /* ---------------- Fuzzy text matching (accent- and typo-tolerant) ---------------- */
+  function normalizeText(str) {
+    return str
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '') /* strip Greek/Latin accents (tonos, dialytika, etc.) */
+      .toLowerCase();
+  }
+
+  function levenshtein(a, b) {
+    var m = a.length, n = b.length;
+    if (!m) return n;
+    if (!n) return m;
+    var prev = [];
+    for (var j = 0; j <= n; j++) prev[j] = j;
+    for (var i = 1; i <= m; i++) {
+      var curr = [i];
+      for (j = 1; j <= n; j++) {
+        curr[j] = a[i - 1] === b[j - 1]
+          ? prev[j - 1]
+          : 1 + Math.min(prev[j - 1], prev[j], curr[j - 1]);
+      }
+      prev = curr;
+    }
+    return prev[n];
+  }
+
+  /* substring search tolerant of ~1 typo per 4 characters of the query */
+  function fuzzyIncludes(haystack, needle) {
+    if (!needle) return true;
+    if (haystack.indexOf(needle) !== -1) return true;
+    if (needle.length < 3) return false; /* too short to fuzz without false positives */
+    var maxDist = Math.min(2, Math.floor(needle.length / 4) + 1);
+    var lens = [needle.length - 1, needle.length, needle.length + 1];
+    for (var w = 0; w < lens.length; w++) {
+      var len = lens[w];
+      if (len <= 0) continue;
+      for (var i = 0; i <= haystack.length - len; i++) {
+        if (levenshtein(haystack.substr(i, len), needle) <= maxDist) return true;
+      }
+    }
+    return false;
+  }
+
   /* ---------------- Blog tag filter + search ---------------- */
   function initBlogFilters() {
     var tags    = document.querySelectorAll('.blog-tag[data-filter]');
@@ -331,9 +374,9 @@
       var visible = 0;
       cards.forEach(function (card) {
         var cat   = card.getAttribute('data-category') || '';
-        var title = card.querySelector('h3') ? card.querySelector('h3').textContent.toLowerCase() : '';
+        var title = card.querySelector('h3') ? normalizeText(card.querySelector('h3').textContent) : '';
         var matchTag    = activeFilter === 'all' || cat === activeFilter;
-        var matchSearch = !activeQuery || title.indexOf(activeQuery) !== -1;
+        var matchSearch = !activeQuery || fuzzyIncludes(title, activeQuery);
         if (matchTag && matchSearch) {
           card.style.display = '';
           card.classList.remove('card-in');
@@ -359,7 +402,7 @@
 
     if (search) {
       search.addEventListener('input', function () {
-        activeQuery = this.value.trim().toLowerCase();
+        activeQuery = normalizeText(this.value.trim());
         applyFilter();
       });
     }
@@ -379,7 +422,7 @@
     /* pick up ?q= from the sidebar search on article pages */
     var qParam = new URLSearchParams(window.location.search).get('q');
     if (qParam) {
-      activeQuery = qParam.trim().toLowerCase();
+      activeQuery = normalizeText(qParam.trim());
       if (search) search.value = qParam;
       applyFilter();
     }
