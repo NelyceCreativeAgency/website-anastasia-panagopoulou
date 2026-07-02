@@ -259,6 +259,27 @@
     });
   }
 
+  /* ---------------- Article sidebar search ---------------- */
+  function initSidebarSearch() {
+    var box = document.querySelector(".sidebar-search");
+    if (!box) return;
+    var input = box.querySelector("input");
+    var button = box.querySelector("button");
+
+    function go() {
+      var q = input.value.trim();
+      window.location.href = "blog.html" + (q ? "?q=" + encodeURIComponent(q) : "");
+    }
+
+    if (button) button.addEventListener("click", go);
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        go();
+      }
+    });
+  }
+
   /* ---------------- Contact form ---------------- */
   function initForm() {
     var form = document.getElementById("contactForm");
@@ -353,6 +374,14 @@
         if (allBtn) allBtn.classList.add('blog-tag--active');
         applyFilter();
       });
+    }
+
+    /* pick up ?q= from the sidebar search on article pages */
+    var qParam = new URLSearchParams(window.location.search).get('q');
+    if (qParam) {
+      activeQuery = qParam.trim().toLowerCase();
+      if (search) search.value = qParam;
+      applyFilter();
     }
   }
 
@@ -462,6 +491,7 @@
     initCourseTabs();
     initFooterArt();
     initShareLinks();
+    initSidebarSearch();
     initForm();
     initSquiggle();
     initBlogFilters();
