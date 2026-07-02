@@ -40,7 +40,7 @@ collections:
           - { label: "Εξετάσεις / Exams", value: "exams" }
           - { label: "Κίνητρο / Motivation", value: "motivation" }
           - { label: "Γονείς / Parents", value: "parents" }
-      - { label: "Ημερομηνία δημοσίευσης", name: "date", widget: "date", format: "YYYY-MM-DD" }
+      - { label: "Ημερομηνία δημοσίευσης", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
       - { label: "Λεπτά ανάγνωσης", name: "read_minutes", widget: "number", value_type: "int", min: 1, max: 30, default: 5 }
       - { label: "Κεντρική εικόνα", name: "image", widget: "image" }
       - { label: "Συγγραφέας", name: "author", widget: "string", default: "Anastasia Panagopoulou" }
