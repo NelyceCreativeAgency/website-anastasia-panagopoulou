@@ -204,6 +204,61 @@
     });
   }
 
+  /* ---------------- Article share buttons ---------------- */
+  function fallbackCopy(text) {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (err) {}
+    document.body.removeChild(ta);
+  }
+
+  function initShareLinks() {
+    var links = document.querySelectorAll(".article-hero__share a[data-share]");
+    if (!links.length) return;
+    links.forEach(function (a) {
+      var type = a.getAttribute("data-share");
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        var url = window.location.href;
+
+        if (type === "copy") {
+          var showCopied = function () {
+            var original = a.innerHTML;
+            a.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+            a.classList.add("is-copied");
+            setTimeout(function () {
+              a.innerHTML = original;
+              a.classList.remove("is-copied");
+            }, 1600);
+          };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(url).then(showCopied).catch(function () {
+              fallbackCopy(url);
+              showCopied();
+            });
+          } else {
+            fallbackCopy(url);
+            showCopied();
+          }
+          return;
+        }
+
+        var shareUrls = {
+          facebook: "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url),
+          twitter: "https://twitter.com/intent/tweet?url=" + encodeURIComponent(url) + "&text=" + encodeURIComponent(document.title),
+          linkedin: "https://www.linkedin.com/sharing/share-offsite/?url=" + encodeURIComponent(url)
+        };
+        if (shareUrls[type]) {
+          window.open(shareUrls[type], "_blank", "noopener,width=600,height=520");
+        }
+      });
+    });
+  }
+
   /* ---------------- Contact form ---------------- */
   function initForm() {
     var form = document.getElementById("contactForm");
@@ -406,6 +461,7 @@
     initCslider();
     initCourseTabs();
     initFooterArt();
+    initShareLinks();
     initForm();
     initSquiggle();
     initBlogFilters();

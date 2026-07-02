@@ -114,6 +114,13 @@ h1, h2, h3, h4, h5 {
 ::selection { background: var(--accent); color: #fff; }
 
 /* ---------- 3. Layout helpers ---------- */
+/* Contains child stacking (e.g. .article-hero's negative z-index) within
+   #main instead of letting it resolve against <body>'s stacking context —
+   without this, a negative z-index child paints BELOW #main's own
+   (invisible, non-positioned) box, letting it silently swallow clicks
+   over that child's whole area. */
+#main { isolation: isolate; }
+
 .container {
   width: min(100% - 2.5rem, var(--container));
   margin-inline: auto;
@@ -1263,6 +1270,7 @@ h1, h2, h3, h4, h5 {
 .torn-edge--bottom .torn-edge__shape { transform: scaleY(-1); }
 .torn-edge--navy   .torn-edge__shape { background: var(--navy); }
 .torn-edge--accent .torn-edge__shape { background: var(--accent); }
+.torn-edge--white  .torn-edge__shape { background: var(--bg); }
 
 .img-frame img {
   position: relative;
@@ -2787,9 +2795,21 @@ h1, h2, h3, h4, h5 {
 .article__share { display: flex; gap: 0.7rem; align-items: center; margin-top: 2.2rem; padding-top: 1.8rem; border-top: 1px solid var(--line); }
 
 /* Article hero — full-bleed image w/ overlaid title, author & share.
-   Runs edge-to-edge from the very top of the page (behind the floating nav)
-   and ends in a torn-paper bottom edge, like the torn banners elsewhere. */
-.article-hero { margin-top: 0; }
+   Runs edge-to-edge from the very top of the page (behind the floating nav).
+   Pinned via position:sticky so it stays put while .article-cover (the rest
+   of the article, in a torn white "page") scrolls up and covers it. */
+.article-hero {
+  margin-top: 0;
+  position: sticky;
+  top: 0;
+  /* negative (not 0/auto): keeps .article-cover painting above it via the
+     normal stacking-order rules, WITHOUT .article-cover needing its own
+     numbered z-index — giving .article-cover an explicit stacking context
+     (e.g. z-index:1) was found to break mask-image rendering on the page
+     footer's torn-edge banner elsewhere on this same page (a Chromium
+     compositing quirk) even though the two elements never visually overlap */
+  z-index: -1;
+}
 .article-hero .container { width: 100%; }
 .article-hero__media {
   position: relative;
@@ -2799,28 +2819,23 @@ h1, h2, h3, h4, h5 {
   /* explicit height (≈16:8.5 of the viewport, capped) — do NOT use
      aspect-ratio + max-height here: the max transfers through the ratio
      and shrinks the width, breaking the full-bleed */
-  height: clamp(360px, 53vw, 82vh);
+  height: clamp(460px, 66vw, 92vh);
 }
-/* the tear: same .torn-edge component as the other banners, in page-white,
-   pinned inside the photo's bottom edge (unflipped: torn top, flat bottom).
-   Overshoots the clip edge so the mask's antialiased bottom row (which lets
-   the dark overlay peek through as a faint line) falls outside the box. */
-.article-hero__torn { bottom: -3px; }
-/* belt & braces: a solid white strip over the media's bottom rows, above all
-   layers — kills any sub-pixel hairline (img edge / gradient / mask AA) that
-   survives at the clip boundary. Invisible against the tear's white body. */
-.article-hero__media::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -2px;
-  height: 6px;
-  background: var(--bg);
-  z-index: 3;
-}
-.article-hero__torn .torn-edge__shape { background: var(--bg); }
 .article-hero__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* The rest of the article — an opaque "page" that scrolls up and over the
+   pinned hero. Its torn top edge rips into the sticky photo as it covers it. */
+.article-cover {
+  position: relative;
+  /* deliberately no explicit z-index (stays auto) — position:relative alone
+     is enough to paint above the hero's negative z-index without creating
+     a new stacking context, see note on .article-hero above */
+  background: var(--bg);
+  /* the torn-edge--top shape (z-index 2, absolutely positioned) spills
+     ~80% of its own height below this box's top edge — push real content
+     down clear of it so nothing peeks through the tear's transparent gaps */
+  padding-top: clamp(3rem, 9vw, 7rem);
+}
 .article-hero__overlay {
   position: absolute;
   inset: 0;
@@ -2831,8 +2846,10 @@ h1, h2, h3, h4, h5 {
   /* full-bleed hero: keep the text aligned with the page container, and
      leave room at the bottom so the torn edge never touches the meta row */
   padding-inline: max(clamp(1.6rem, 4vw, 3rem), (100% - var(--container)) / 2);
-  /* reserve room for the torn edge: it scales with width (1729:181 ≈ 10.5%) */
-  padding-bottom: calc(clamp(1.6rem, 4vw, 3rem) + 10.5vw);
+  /* reserve room for the torn edge: only its top ~20% overshoot (translateY(-20%)
+     on a ~10.5vw-tall shape) actually pokes up into the photo — the rest of
+     the shape lives inside the white content below */
+  padding-bottom: calc(clamp(1.6rem, 4vw, 3rem) + 2.6vw);
   background: linear-gradient(to top, rgba(8,28,45,0.85) 0%, rgba(8,28,45,0.6) 45%, rgba(8,28,45,0.15) 80%, rgba(8,28,45,0) 100%);
   color: #fff;
 }
@@ -2858,6 +2875,7 @@ h1, h2, h3, h4, h5 {
   transition: background 0.25s var(--ease), transform 0.25s var(--ease);
 }
 .article-hero__share a:hover { background: var(--accent); transform: translateY(-2px); }
+.article-hero__share a.is-copied { background: #1a9b5c; }
 @media (max-width: 600px) {
   .article-hero__media { aspect-ratio: 4/5; min-height: 0; }
   .article-hero__row { flex-direction: column; align-items: flex-start; }
