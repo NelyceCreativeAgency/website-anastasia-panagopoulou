@@ -17,6 +17,15 @@ const ROOT = path.join(__dirname, "..");
 const CONTENT_DIR = path.join(ROOT, "content", "blog");
 const PAGES_DIR = path.join(ROOT, "pages");
 
+/* YAML parses an unquoted `date: 2026-06-20` (as Decap CMS writes it) into a
+   JS Date object, while older hand-written entries have a quoted string —
+   normalise both to a plain "YYYY-MM-DD" string. */
+function toIsoDay(value) {
+  if (!value) return "";
+  if (value instanceof Date) return value.toISOString().slice(0, 10);
+  return String(value).slice(0, 10);
+}
+
 function loadPosts() {
   if (!fs.existsSync(CONTENT_DIR)) return [];
   const files = fs.readdirSync(CONTENT_DIR).filter((f) => f.endsWith(".md"));
@@ -30,7 +39,7 @@ function loadPosts() {
       category_el: data.category_el || "",
       category_en: data.category_en || "",
       filter_tag: data.filter_tag || "tips",
-      date: data.date || "",
+      date: toIsoDay(data.date),
       read_minutes: data.read_minutes || 5,
       image: data.image || "",
       author: data.author || "Anastasia Panagopoulou",
@@ -154,6 +163,7 @@ function detailPage(post, posts) {
               </div>
             </div>
           </div>
+          <div class="torn-edge article-hero__torn" aria-hidden="true"><span class="torn-edge__shape"></span></div>
         </div>
       </div>
     </section>
