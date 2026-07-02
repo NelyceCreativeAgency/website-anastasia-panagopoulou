@@ -122,6 +122,21 @@ h1, h2, h3, h4, h5 {
 .container--narrow { --container: 820px; }
 
 .section { padding-block: var(--section-y); }
+
+/* Light dot pattern on every white section (and the homepage hero).
+   Excluded: colour/tint variants and sections with their own image/pattern
+   background (testi, teacher, why, page heroes). A soft white radial fade
+   sits over the dots so text areas stay clean. */
+.hero,
+.error-page,
+.section:not(.section--soft):not(.section--tint):not(.section--navy):not(.section--accent):not(.testi-section):not(.teacher-section):not(.why-section) {
+  background-image:
+    linear-gradient(to bottom, #fff 0%, rgba(255, 255, 255, 0) 180px),
+    radial-gradient(ellipse at center, #fff 0%, rgba(255, 255, 255, 0.6) 45%, rgba(255, 255, 255, 0) 100%),
+    radial-gradient(rgba(11, 48, 72, 0.10) 1.2px, transparent 1.2px);
+  background-size: 100% 100%, 100% 100%, 26px 26px;
+}
+
 .section--soft { background: var(--bg-soft); }
 .section--tint { background: var(--bg-tint); }
 .section--navy { background: var(--navy); color: #cfe0ec; position: relative; }
@@ -715,7 +730,8 @@ h1, h2, h3, h4, h5 {
   justify-content: center;
   padding-top: clamp(5rem, 8vw, 7rem);
   padding-bottom: clamp(4rem, 6vw, 6rem);
-  background: #fff;
+  /* no background shorthand here — it would reset the dot pattern
+     coming from the shared rule in section 3 */
   color: var(--body);
   overflow: hidden;
 }
@@ -1272,6 +1288,17 @@ h1, h2, h3, h4, h5 {
   aspect-ratio: 5 / 4;
   object-fit: cover;
 }
+/* Certificate logo cards (coloured cert panels) — light playful tilt,
+   mirrored on reversed splits so they alternate down the page */
+.section--accent .split__media img,
+.section--navy .split__media img {
+  transform: rotate(-2deg);
+}
+.section--accent .split--reverse .split__media img,
+.section--navy .split--reverse .split__media img {
+  transform: rotate(2deg);
+}
+
 .split__media--stack { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .split__media--stack img:first-child { aspect-ratio: 3/4; margin-top: 2rem; }
 .split__media--stack img:last-child { aspect-ratio: 3/4; }
@@ -2308,6 +2335,16 @@ h1, h2, h3, h4, h5 {
 .page-hero--about .container,
 .page-hero--courses .container {
   position: relative;
+}
+
+/* Soft hand-off: the pencil pattern starts fading around the title and is
+   fully gone before the hero ends — nothing continues below it. */
+.page-hero--blog::before,
+.page-hero--certs::before,
+.page-hero--about::before,
+.page-hero--courses::before {
+  -webkit-mask-image: linear-gradient(to bottom, #000 30%, transparent 80%);
+          mask-image: linear-gradient(to bottom, #000 30%, transparent 80%);
 }
 
 /* Mobile: fixed background attachment is janky / zooms on iOS — use scroll */

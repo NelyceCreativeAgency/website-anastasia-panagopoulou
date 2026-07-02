@@ -17,7 +17,7 @@ module.exports = {
   // Inject CSS in place instead of reloading the whole page.
   injectChanges: true,
 
-  port: 3000,
+  port: process.env.PORT ? Number(process.env.PORT) : 3000,
   open: true,         // open the browser automatically on start
   notify: false,      // hide the "Connected to BrowserSync" toast
   ui: false,          // no control-panel UI on :3001
