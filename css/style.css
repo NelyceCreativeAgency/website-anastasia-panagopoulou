@@ -727,6 +727,37 @@ h1, h2, h3, h4, h5 {
   .nav__link { font-size: 1.15rem; padding: 0.9rem 1rem; }
 }
 
+/* Phones: header goes full-bleed — flush with the top and side edges of
+   the screen — instead of floating as an inset pill. The wobbly artwork
+   still fills the box exactly (object-fit: cover), so its hand-drawn
+   bottom edge stays visible; only the top wobble (now flush with the
+   screen edge, nothing above it) and the side wobbles (cropped by the
+   full-width box) are no longer visible — expected for an edge-to-edge
+   header. */
+@media (max-width: 600px) {
+  .nav, .nav.is-stuck {
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: none;
+  }
+  /* the wobble is textured all along the artwork's edge, top included — lay
+     a flat white cap over the top of the box so only the bottom sliver of
+     the artwork (still wobbly) peeks out beneath it */
+  .nav::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    bottom: 14px;
+    background: #fff;
+    z-index: 0;
+  }
+  .nav__menu {
+    top: 4.25rem;
+    height: calc(100dvh - 4.25rem);
+  }
+}
+
 /* ---------- 7. Hero ---------- */
 .hero {
   position: relative;
