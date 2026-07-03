@@ -508,12 +508,21 @@ h1, h2, h3, h4, h5 {
   position: relative;
 }
 
+/* Wraps just the label text (+ underline), independent of .nav__link's own
+   box - so the underline always hugs the visible text, even when .nav__link
+   itself is stretched to a full-width tap target (mobile menu rows). */
+.nav__link-label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
 /* Pencil-drawn underline - inline SVG stroke-dashoffset animation */
 .nav__underline {
   position: absolute;
   bottom: -4px;
-  left: 0.95rem;
-  width: calc(100% - 1.9rem);
+  left: 0;
+  width: 100%;
   height: 8px;
   overflow: visible;
   pointer-events: none;
@@ -648,8 +657,8 @@ h1, h2, h3, h4, h5 {
   .nav.is-stuck { top: 0.5rem; }
   .nav > .container { padding-inline: 1rem; }
   .nav__contact--desktop { display: none; }
-  .nav__cta-mobile { display: block; margin-top: 0.75rem; }
-  .nav__cta-mobile .nav__link--contact { width: 100%; justify-content: center; border-radius: var(--r-pill); }
+  .nav__cta-mobile { display: block; margin-top: 0.75rem; text-align: center; }
+  .nav__menu .nav__cta-mobile .nav__link--contact { display: inline-flex; width: auto; justify-content: center; border-radius: var(--r-pill); }
   .nav__burger { display: block; }
   .nav__menu {
     position: fixed;

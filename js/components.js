@@ -51,7 +51,7 @@
 
   var links = mainLinks.map(function (n) {
     return '<li><a class="nav__link ' + (isActive(n[0]) ? "is-active" : "") +
-      '" href="' + href(n[0]) + '">' + dual(n[1], n[2]) + pencilSVG + '</a></li>';
+      '" href="' + href(n[0]) + '"><span class="nav__link-label">' + dual(n[1], n[2]) + pencilSVG + '</span></a></li>';
   }).join("") + (contactItem
     ? '<li class="nav__cta-mobile"><a class="nav__link nav__link--contact' + (isActive(contactItem[0]) ? ' is-active' : '') + '" href="' + href(contactItem[0]) + '">' + dual(contactItem[1], contactItem[2]) + '</a></li>'
     : '');
