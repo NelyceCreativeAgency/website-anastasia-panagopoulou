@@ -63,8 +63,8 @@
       '<img class="nav__torn-img" src="' + href("Images/mobile_rip_header.svg") + '" alt="" aria-hidden="true">' +
       '<div class="container nav__inner">' +
         '<a class="nav__logo" href="' + href("index.html") + '" aria-label="Anastasia Panagopoulou English School">' +
-          '<img class="nav__logo-dark" src="' + href("Images/LOGO.webp") + '" alt="Anastasia Panagopoulou English School" width="170" height="38">' +
-          '<img class="nav__logo-light" src="' + href("Images/LOGOlight.webp") + '" alt="Anastasia Panagopoulou English School" width="170" height="38" aria-hidden="true">' +
+          '<img class="nav__logo-dark" src="' + href("Images/LOGO.webp") + '" alt="Anastasia Panagopoulou English School" width="236" height="94">' +
+          '<img class="nav__logo-light" src="' + href("Images/LOGOlight.webp") + '" alt="Anastasia Panagopoulou English School" width="236" height="94" aria-hidden="true">' +
         '</a>' +
         '<nav aria-label="Primary">' +
           '<ul class="nav__menu" id="navMenu">' + links + '</ul>' +

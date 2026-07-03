@@ -21,7 +21,7 @@
   --navy: #0B3048;
   --navy-700: #0e3a57;
   --navy-600: #14496b;
-  --accent: #E53914;
+  --accent: #DA3613;
   --accent-soft: #ff6a47;
 
   /* Neutrals */
@@ -36,7 +36,7 @@
 
   /* Accents / wash */
   --navy-wash: rgba(11, 48, 72, 0.06);
-  --accent-wash: rgba(229, 57, 20, 0.08);
+  --accent-wash: rgba(218, 54, 19, 0.08);
 
   /* Typography */
   --font-head: "Gotham", system-ui, sans-serif;
@@ -53,7 +53,7 @@
   --shadow-sm: 0 6px 18px rgba(11, 48, 72, 0.06);
   --shadow-md: 0 18px 40px rgba(11, 48, 72, 0.10);
   --shadow-lg: 0 30px 70px rgba(11, 48, 72, 0.16);
-  --shadow-accent: 0 18px 38px rgba(229, 57, 20, 0.28);
+  --shadow-accent: 0 18px 38px rgba(218, 54, 19, 0.28);
 
   /* Spacing rhythm */
   --section-y: clamp(5.75rem, 10vw, 10.5rem);
@@ -295,7 +295,7 @@ h1, h2, h3, h4, h5 {
   box-shadow: var(--shadow-accent);
   white-space: nowrap;
 }
-.btn:hover { transform: translateY(-3px); box-shadow: 0 24px 46px rgba(229,57,20,0.34); }
+.btn:hover { transform: translateY(-3px); box-shadow: 0 24px 46px rgba(218,54,19,0.34); }
 .btn:active { transform: translateY(-1px); }
 
 .btn--ghost {
@@ -543,12 +543,12 @@ h1, h2, h3, h4, h5 {
   align-items: center;
   justify-content: center;
   align-self: center;
-  box-shadow: 0 4px 14px rgba(229, 57, 20, 0.30);
+  box-shadow: 0 4px 14px rgba(218, 54, 19, 0.30);
   transition: background 0.25s var(--ease), box-shadow 0.25s var(--ease), transform 0.25s var(--ease);
 }
 .nav__link--contact:hover {
   background: var(--accent-soft) !important;
-  box-shadow: 0 6px 20px rgba(229, 57, 20, 0.40);
+  box-shadow: 0 6px 20px rgba(218, 54, 19, 0.40);
   transform: translateY(-1px);
 }
 .nav__actions { display: flex; align-items: center; gap: 1rem; }
@@ -1370,7 +1370,7 @@ h1, h2, h3, h4, h5 {
 
 /* per-card colors - applied on hover only */
 .cslide--navy:hover .cslide__bot { background: #0B3048; }
-.cslide--red:hover  .cslide__bot { background: #E53914; }
+.cslide--red:hover  .cslide__bot { background: #DA3613; }
 .cslide--warm:hover .cslide__bot { background: #FACE8D; }
 
 /* default - dark text on the neutral background */
@@ -1458,7 +1458,7 @@ h1, h2, h3, h4, h5 {
 .cslide:hover .cslide__arrow .arrow-in  { transform: translate(-50%, -50%); }
 
 .cslide--navy .cslide__arrow { background: #0B3048; }
-.cslide--red  .cslide__arrow { background: #E53914; }
+.cslide--red  .cslide__arrow { background: #DA3613; }
 .cslide--warm .cslide__arrow { background: #FACE8D; color: #0B3048; }
 
 @media (max-width: 767px) {
@@ -1752,7 +1752,7 @@ h1, h2, h3, h4, h5 {
 .cta-band__actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
 
 /* ---------- 13b. Teacher Profile ---------- */
-.teacher-section { background: rgba(229, 57, 20, 0.03); }
+.teacher-section { background: rgba(218, 54, 19, 0.03); }
 
 .teacher-wrap {
   display: grid;

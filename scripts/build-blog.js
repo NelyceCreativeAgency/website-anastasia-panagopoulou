@@ -143,6 +143,7 @@ function detailPage(post, posts) {
 
   <link rel="preload" href="../font/Gotham-Book.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../font/Gotham-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../Images/mobile_rip_header.svg" as="image" fetchpriority="high" media="(max-width: 1004px)">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body
@@ -273,6 +274,7 @@ function listingPage(posts) {
 
   <link rel="preload" href="../font/Gotham-Book.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../font/Gotham-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../Images/mobile_rip_header.svg" as="image" fetchpriority="high" media="(max-width: 1004px)">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body
