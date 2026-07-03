@@ -476,18 +476,18 @@ h1, h2, h3, h4, h5 {
   user-select: none;
   filter: drop-shadow(0 6px 16px rgba(11, 48, 72, 0.10));
 }
-/* mobile-only torn header artwork (see max-width:600px block below) */
+/* mobile-only torn header artwork (see max-width:1004px block below) */
 .nav__torn-img { display: none; }
 /* On desktop, size the nav box to the artwork's true aspect ratio so the
    wobble edges render undistorted (not stretched/cropped to fit). */
-@media (min-width: 941px) {
+@media (min-width: 1005px) {
   .nav { aspect-ratio: 4935 / 405; }
   .nav__art { object-fit: fill; }
 }
 /* Below that, the drawer/burger layout needs its own comfortable height -
    the artwork just covers whatever box results, cropped rather than
    stretched, so it still reads as a clean pill even if not pixel-true. */
-@media (max-width: 940px) {
+@media (max-width: 1004px) {
   .nav { padding-block: 1.1rem; }
   .nav.is-stuck { padding-block: 0.9rem; }
   .nav__art { object-fit: cover; }
@@ -512,7 +512,7 @@ h1, h2, h3, h4, h5 {
 .hero-dark .nav:not(.is-stuck) .lang__btn { color: #fff; }
 .hero-dark .nav:not(.is-stuck) .lang__btn.is-active { background: #fff; color: var(--navy); }
 /* Nav links only go white on desktop - on mobile they live in the white drawer */
-@media (min-width: 941px) {
+@media (min-width: 1005px) {
   .hero-dark .nav:not(.is-stuck) .nav__link { color: #fff; }
   .hero-dark .nav:not(.is-stuck) .nav__link.is-active { color: var(--accent-soft); }
 }
@@ -696,7 +696,7 @@ h1, h2, h3, h4, h5 {
 /* Contact: desktop pill button hidden on mobile; drawer item hidden on desktop */
 .nav__cta-mobile { display: none; }
 
-@media (max-width: 940px) {
+@media (max-width: 1004px) {
   .nav { width: calc(100% - 1.5rem); top: 0.75rem; }
   .nav.is-stuck { top: 0.5rem; }
   .nav > .container { padding-inline: 1rem; }
@@ -729,18 +729,20 @@ h1, h2, h3, h4, h5 {
   .nav__link { font-size: 1.15rem; padding: 0.9rem 1rem; }
 }
 
-/* Phones: header goes full-bleed — flush with the top and side edges of
-   the screen — instead of floating as an inset pill. And instead of the
-   burger opening a separate floating drawer, the header itself grows
-   taller to reveal the menu, with the torn edge riding along at the new
-   bottom boundary — so it reads as one banner unrolling, not two boxes.
+/* Phones and narrow tablets alike: header goes full-bleed — flush with the
+   top and side edges of the screen — instead of floating as an inset pill.
+   And instead of the burger opening a separate floating drawer, the header
+   itself grows taller to reveal the menu, with the torn edge riding along
+   at the new bottom boundary — so it reads as one banner unrolling, not
+   two boxes. This now spans the whole "mobile mode" range (≤1004px), so
+   there's no in-between tier with a floating pill + separate drawer.
 
    The wobbly artwork image is dropped here in favour of a plain white
    fill + the site's reusable .torn-edge mask: the image's cover-crop
    only looks right at one fixed aspect ratio, but this header's height
    is about to change (open vs closed), and the torn-edge mask (sized off
    width alone, via aspect-ratio) stays crisp at any height. */
-@media (max-width: 600px) {
+@media (max-width: 1004px) {
   .nav, .nav.is-stuck {
     top: 0;
     left: 0;
@@ -769,6 +771,11 @@ h1, h2, h3, h4, h5 {
     z-index: -1;
     pointer-events: none;
     user-select: none;
+    /* At the wider end of this tier (up to 1004px) the artwork scales up
+       enough that the logo starts to sit above its visible paper area, so
+       nudge it down - more at 1004px, tapering to 0 by ~512px. max() keeps
+       narrower phones (<512px) at the original, already-correct position. */
+    transform: translateY(max(0px, calc((100vw - 512px) * 0.07)));
     /* very faint — a hint of depth, not enough to read as a hard box edge */
     filter: drop-shadow(0 4px 8px rgba(11, 48, 72, 0.10));
   }
@@ -1614,7 +1621,7 @@ h1, h2, h3, h4, h5 {
 }
 .cert-card__badge--accent { background: linear-gradient(135deg, var(--accent), var(--accent-soft)); }
 .cert-card__badge--warm { background: linear-gradient(135deg, #FACE8D, #E9B36B); color: var(--navy); }
-.cert-card h3 { font-size: 1.2rem; margin-bottom: 0.4rem; }
+.cert-card h2 { font-size: 1.2rem; margin-bottom: 0.4rem; }
 .cert-card__level { font-size: 0.82rem; font-weight: 700; color: var(--muted); font-family: var(--font-head); }
 
 /* Express certifications — deliberately quieter/smaller than the main cert-card tier */
@@ -2350,7 +2357,7 @@ h1, h2, h3, h4, h5 {
 .contact-row:nth-child(3n+1) .contact-row__ic { background: var(--navy); color: #fff; }
 .contact-row:nth-child(3n+2) .contact-row__ic { background: var(--accent); color: #fff; }
 .contact-row:nth-child(3n+3) .contact-row__ic { background: #FACE8D; color: var(--navy); }
-.contact-row h4 { font-size: 1rem; margin-bottom: 0.2rem; }
+.contact-row h3 { font-size: 1rem; margin-bottom: 0.2rem; }
 .contact-row a, .contact-row p { color: var(--body); font-size: 0.98rem; }
 .contact-row a:hover { color: var(--accent); }
 
@@ -2998,7 +3005,7 @@ h1, h2, h3, h4, h5 {
 @media (max-width: 940px) {
   .article-sidebar { position: static; top: auto; }
 }
-.sidebar-card h4 {
+.sidebar-card h3 {
   font-family: var(--font-head); font-size: 1.02rem; margin-bottom: 1.1rem;
   padding-bottom: 0.9rem; border-bottom: 1px solid var(--line);
 }
@@ -3020,7 +3027,7 @@ h1, h2, h3, h4, h5 {
 .sidebar-recent { display: grid; gap: 1rem; list-style: none; padding: 0; margin: 0; }
 .sidebar-recent a { display: flex; gap: 0.8rem; align-items: center; text-decoration: none; }
 .sidebar-recent img { width: 60px; height: 60px; border-radius: var(--r-sm); object-fit: cover; flex-shrink: 0; }
-.sidebar-recent h5 { font-size: 0.88rem; color: var(--ink); margin: 0 0 0.25rem; line-height: 1.35; }
+.sidebar-recent h4 { font-size: 0.88rem; color: var(--ink); margin: 0 0 0.25rem; line-height: 1.35; }
 .sidebar-recent span { font-size: 0.76rem; color: var(--muted); }
 
 .sidebar-card--cta {
@@ -3028,7 +3035,7 @@ h1, h2, h3, h4, h5 {
   color: rgba(255,255,255,0.85);
   text-align: center;
 }
-.sidebar-card--cta h4 { color: #fff; border-color: rgba(255,255,255,0.2); }
+.sidebar-card--cta h3 { color: #fff; border-color: rgba(255,255,255,0.2); }
 .sidebar-card--cta p { font-size: 0.9rem; margin-bottom: 1.1rem; }
 .sidebar-card--cta input {
   width: 100%; margin-bottom: 0.7rem;

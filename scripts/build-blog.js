@@ -97,7 +97,7 @@ function sidebarRecent(others) {
                 <a href="${p.slug}.html">
                   <img src="${p.image}" alt="" loading="lazy" width="60" height="60">
                   <div>
-                    <h5><span data-lang-el>${p.title_el}</span><span data-lang-en>${p.title_en}</span></h5>
+                    <h4><span data-lang-el>${p.title_el}</span><span data-lang-en>${p.title_en}</span></h4>
                     <span><span data-lang-el>${formatDateShort(p.date, "el-GR")}</span><span data-lang-en>${formatDateShort(p.date, "en-GB")}</span> · <span data-lang-el>${p.read_minutes} λεπτά</span><span data-lang-en>${p.read_minutes} min</span></span>
                   </div>
                 </a>
@@ -117,6 +117,7 @@ function pickOthers(posts, current, count) {
 function detailPage(post, posts) {
   const related = pickOthers(posts, post, 3);
   const recent = pickOthers(posts, post, 3);
+  const ogImage = post.image.startsWith("http") ? post.image : `https://englishpanagopoulou.com${post.image}`;
 
   return `<!DOCTYPE html>
 <html lang="el" data-generated="blog-post">
@@ -126,6 +127,18 @@ function detailPage(post, posts) {
   <meta name="theme-color" content="#0B3048">
   <title>${post.title_el} | Anastasia Panagopoulou English School</title>
   <meta name="description" content="${post.excerpt_el}">
+  <meta property="og:title" content="${post.title_el} | Anastasia Panagopoulou English School">
+  <meta property="og:description" content="${post.excerpt_el}">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://englishpanagopoulou.com/pages/${post.slug}.html">
+  <meta property="og:image" content="${ogImage}">
+  <meta property="og:image:width" content="1600">
+  <meta property="og:image:height" content="900">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${post.title_el} | Anastasia Panagopoulou English School">
+  <meta name="twitter:description" content="${post.excerpt_el}">
+  <meta name="twitter:image" content="${ogImage}">
+  <link rel="canonical" href="https://englishpanagopoulou.com/pages/${post.slug}.html">
   <link rel="icon" href="../Images/favicon.webp">
 
   <link rel="stylesheet" href="../css/style.css">
@@ -142,7 +155,7 @@ function detailPage(post, posts) {
     <section class="article-hero reveal">
       <div class="container">
         <div class="article-hero__media">
-          <img src="${post.image}" alt="" width="1600" height="900">
+          <img src="${post.image}" alt="${post.title_el}" width="1600" height="900" fetchpriority="high">
           <div class="article-hero__overlay">
             <span class="eyebrow article-hero__tag"><span class="eyebrow__mark" aria-hidden="true"></span><span data-lang-el>${post.category_el}</span><span data-lang-en>${post.category_en}</span></span>
             <h1 class="article-hero__title">
@@ -188,7 +201,7 @@ function detailPage(post, posts) {
 
           <aside class="article-sidebar reveal">
             <div class="sidebar-card">
-              <h4><span data-lang-el>Αναζήτηση</span><span data-lang-en>Search</span></h4>
+              <h3><span data-lang-el>Αναζήτηση</span><span data-lang-en>Search</span></h3>
               <div class="sidebar-search">
                 <input type="search" placeholder="Αναζήτηση…">
                 <button type="button" aria-label="Search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>
@@ -196,7 +209,7 @@ function detailPage(post, posts) {
             </div>
 
             <div class="sidebar-card">
-              <h4><span data-lang-el>Πρόσφατα άρθρα</span><span data-lang-en>Recent posts</span></h4>
+              <h3><span data-lang-el>Πρόσφατα άρθρα</span><span data-lang-en>Recent posts</span></h3>
               <ul class="sidebar-recent">
 ${sidebarRecent(recent)}
               </ul>
@@ -221,8 +234,8 @@ ${relatedGrid(related)}
   </main>
 
   <div id="site-footer"></div>
-  <script src="../js/components.js"></script>
-  <script src="../js/main.js"></script>
+  <script src="../js/components.js" defer></script>
+  <script src="../js/main.js" defer></script>
 </body>
 </html>
 `;
@@ -242,6 +255,18 @@ function listingPage(posts) {
   <meta name="theme-color" content="#0B3048">
   <title>Τα νέα μας | Anastasia Panagopoulou English School</title>
   <meta name="description" content="Συμβουλές για γονείς και μαθητές, νέα του φροντιστηρίου και οδηγοί για τις εξετάσεις Αγγλικών.">
+  <meta property="og:title" content="Τα νέα μας | Anastasia Panagopoulou English School">
+  <meta property="og:description" content="Συμβουλές για γονείς και μαθητές, νέα του φροντιστηρίου και οδηγοί για τις εξετάσεις Αγγλικών.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://englishpanagopoulou.com/pages/blog.html">
+  <meta property="og:image" content="https://englishpanagopoulou.com/Images/mainroom.webp">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="640">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Τα νέα μας | Anastasia Panagopoulou English School">
+  <meta name="twitter:description" content="Συμβουλές για γονείς και μαθητές, νέα του φροντιστηρίου και οδηγοί για τις εξετάσεις Αγγλικών.">
+  <meta name="twitter:image" content="https://englishpanagopoulou.com/Images/mainroom.webp">
+  <link rel="canonical" href="https://englishpanagopoulou.com/pages/blog.html">
   <link rel="icon" href="../Images/favicon.webp">
 
   <link rel="stylesheet" href="../css/style.css">
@@ -333,8 +358,8 @@ ${gridPosts.map((p, i) => postCard(p, i || null)).join("\n\n")}
   </main>
 
   <div id="site-footer"></div>
-  <script src="../js/components.js"></script>
-  <script src="../js/main.js"></script>
+  <script src="../js/components.js" defer></script>
+  <script src="../js/main.js" defer></script>
 </body>
 </html>
 `;

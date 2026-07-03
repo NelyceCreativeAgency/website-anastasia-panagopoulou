@@ -96,7 +96,7 @@
       '<div class="container">' +
         '<div class="footer__grid">' +
           '<div class="footer__about">' +
-            '<a class="footer__logo" href="' + href("index.html") + '"><img src="' + href("Images/LOGOlight.webp") + '" alt="Anastasia Panagopoulou English School"></a>' +
+            '<a class="footer__logo" href="' + href("index.html") + '"><img src="' + href("Images/LOGOlight.webp") + '" alt="Anastasia Panagopoulou English School" width="185" height="74" loading="lazy"></a>' +
             '<p class="footer__tagline reveal">' + dual(
               wordsReveal("36 χρόνια εκπαίδευσης στην αγγλική γλώσσα."),
               wordsReveal("36 years of English language education.")
