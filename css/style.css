@@ -520,7 +520,7 @@ h1, h2, h3, h4, h5 {
 /* Pencil-drawn underline - inline SVG stroke-dashoffset animation */
 .nav__underline {
   position: absolute;
-  bottom: -4px;
+  bottom: -7px;
   left: 0;
   width: 100%;
   height: 8px;
@@ -1255,12 +1255,16 @@ h1, h2, h3, h4, h5 {
 .section--accent .btn-modern:hover { color: var(--accent); }
 .section--accent .btn-modern:hover svg { fill: var(--accent); }
 
-/* about section: solid navy, full-height, content centred */
+/* about section: solid navy, full-height, content centred.
+   padding-bottom guarantees clearance under the centred content so the
+   torn-edge--bottom banner (mostly solid fill, not just decorative gaps)
+   never paints over the CTA button on short/laptop viewports. */
 .section--about {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-bottom: max(var(--section-y), 12.5rem);
   position: relative;
 }
 /* torn-paper banners — the torn edge tears into the area above/below,
@@ -1277,6 +1281,11 @@ h1, h2, h3, h4, h5 {
   display: block;
   width: 100%;
   aspect-ratio: 1729 / 181;
+  /* the shape's solid fill reaches ~80% of its own height into the section
+     it borders (by design, for the torn-paper look) - on very wide viewports
+     the width-driven aspect-ratio can grow that reach past the section's
+     own padding, so cap it here rather than everywhere it's used */
+  max-height: 160px;
   -webkit-mask: url('../Images/torn banner.svg') center / 100% 100% no-repeat;
           mask: url('../Images/torn banner.svg') center / 100% 100% no-repeat;
 }
