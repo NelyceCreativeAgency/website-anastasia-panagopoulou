@@ -7,7 +7,7 @@ category_en: Tips
 filter_tag: tips
 date: 2026-06-20
 read_minutes: 6
-image: /Images/pexels-polina-tankilevitch-6929167.jpg
+image: /Images/pexels-polina-tankilevitch-6929167.webp
 author: Anastasia Panagopoulou
 excerpt_el: Μικρά, σταθερά βήματα κάνουν τη μεγαλύτερη διαφορά. Δείτε πώς να τα
   εντάξετε στην καθημερινότητα.

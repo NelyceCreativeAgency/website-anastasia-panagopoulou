@@ -4,16 +4,16 @@
    ============================================================= */
 
 /* ---------- 0. Gotham font-face ---------- */
-@font-face { font-family: "Gotham"; src: url("../font/Gotham-Light.otf") format("opentype"); font-weight: 300; font-style: normal; font-display: swap; }
-@font-face { font-family: "Gotham"; src: url("../font/Gotham-LightItalic.otf") format("opentype"); font-weight: 300; font-style: italic; font-display: swap; }
-@font-face { font-family: "Gotham"; src: url("../font/Gotham-Book.otf") format("opentype"); font-weight: 400; font-style: normal; font-display: swap; }
-@font-face { font-family: "Gotham"; src: url("../font/Gotham-BookItalic.otf") format("opentype"); font-weight: 400; font-style: italic; font-display: swap; }
-@font-face { font-family: "Gotham"; src: url("../font/Gotham-Medium.otf") format("opentype"); font-weight: 500; font-style: normal; font-display: swap; }
-@font-face { font-family: "Gotham"; src: url("../font/Gotham-MediumItalic.otf") format("opentype"); font-weight: 500; font-style: italic; font-display: swap; }
-@font-face { font-family: "Gotham"; src: url("../font/Gotham-Bold.otf") format("opentype"); font-weight: 700; font-style: normal; font-display: swap; }
-@font-face { font-family: "Gotham"; src: url("../font/Gotham-BoldItalic.otf") format("opentype"); font-weight: 700; font-style: italic; font-display: swap; }
-@font-face { font-family: "Gotham"; src: url("../font/Gotham-Black.otf") format("opentype"); font-weight: 800; font-style: normal; font-display: swap; }
-@font-face { font-family: "Gotham"; src: url("../font/Gotham-Ultra.otf") format("opentype"); font-weight: 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Gotham"; src: url("../font/Gotham-Light.woff2") format("woff2"), url("../font/Gotham-Light.otf") format("opentype"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Gotham"; src: url("../font/Gotham-LightItalic.woff2") format("woff2"), url("../font/Gotham-LightItalic.otf") format("opentype"); font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: "Gotham"; src: url("../font/Gotham-Book.woff2") format("woff2"), url("../font/Gotham-Book.otf") format("opentype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Gotham"; src: url("../font/Gotham-BookItalic.woff2") format("woff2"), url("../font/Gotham-BookItalic.otf") format("opentype"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Gotham"; src: url("../font/Gotham-Medium.woff2") format("woff2"), url("../font/Gotham-Medium.otf") format("opentype"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Gotham"; src: url("../font/Gotham-MediumItalic.woff2") format("woff2"), url("../font/Gotham-MediumItalic.otf") format("opentype"); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: "Gotham"; src: url("../font/Gotham-Bold.woff2") format("woff2"), url("../font/Gotham-Bold.otf") format("opentype"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Gotham"; src: url("../font/Gotham-BoldItalic.woff2") format("woff2"), url("../font/Gotham-BoldItalic.otf") format("opentype"); font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: "Gotham"; src: url("../font/Gotham-Black.woff2") format("woff2"), url("../font/Gotham-Black.otf") format("opentype"); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Gotham"; src: url("../font/Gotham-Ultra.woff2") format("woff2"), url("../font/Gotham-Ultra.otf") format("opentype"); font-weight: 900; font-style: normal; font-display: swap; }
 
 /* ---------- 1. Design Tokens ---------- */
 :root {
@@ -145,7 +145,6 @@ h1, h2, h3, h4, h5 {
 }
 
 .section--soft { background: var(--bg-soft); }
-.section--tint { background: var(--bg-tint); }
 .section--navy { background: var(--navy); color: #cfe0ec; position: relative; }
 .section--navy h1, .section--navy h2, .section--navy h3 { color: #fff; }
 .section--navy .lead { color: #cfe0ec; }
@@ -275,9 +274,6 @@ h1, h2, h3, h4, h5 {
 }
 .section-head .lead { margin-inline: auto; margin-top: 1rem; }
 
-.text-accent { color: var(--accent); }
-.text-center { text-align: center; }
-
 /* ---------- 5. Buttons ---------- */
 .btn {
   --btn-bg: var(--accent);
@@ -302,9 +298,6 @@ h1, h2, h3, h4, h5 {
 .btn:hover { transform: translateY(-3px); box-shadow: 0 24px 46px rgba(229,57,20,0.34); }
 .btn:active { transform: translateY(-1px); }
 
-.btn--navy { --btn-bg: var(--navy); box-shadow: var(--shadow-md); }
-.btn--navy:hover { box-shadow: var(--shadow-lg); }
-
 .btn--ghost {
   --btn-bg: transparent;
   --btn-fg: var(--navy);
@@ -313,11 +306,6 @@ h1, h2, h3, h4, h5 {
 }
 .btn--ghost:hover { background: var(--navy); color: #fff; border-color: var(--navy); box-shadow: var(--shadow-md); }
 
-.btn--light {
-  --btn-bg: #fff;
-  --btn-fg: var(--navy);
-  box-shadow: var(--shadow-md);
-}
 .btn--white-ghost {
   --btn-bg: transparent;
   --btn-fg: #fff;
@@ -347,20 +335,6 @@ h1, h2, h3, h4, h5 {
 .btn--white-ghost:hover::before { transform: translate(-50%, 50%) scale(1); }
 .btn--white-ghost span,
 .btn--white-ghost .text { position: relative; z-index: 1; }
-
-.btn--sm { padding: 0.7rem 1.3rem; font-size: 0.92rem; }
-
-.link-arrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-family: var(--font-head);
-  font-weight: 700;
-  color: var(--accent);
-  transition: gap 0.3s var(--ease);
-}
-.link-arrow svg { transition: transform 0.3s var(--ease); }
-.link-arrow:hover { gap: 0.75rem; }
 
 /* "modern button" - uiverse.io / gharsh11032000 adapted to brand red */
 .btn-modern {
@@ -496,27 +470,6 @@ h1, h2, h3, h4, h5 {
 /* Dual logos - light version hidden by default, swapped in on dark hero */
 .nav__logo-light { display: none; }
 
-/* Dark-hero pill: navy frosted glass so white text stays legible */
-.hero-dark .nav:not(.is-stuck) {
-  background: rgba(11, 48, 72, 0.52);
-  border-color: rgba(255, 255, 255, 0.14);
-  box-shadow: 0 4px 28px rgba(0, 0, 0, 0.22);
-}
-
-/* Logo + burger recolor; links only on desktop (mobile uses white drawer) */
-.hero-dark .nav:not(.is-stuck) .nav__logo-dark  { display: none; }
-.hero-dark .nav:not(.is-stuck) .nav__logo-light { display: block; }
-.hero-dark .nav:not(.is-stuck) .nav__burger { background: rgba(255, 255, 255, 0.18); }
-/* Lang switch lives in the pill at every breakpoint - fix colors at all widths */
-.hero-dark .nav:not(.is-stuck) .lang { background: rgba(255, 255, 255, 0.14); }
-.hero-dark .nav:not(.is-stuck) .lang__btn { color: #fff; }
-.hero-dark .nav:not(.is-stuck) .lang__btn.is-active { background: #fff; color: var(--navy); }
-/* Nav links only go white on desktop - on mobile they live in the white drawer */
-@media (min-width: 1005px) {
-  .hero-dark .nav:not(.is-stuck) .nav__link { color: #fff; }
-  .hero-dark .nav:not(.is-stuck) .nav__link.is-active { color: var(--accent-soft); }
-}
-
 /* Pill inner: override .container so it fills the pill edge-to-edge with inline padding */
 .nav > .container {
   width: 100%;
@@ -598,10 +551,6 @@ h1, h2, h3, h4, h5 {
   box-shadow: 0 6px 20px rgba(229, 57, 20, 0.40);
   transform: translateY(-1px);
 }
-/* keep it red on the dark hero */
-.hero-dark .nav:not(.is-stuck) .nav__link--contact { color: #fff !important; }
-.hero-dark .nav:not(.is-stuck) .nav__link--contact:hover { background: var(--accent-soft) !important; }
-
 .nav__actions { display: flex; align-items: center; gap: 1rem; }
 
 /* Language switcher */
@@ -642,9 +591,7 @@ h1, h2, h3, h4, h5 {
   position: relative;
   z-index: 101;
 }
-/* Force navy bg when menu is open so X is always visible.
-   Must beat .hero-dark .nav:not(.is-stuck) .nav__burger (specificity 0-4-0). */
-.hero-dark .nav.is-open .nav__burger,
+/* Force navy bg when menu is open so X is always visible. */
 .nav.is-open .nav__burger { background: var(--navy); }
 
 /* span = middle bar, centred in the button */
@@ -857,7 +804,6 @@ h1, h2, h3, h4, h5 {
   gap: clamp(1rem, 3vw, 2.5rem);
 }
 .hero__title { font-size: clamp(2rem, 3.7vw, 3.2rem); }
-.hero__title .text-accent { display: inline-block; }
 
 /* Hero line reveal */
 .hero-line { display: block; overflow: hidden; padding-bottom: 6px; }
@@ -894,17 +840,6 @@ h1, h2, h3, h4, h5 {
 @keyframes brush-draw { to { stroke-dashoffset: 0; } }
 .hero__text { margin: 1.6rem 0 2.2rem; }
 .hero__cta { display: flex; flex-wrap: wrap; gap: 1rem; }
-.hero__trust {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem 2.2rem;
-  margin-top: 2.8rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--line);
-}
-.hero__trust-item { display: flex; align-items: center; gap: 0.7rem; }
-.hero__trust-num { font-family: var(--font-head); font-size: 1.7rem; font-weight: 700; color: var(--navy); line-height: 1; }
-.hero__trust-label { font-size: 0.85rem; color: var(--muted); }
 
 .hero__media { position: relative; display: flex; justify-content: center; }
 /* fixed-size stage so the ink line and the motion-path share one coordinate box */
@@ -990,35 +925,6 @@ h1, h2, h3, h4, h5 {
   .pencil-scene { height: clamp(250px, 40vh, 330px); }
   .hero__illustration { height: clamp(210px, 34vh, 290px); }
 }
-.hero__badge {
-  position: absolute;
-  background: #fff;
-  border-radius: var(--r-lg);
-  box-shadow: var(--shadow-md);
-  padding: 1.1rem 1.3rem;
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-}
-.hero__badge--bl { left: -1.5rem; bottom: 2rem; }
-.hero__badge--tr { right: -1rem; top: 2rem; }
-.hero__badge-icon {
-  width: 46px; height: 46px; flex: none;
-  display: grid; place-items: center;
-  background: var(--accent-wash); color: var(--accent);
-  border-radius: 14px;
-}
-.hero__badge-num { font-family: var(--font-head); font-weight: 700; color: var(--navy); font-size: 1.15rem; line-height: 1.1; }
-.hero__badge-label { font-size: 0.8rem; color: var(--muted); }
-
-.hero__blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(60px);
-  z-index: 0;
-}
-.hero__blob--1 { display: none; }
-.hero__blob--2 { width: 320px; height: 320px; background: rgba(255, 255, 255, 0.06); bottom: -120px; left: -80px; }
 .hero .container { position: relative; z-index: 1; }
 
 /* ---------- 8. Cards ---------- */
@@ -1036,15 +942,6 @@ h1, h2, h3, h4, h5 {
 .card--plain { background: none; border: none; box-shadow: none; padding: 0; }
 .card--plain:hover { box-shadow: none; }
 
-.card__icon {
-  width: 62px; height: 62px;
-  display: grid; place-items: center;
-  border-radius: 18px;
-  background: var(--navy);
-  color: #fff;
-  margin-bottom: 1.4rem;
-}
-.card__icon--accent { background: var(--accent); }
 .card__title { font-size: 1.25rem; margin-bottom: 0.7rem; }
 .card__text { font-size: 0.98rem; }
 
@@ -1412,10 +1309,6 @@ h1, h2, h3, h4, h5 {
   transform: rotate(2deg);
 }
 
-.split__media--stack { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.split__media--stack img:first-child { aspect-ratio: 3/4; margin-top: 2rem; }
-.split__media--stack img:last-child { aspect-ratio: 3/4; }
-
 .check-list { display: grid; gap: 0.9rem; margin-top: 1.6rem; }
 .check-list li { display: flex; gap: 0.8rem; align-items: flex-start; }
 .check-list .ic {
@@ -1424,36 +1317,6 @@ h1, h2, h3, h4, h5 {
   display: grid; place-items: center; margin-top: 2px;
 }
 .check-list strong { color: var(--ink); }
-
-/* Course cards */
-.course-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--r-lg);
-  background: #fff;
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-.course-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); }
-.course-card__media { position: relative; aspect-ratio: 16/11; overflow: hidden; }
-.course-card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease); }
-.course-card:hover .course-card__media img { transform: scale(1.06); }
-.course-card__tag {
-  position: absolute; top: 1rem; left: 1rem;
-  background: rgba(255,255,255,0.92);
-  color: var(--navy);
-  font-family: var(--font-head); font-weight: 700; font-size: 0.78rem;
-  padding: 0.45rem 0.9rem; border-radius: var(--r-pill);
-  backdrop-filter: blur(4px);
-}
-.course-card__body { padding: 1.8rem; display: flex; flex-direction: column; flex: 1; }
-.course-card__body h3 { font-size: 1.35rem; margin-bottom: 0.6rem; }
-.course-card__age { font-size: 0.85rem; color: var(--accent); font-weight: 700; font-family: var(--font-head); margin-bottom: 0.8rem; }
-.course-card__foot { margin-top: auto; padding-top: 1.2rem; }
 
 /* ---- Course Cards ---- */
 .cslider {
@@ -1888,26 +1751,6 @@ h1, h2, h3, h4, h5 {
 .cta-band .lead { color: #b8d0e2; margin-inline: auto; }
 .cta-band__actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
 
-/* ---------- 13. Timeline ---------- */
-.timeline { position: relative; max-width: 860px; margin-inline: auto; }
-.timeline::before {
-  content: ""; position: absolute; left: 27px; top: 8px; bottom: 8px;
-  width: 2px; background: var(--line);
-}
-.tl-item { position: relative; padding-left: 78px; padding-bottom: 2.4rem; }
-.tl-item:last-child { padding-bottom: 0; }
-.tl-dot {
-  position: absolute; left: 8px; top: 0;
-  width: 40px; height: 40px; border-radius: 50%;
-  background: var(--navy); color: #fff;
-  display: grid; place-items: center;
-  font-family: var(--font-head); font-weight: 700; font-size: 0.7rem;
-  box-shadow: 0 0 0 6px var(--bg);
-}
-.tl-item:nth-child(odd) .tl-dot { background: var(--accent); }
-.tl-year { font-family: var(--font-head); font-weight: 700; color: var(--accent); font-size: 1.1rem; }
-.tl-item h3 { font-size: 1.2rem; margin: 0.2rem 0 0.5rem; }
-
 /* ---------- 13b. Teacher Profile ---------- */
 .teacher-section { background: rgba(229, 57, 20, 0.03); }
 
@@ -1953,34 +1796,6 @@ h1, h2, h3, h4, h5 {
   object-position: center;
 }
 
-.teacher__badge {
-  position: absolute;
-  bottom: 1.25rem;
-  right: 1.25rem;
-  background: var(--navy);
-  color: #fff;
-  border-radius: var(--r-sm);
-  padding: 0.7rem 1rem;
-  text-align: center;
-  line-height: 1.1;
-}
-
-.teacher__badge span {
-  display: block;
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  opacity: 0.55;
-}
-
-.teacher__badge strong {
-  display: block;
-  font-size: 1.45rem;
-  font-weight: 700;
-  font-family: var(--font-head);
-  letter-spacing: -0.02em;
-}
 
 .teacher__socials {
   display: flex;
@@ -2052,33 +1867,6 @@ h1, h2, h3, h4, h5 {
   letter-spacing: 0.01em;
 }
 
-.teacher__stat-bar {
-  display: flex;
-  gap: 2.5rem;
-  padding: 1.75rem 0;
-  border-top: 1px solid rgba(11, 48, 72, 0.07);
-  border-bottom: 1px solid rgba(11, 48, 72, 0.07);
-  margin-bottom: 2.25rem;
-}
-
-.teacher__stat strong {
-  display: block;
-  font-size: clamp(2.4rem, 4vw, 3.2rem);
-  font-weight: 700;
-  color: var(--accent);
-  line-height: 1;
-  letter-spacing: -0.04em;
-  font-family: var(--font-head);
-}
-
-.teacher__stat span:not([data-lang-el]):not([data-lang-en]) {
-  display: block;
-  font-size: 0.8rem;
-  color: var(--muted);
-  margin-top: 0.3rem;
-  font-weight: 500;
-}
-
 .teacher__text p {
   font-size: 1.02rem;
   line-height: 1.8;
@@ -2108,7 +1896,6 @@ h1, h2, h3, h4, h5 {
   .teacher__body { order: 1; }
   .teacher__text { order: 3; margin-top: 6rem; position: relative; z-index: 2; }
   .teacher__name { font-size: clamp(1.8rem, 7vw, 2.4rem); }
-  .teacher__stat-bar { gap: 1.75rem; }
 }
 
 /* ---------- 13c. Instagram Gallery ---------- */
@@ -2872,16 +2659,6 @@ h1, h2, h3, h4, h5 {
 
 /* Article */
 .article { max-width: 760px; margin-inline: auto; }
-.article__hero img { width: 100%; border-radius: var(--r-lg); aspect-ratio: 16/9; object-fit: cover; box-shadow: var(--shadow-md); }
-.article__meta {
-  display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
-  margin: 1.8rem 0;
-  padding-bottom: 1.8rem; border-bottom: 1px solid var(--line);
-}
-.article__author { display: flex; align-items: center; gap: 0.8rem; }
-.article__author img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
-.article__author-name { font-family: var(--font-head); font-weight: 700; color: var(--ink); font-size: 0.95rem; }
-.article__author-meta { font-size: 0.8rem; color: var(--muted); }
 .article__body > * { margin-bottom: 1.3rem; }
 .article__body > [data-lang-el] > *, .article__body > [data-lang-en] > * { margin-bottom: 1.3rem; }
 .article__body h2 { font-size: 1.7rem; margin-top: 2.2rem; }
@@ -2897,8 +2674,6 @@ h1, h2, h3, h4, h5 {
   border-radius: 0 var(--r-md) var(--r-md) 0;
   font-size: 1.15rem; color: var(--ink); font-style: italic;
 }
-.article__share { display: flex; gap: 0.7rem; align-items: center; margin-top: 2.2rem; padding-top: 1.8rem; border-top: 1px solid var(--line); }
-
 /* Article hero — full-bleed image w/ overlaid title, author & share.
    Runs edge-to-edge from the very top of the page (behind the floating nav).
    Pinned via position:sticky so it stays put while .article-cover (the rest
@@ -3029,25 +2804,6 @@ h1, h2, h3, h4, h5 {
 .sidebar-recent img { width: 60px; height: 60px; border-radius: var(--r-sm); object-fit: cover; flex-shrink: 0; }
 .sidebar-recent h4 { font-size: 0.88rem; color: var(--ink); margin: 0 0 0.25rem; line-height: 1.35; }
 .sidebar-recent span { font-size: 0.76rem; color: var(--muted); }
-
-.sidebar-card--cta {
-  background: linear-gradient(135deg, var(--navy), var(--navy-600));
-  color: rgba(255,255,255,0.85);
-  text-align: center;
-}
-.sidebar-card--cta h3 { color: #fff; border-color: rgba(255,255,255,0.2); }
-.sidebar-card--cta p { font-size: 0.9rem; margin-bottom: 1.1rem; }
-.sidebar-card--cta input {
-  width: 100%; margin-bottom: 0.7rem;
-  border: none; border-radius: var(--r-pill);
-  padding: 0.75rem 1.1rem; font-size: 0.9rem;
-}
-.sidebar-card--cta button {
-  width: 100%; border: none; cursor: pointer;
-  background: var(--accent); color: #fff;
-  border-radius: var(--r-pill); padding: 0.8rem;
-  font-family: var(--font-head); font-weight: 700;
-}
 
 /* ---------- 18. Footer ---------- */
 /* floating rounded footer card, inset from the edges */
@@ -3256,8 +3012,6 @@ html[lang="en"] [data-lang-en] { display: revert; }
   .value-card:nth-child(even)::before { display: none; }
   .value-card:not(:first-child)::after { display: block; }
   .value-card:not(:first-child) { padding-top: 1.8rem; }
-  .hero__badge--bl { left: 0.5rem; }
-  .hero__badge--tr { right: 0.5rem; }
   .card { padding: 1.7rem; }
   .cta-band__actions .btn { width: 100%; }
   /* btn-modern: don't let it overflow narrow screens */

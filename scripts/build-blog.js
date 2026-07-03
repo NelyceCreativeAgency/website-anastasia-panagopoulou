@@ -141,6 +141,8 @@ function detailPage(post, posts) {
   <link rel="canonical" href="https://englishpanagopoulou.com/pages/${post.slug}.html">
   <link rel="icon" href="../Images/favicon.webp">
 
+  <link rel="preload" href="../font/Gotham-Book.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../font/Gotham-Bold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body
@@ -269,6 +271,8 @@ function listingPage(posts) {
   <link rel="canonical" href="https://englishpanagopoulou.com/pages/blog.html">
   <link rel="icon" href="../Images/favicon.webp">
 
+  <link rel="preload" href="../font/Gotham-Book.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../font/Gotham-Bold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body
