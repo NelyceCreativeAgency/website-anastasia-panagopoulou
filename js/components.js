@@ -60,6 +60,7 @@
     '<a class="skip-link" href="#main">' + dual("Μετάβαση στο περιεχόμενο", "Skip to content") + '</a>' +
     '<header class="nav" id="nav">' +
       '<img class="nav__art" src="' + href("Images/headertest.svg") + '" alt="" aria-hidden="true">' +
+      '<span class="torn-edge torn-edge--bottom torn-edge--white nav__torn" aria-hidden="true"><span class="torn-edge__shape"></span></span>' +
       '<div class="container nav__inner">' +
         '<a class="nav__logo" href="' + href("index.html") + '" aria-label="Anastasia Panagopoulou English School">' +
           '<img class="nav__logo-dark" src="' + href("Images/LOGO.webp") + '" alt="Anastasia Panagopoulou English School" width="170" height="38">' +

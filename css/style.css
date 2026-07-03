@@ -476,6 +476,8 @@ h1, h2, h3, h4, h5 {
   user-select: none;
   filter: drop-shadow(0 6px 16px rgba(11, 48, 72, 0.10));
 }
+/* mobile-only torn bottom edge (see the max-width:600px block below) */
+.nav__torn { display: none; }
 /* On desktop, size the nav box to the artwork's true aspect ratio so the
    wobble edges render undistorted (not stretched/cropped to fit). */
 @media (min-width: 941px) {
@@ -728,12 +730,16 @@ h1, h2, h3, h4, h5 {
 }
 
 /* Phones: header goes full-bleed — flush with the top and side edges of
-   the screen — instead of floating as an inset pill. The wobbly artwork
-   still fills the box exactly (object-fit: cover), so its hand-drawn
-   bottom edge stays visible; only the top wobble (now flush with the
-   screen edge, nothing above it) and the side wobbles (cropped by the
-   full-width box) are no longer visible — expected for an edge-to-edge
-   header. */
+   the screen — instead of floating as an inset pill. And instead of the
+   burger opening a separate floating drawer, the header itself grows
+   taller to reveal the menu, with the torn edge riding along at the new
+   bottom boundary — so it reads as one banner unrolling, not two boxes.
+
+   The wobbly artwork image is dropped here in favour of a plain white
+   fill + the site's reusable .torn-edge mask: the image's cover-crop
+   only looks right at one fixed aspect ratio, but this header's height
+   is about to change (open vs closed), and the torn-edge mask (sized off
+   width alone, via aspect-ratio) stays crisp at any height. */
 @media (max-width: 600px) {
   .nav, .nav.is-stuck {
     top: 0;
@@ -741,21 +747,54 @@ h1, h2, h3, h4, h5 {
     width: 100%;
     transform: none;
   }
-  /* the wobble is textured all along the artwork's edge, top included — lay
-     a flat white cap over the top of the box so only the bottom sliver of
-     the artwork (still wobbly) peeks out beneath it */
-  .nav::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    bottom: 14px;
-    background: #fff;
-    z-index: 0;
+  .nav__art { display: none; }
+  .nav { background: #fff; }
+  .nav__torn { display: block; }
+
+  /* .nav (outer, fixed) auto-sizes to fit .nav__inner + its own padding-
+     block, so it — and the torn edge riding on its bottom — grow right
+     along with .nav__inner's own max-height transition below. Clipping
+     lives on .nav__inner, NOT on .nav itself, so the torn edge (which
+     deliberately overshoots .nav's bottom edge by design) never gets cut
+     off by an overflow:hidden it isn't meant to respect. */
+  .nav__inner {
+    height: auto;
+    max-height: 4.6rem;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    overflow: hidden;
+    padding-bottom: 0;
+    transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                padding-bottom 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   }
+  .nav.is-open .nav__inner {
+    max-height: min(calc(100dvh - 2rem), 34rem);
+    /* clears the torn edge's overlap zone once the menu is showing —
+       same ~10.5vw reservation used for the article-hero torn edge */
+    padding-bottom: 10.5vw;
+  }
+
+  .nav__logo { order: 1; }
+  .nav__actions { order: 2; }
+  /* the <nav aria-label="Primary"> wrapper around the link list — forcing
+     it to full width guarantees it wraps onto its own line below the
+     logo/actions row, regardless of flex order math */
+  .nav__inner > nav[aria-label="Primary"] { order: 3; width: 100%; }
+
   .nav__menu {
-    top: 4.25rem;
-    height: calc(100dvh - 4.25rem);
+    position: static;
+    display: block;
+    width: 100%;
+    height: auto;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+    transform: none;
+    transition: none;
+    padding: 0.5rem 0 0;
+    gap: 0;
   }
+  .nav__menu .nav__link { display: block; width: 100%; }
 }
 
 /* ---------- 7. Hero ---------- */
