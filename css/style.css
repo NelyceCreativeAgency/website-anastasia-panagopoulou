@@ -2690,8 +2690,13 @@ h1, h2, h3, h4, h5 {
 .article__body h3 { font-size: 1.3rem; margin-top: 1.6rem; }
 .article__body p { color: var(--body); }
 .article__body ul { display: grid; gap: 0.6rem; padding-left: 0; }
-.article__body ul li { display: flex; gap: 0.7rem; }
-.article__body ul li::before { content: "✓"; color: var(--accent); font-weight: 700; }
+.article__body ul li { display: flex; gap: 0.7rem; align-items: flex-start; }
+.article__body ul li::before { content: "✓"; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+/* headings keep their margin-top when they follow body text, but not when
+   they're the bullet's own content - inside the flex row that margin just
+   pushes the heading down and away from the checkmark next to it */
+.article__body ul li > h2,
+.article__body ul li > h3 { margin-top: 0; }
 .article__body blockquote {
   border-left: 4px solid var(--accent);
   background: var(--bg-soft);
