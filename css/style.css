@@ -2705,6 +2705,20 @@ h1, h2, h3, h4, h5 {
   color: var(--ink);
   font-style: italic;
 }
+/* CMS authors sometimes wrap the quote in a heading (##/###) for emphasis -
+   headings set their own line-height/margin/font-size directly (not
+   inherited), so the blockquote's own values above don't reach them -
+   override explicitly rather than relying on inheritance. */
+.article__body blockquote h2,
+.article__body blockquote h3,
+.article__body blockquote h4 {
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: 700;
+  line-height: 1.5;
+  color: inherit;
+  margin-top: 0;
+}
 /* hand-drawn side line - a gently wavy pencil stroke instead of a ruler-straight border */
 .article__body blockquote::before {
   content: "";
