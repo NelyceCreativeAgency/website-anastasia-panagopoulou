@@ -791,6 +791,23 @@ h1, h2, h3, h4, h5 {
   .nav__menu .nav__cta-mobile .nav__link--contact { padding-left: 2rem; padding-right: 2rem; }
 }
 
+/* Blog article pages: the header opens directly on top of the article's
+   own full-bleed photo, so the usual white torn-paper banner + navy logo
+   fights with the image instead of sitting over it. While closed and not
+   yet scrolled past the photo, drop the paper fill and swap to the light
+   logo (same pair used in the footer) so the header reads as an overlay
+   on the photo, not a separate white bar. Reverts to the normal treatment
+   once the menu opens (needs its usual white backing to stay legible) or
+   once scrolled past the hero into the white article body. */
+@media (max-width: 1004px) {
+  [data-generated="blog-post"] .nav:not(.is-stuck):not(.is-open) .nav__torn-img { display: none; }
+  [data-generated="blog-post"] .nav:not(.is-stuck):not(.is-open) .nav__logo-dark { display: none; }
+  [data-generated="blog-post"] .nav:not(.is-stuck):not(.is-open) .nav__logo-light { display: block; }
+  [data-generated="blog-post"] .nav:not(.is-stuck):not(.is-open) .lang { background: rgba(255, 255, 255, 0.18); }
+  [data-generated="blog-post"] .nav:not(.is-stuck):not(.is-open) .lang__btn { color: #fff; }
+  [data-generated="blog-post"] .nav:not(.is-stuck):not(.is-open) .lang__btn.is-active { background: #fff; color: var(--navy); }
+}
+
 /* ---------- 7. Hero ---------- */
 .hero {
   position: relative;
@@ -2289,6 +2306,14 @@ h1, h2, h3, h4, h5 {
 }
 .breadcrumb a:hover { color: var(--accent); }
 .breadcrumb span { color: var(--accent); }
+
+/* Article breadcrumb ends in the full post title (dynamic, often long),
+   which wraps into a cramped multi-line mess on narrow screens - and it's
+   redundant there anyway since the same title is the big H1 right below.
+   Drop the trailing "› title" on mobile and keep just Home › News. */
+@media (max-width: 600px) {
+  .breadcrumb--article > *:nth-last-child(-n+3) { display: none; }
+}
 
 /* ---------- 16. Blog ---------- */
 .post-card {
