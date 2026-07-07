@@ -1,0 +1,85 @@
+# "Τμήματα" (Courses) page editable content.
+# Managed via /admin (Decap CMS) → "Σελίδες" → "Τμήματα".
+# scripts/build-pages.js flattens this (section.field → section_field) and
+# writes the matching text/images into pages/courses.html on every build —
+# don't hand-edit pages/courses.html for these fields, edit here instead
+# (or via /admin).
+
+hero:
+  eyebrow_el: "Τμήματα"
+  eyebrow_en: "Courses"
+  title_el: "Ένα τμήμα για κάθε ηλικία & στόχο"
+  title_en: "A course for every age & goal"
+  lead_el: "Από τα πρώτα γράμματα μέχρι τα ανώτερα πτυχία και τα Αγγλικά της καθημερινότητας."
+  lead_en: "From first letters to advanced certificates and everyday English."
+
+junior:
+  eyebrow_el: "Ηλικίες 6–11"
+  eyebrow_en: "Ages 6–11"
+  lead_el: "Τα πρώτα βήματα στα Αγγλικά, μέσα από παιχνίδι, τραγούδι και ιστορίες που χτίζουν αγάπη για τη γλώσσα."
+  lead_en: "First steps in English through play, song and stories that build a love for the language."
+  benefit1_el: "Γερές βάσεις σε ανάγνωση, γραφή και προφορά."
+  benefit1_en: "Strong foundations in reading, writing and pronunciation."
+  benefit2_el: "Μάθηση χωρίς άγχος, με θετική ενίσχυση."
+  benefit2_en: "Stress-free learning with positive reinforcement."
+  benefit3_el: "Καλλιέργεια συνήθειας μελέτης από νωρίς."
+  benefit3_en: "Building good study habits from an early age."
+  outcomes_el: "Οι μαθητές αποκτούν άνεση στον προφορικό λόγο, πλούσιο λεξιλόγιο και ετοιμότητα για τα πρώτα επίπεδα πτυχίων."
+  outcomes_en: "Students gain spoken confidence, a rich vocabulary and readiness for the first certificate levels."
+  image: "../Images/junior-panel.webp"
+
+senior:
+  eyebrow_el: "Ηλικίες 12–17"
+  eyebrow_en: "Ages 12–17"
+  lead_el: "Στοχευμένη προετοιμασία για πτυχία B2 και C2, με ισορροπία ανάμεσα στη γνώση, τις δεξιότητες και την αυτοπεποίθηση."
+  lead_en: "Focused preparation for B2 and C2 certificates, balancing knowledge, skills and confidence."
+  benefit1_el: "Συστηματική προετοιμασία για Cambridge & Michigan."
+  benefit1_en: "Systematic preparation for Cambridge & Michigan."
+  benefit2_el: "Τεχνικές εξετάσεων & διαχείριση χρόνου."
+  benefit2_en: "Exam techniques & time management."
+  benefit3_el: "Τακτικά διαγωνίσματα προσομοίωσης."
+  benefit3_en: "Regular mock exams for practice."
+  outcomes_el: "Οι μαθητές κατακτούν ανώτερα επίπεδα γλώσσας και αποκτούν αναγνωρισμένα διεθνή πτυχία."
+  outcomes_en: "Students reach advanced levels and earn internationally recognised certificates."
+  image: "../Images/senior-panel.webp"
+
+adults:
+  eyebrow_el: "18+"
+  eyebrow_en: "18+"
+  title_el: "Ενήλικες"
+  title_en: "Adults"
+  lead_el: "Προγράμματα προετοιμασίας για αναγνωρισμένα πτυχία και επαγγελματική εξέλιξη, με απόλυτη ευελιξία."
+  lead_en: "Preparation programmes for recognised certificates and career growth, with complete flexibility."
+  benefit1_el: "Προετοιμασία πτυχίων (Lower, Proficiency, IELTS) για σίγουρη επιτυχία."
+  benefit1_en: "Certificate preparation (Lower, Proficiency, IELTS) for guaranteed success."
+  benefit2_el: "Ευέλικτα τμήματα (πρωί ή απόγευμα) ιδανικά για εργαζόμενους."
+  benefit2_en: "Flexible classes (morning or afternoon), ideal for working adults."
+  benefit3_el: "Επαγγελματικά Αγγλικά με έμφαση στην ουσιαστική επικοινωνία."
+  benefit3_en: "Professional English with emphasis on real communication."
+  outcomes_el: "Οι σπουδαστές αποκτούν επίσημη πιστοποίηση για το βιογραφικό τους και αυτοπεποίθηση σε κάθε επαγγελματική ή ακαδημαϊκή πρόκληση."
+  outcomes_en: "Students earn an official certificate for their CV and confidence for any professional or academic challenge."
+  image: "../Images/adults-panel.webp"
+
+how_it_works:
+  eyebrow_el: "Πώς ξεκινάτε"
+  eyebrow_en: "How to start"
+  title_el: "Τρία απλά βήματα"
+  title_en: "Three simple steps"
+  step1_title_el: "Δωρεάν αξιολόγηση"
+  step1_title_en: "Free assessment"
+  step1_text_el: "Γνωριζόμαστε και εντοπίζουμε το επίπεδο και τους στόχους."
+  step1_text_en: "We get to know you and identify the level and goals."
+  step2_title_el: "Σωστό τμήμα"
+  step2_title_en: "The right class"
+  step2_text_el: "Σας τοποθετούμε στο ιδανικό τμήμα, με το κατάλληλο ωράριο."
+  step2_text_en: "We place you in the ideal class, with a suitable schedule."
+  step3_title_el: "Πρόοδος & στόχοι"
+  step3_title_en: "Progress & goals"
+  step3_text_el: "Παρακολουθούμε την πρόοδο και ενημερώνουμε τακτικά τους γονείς."
+  step3_text_en: "We track progress and keep parents regularly informed."
+
+cta:
+  title_el: "Βρείτε το ιδανικό τμήμα"
+  title_en: "Find your ideal class"
+  lead_el: "Κλείστε μια δωρεάν αξιολόγηση και ξεκινήστε με σιγουριά."
+  lead_en: "Book a free assessment and start with confidence."

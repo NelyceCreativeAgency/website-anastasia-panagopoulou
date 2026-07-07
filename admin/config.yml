@@ -307,3 +307,110 @@ collections:
                   - { label: "Κείμενο (Ελληνικά)", name: "text_el", widget: "text" }
                   - { label: "Text (English)", name: "text_en", widget: "text" }
                   - { label: "Εικόνα", name: "image", widget: "image" }
+
+      - name: "courses"
+        label: "Τμήματα"
+        file: "content/pages/courses.yml"
+        fields:
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Υπέρτιτλος (Ελληνικά)", name: "eyebrow_el", widget: "string" }
+              - { label: "Eyebrow (English)", name: "eyebrow_en", widget: "string" }
+              - { label: "Τίτλος (Ελληνικά)", name: "title_el", widget: "string" }
+              - { label: "Title (English)", name: "title_en", widget: "string" }
+              - { label: "Κείμενο (Ελληνικά)", name: "lead_el", widget: "text" }
+              - { label: "Lead (English)", name: "lead_en", widget: "text" }
+
+          - label: "Τμήμα Junior (6–11)"
+            name: "junior"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Υπέρτιτλος (Ελληνικά)", name: "eyebrow_el", widget: "string" }
+              - { label: "Eyebrow (English)", name: "eyebrow_en", widget: "string" }
+              - { label: "Κείμενο (Ελληνικά)", name: "lead_el", widget: "text" }
+              - { label: "Lead (English)", name: "lead_en", widget: "text" }
+              - { label: "Όφελος 1 (Ελληνικά)", name: "benefit1_el", widget: "string" }
+              - { label: "Benefit 1 (English)", name: "benefit1_en", widget: "string" }
+              - { label: "Όφελος 2 (Ελληνικά)", name: "benefit2_el", widget: "string" }
+              - { label: "Benefit 2 (English)", name: "benefit2_en", widget: "string" }
+              - { label: "Όφελος 3 (Ελληνικά)", name: "benefit3_el", widget: "string" }
+              - { label: "Benefit 3 (English)", name: "benefit3_en", widget: "string" }
+              - { label: "Μαθησιακά αποτελέσματα (Ελληνικά)", name: "outcomes_el", widget: "text" }
+              - { label: "Learning outcomes (English)", name: "outcomes_en", widget: "text" }
+              - { label: "Φωτογραφία", name: "image", widget: "image" }
+
+          - label: "Τμήμα Senior (12–17)"
+            name: "senior"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Υπέρτιτλος (Ελληνικά)", name: "eyebrow_el", widget: "string" }
+              - { label: "Eyebrow (English)", name: "eyebrow_en", widget: "string" }
+              - { label: "Κείμενο (Ελληνικά)", name: "lead_el", widget: "text" }
+              - { label: "Lead (English)", name: "lead_en", widget: "text" }
+              - { label: "Όφελος 1 (Ελληνικά)", name: "benefit1_el", widget: "string" }
+              - { label: "Benefit 1 (English)", name: "benefit1_en", widget: "string" }
+              - { label: "Όφελος 2 (Ελληνικά)", name: "benefit2_el", widget: "string" }
+              - { label: "Benefit 2 (English)", name: "benefit2_en", widget: "string" }
+              - { label: "Όφελος 3 (Ελληνικά)", name: "benefit3_el", widget: "string" }
+              - { label: "Benefit 3 (English)", name: "benefit3_en", widget: "string" }
+              - { label: "Μαθησιακά αποτελέσματα (Ελληνικά)", name: "outcomes_el", widget: "text" }
+              - { label: "Learning outcomes (English)", name: "outcomes_en", widget: "text" }
+              - { label: "Φωτογραφία", name: "image", widget: "image" }
+
+          - label: "Τμήμα Ενηλίκων (18+)"
+            name: "adults"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Υπέρτιτλος (Ελληνικά)", name: "eyebrow_el", widget: "string" }
+              - { label: "Eyebrow (English)", name: "eyebrow_en", widget: "string" }
+              - { label: "Τίτλος (Ελληνικά)", name: "title_el", widget: "string" }
+              - { label: "Title (English)", name: "title_en", widget: "string" }
+              - { label: "Κείμενο (Ελληνικά)", name: "lead_el", widget: "text" }
+              - { label: "Lead (English)", name: "lead_en", widget: "text" }
+              - { label: "Όφελος 1 (Ελληνικά)", name: "benefit1_el", widget: "string" }
+              - { label: "Benefit 1 (English)", name: "benefit1_en", widget: "string" }
+              - { label: "Όφελος 2 (Ελληνικά)", name: "benefit2_el", widget: "string" }
+              - { label: "Benefit 2 (English)", name: "benefit2_en", widget: "string" }
+              - { label: "Όφελος 3 (Ελληνικά)", name: "benefit3_el", widget: "string" }
+              - { label: "Benefit 3 (English)", name: "benefit3_en", widget: "string" }
+              - { label: "Μαθησιακά αποτελέσματα (Ελληνικά)", name: "outcomes_el", widget: "text" }
+              - { label: "Learning outcomes (English)", name: "outcomes_en", widget: "text" }
+              - { label: "Φωτογραφία", name: "image", widget: "image" }
+
+          - label: "Ενότητα «Πώς ξεκινάτε» (3 βήματα)"
+            name: "how_it_works"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Υπέρτιτλος (Ελληνικά)", name: "eyebrow_el", widget: "string" }
+              - { label: "Eyebrow (English)", name: "eyebrow_en", widget: "string" }
+              - { label: "Τίτλος (Ελληνικά)", name: "title_el", widget: "string" }
+              - { label: "Title (English)", name: "title_en", widget: "string" }
+              - { label: "Βήμα 1 — Τίτλος (Ελληνικά)", name: "step1_title_el", widget: "string" }
+              - { label: "Step 1 — Title (English)", name: "step1_title_en", widget: "string" }
+              - { label: "Βήμα 1 — Κείμενο (Ελληνικά)", name: "step1_text_el", widget: "text" }
+              - { label: "Step 1 — Text (English)", name: "step1_text_en", widget: "text" }
+              - { label: "Βήμα 2 — Τίτλος (Ελληνικά)", name: "step2_title_el", widget: "string" }
+              - { label: "Step 2 — Title (English)", name: "step2_title_en", widget: "string" }
+              - { label: "Βήμα 2 — Κείμενο (Ελληνικά)", name: "step2_text_el", widget: "text" }
+              - { label: "Step 2 — Text (English)", name: "step2_text_en", widget: "text" }
+              - { label: "Βήμα 3 — Τίτλος (Ελληνικά)", name: "step3_title_el", widget: "string" }
+              - { label: "Step 3 — Title (English)", name: "step3_title_en", widget: "string" }
+              - { label: "Βήμα 3 — Κείμενο (Ελληνικά)", name: "step3_text_el", widget: "text" }
+              - { label: "Step 3 — Text (English)", name: "step3_text_en", widget: "text" }
+
+          - label: "Τελικό CTA"
+            name: "cta"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Τίτλος (Ελληνικά)", name: "title_el", widget: "string" }
+              - { label: "Title (English)", name: "title_en", widget: "string" }
+              - { label: "Κείμενο (Ελληνικά)", name: "lead_el", widget: "text" }
+              - { label: "Lead (English)", name: "lead_en", widget: "text" }
