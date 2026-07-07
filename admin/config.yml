@@ -414,3 +414,133 @@ collections:
               - { label: "Title (English)", name: "title_en", widget: "string" }
               - { label: "Κείμενο (Ελληνικά)", name: "lead_el", widget: "text" }
               - { label: "Lead (English)", name: "lead_en", widget: "text" }
+
+      - name: "certificates"
+        label: "Πτυχία"
+        file: "content/pages/certificates.yml"
+        fields:
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Υπέρτιτλος (Ελληνικά)", name: "eyebrow_el", widget: "string" }
+              - { label: "Eyebrow (English)", name: "eyebrow_en", widget: "string" }
+              - { label: "Τίτλος (Ελληνικά)", name: "title_el", widget: "string" }
+              - { label: "Title (English)", name: "title_en", widget: "string" }
+              - { label: "Κείμενο (Ελληνικά)", name: "lead_el", widget: "text" }
+              - { label: "Lead (English)", name: "lead_en", widget: "text" }
+
+          - label: "ECCE (B2)"
+            name: "ecce"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Σύντομη περιγραφή στην κάρτα (Ελληνικά)", name: "overview_el", widget: "text" }
+              - { label: "Card summary (English)", name: "overview_en", widget: "text" }
+              - { label: "Κείμενο (Ελληνικά)", name: "lead_el", widget: "text" }
+              - { label: "Lead (English)", name: "lead_en", widget: "text" }
+              - { label: "Όφελος 1 (Ελληνικά)", name: "benefit1_el", widget: "string" }
+              - { label: "Benefit 1 (English)", name: "benefit1_en", widget: "string" }
+              - { label: "Όφελος 2 (Ελληνικά)", name: "benefit2_el", widget: "string" }
+              - { label: "Benefit 2 (English)", name: "benefit2_en", widget: "string" }
+              - { label: "Όφελος 3 (Ελληνικά)", name: "benefit3_el", widget: "string" }
+              - { label: "Benefit 3 (English)", name: "benefit3_en", widget: "string" }
+              - { label: "Εικόνα", name: "image", widget: "image" }
+
+          - label: "ECPE (C2)"
+            name: "ecpe"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Σύντομη περιγραφή στην κάρτα (Ελληνικά)", name: "overview_el", widget: "text" }
+              - { label: "Card summary (English)", name: "overview_en", widget: "text" }
+              - { label: "Κείμενο (Ελληνικά)", name: "lead_el", widget: "text" }
+              - { label: "Lead (English)", name: "lead_en", widget: "text" }
+              - { label: "Όφελος 1 (Ελληνικά)", name: "benefit1_el", widget: "string" }
+              - { label: "Benefit 1 (English)", name: "benefit1_en", widget: "string" }
+              - { label: "Όφελος 2 (Ελληνικά)", name: "benefit2_el", widget: "string" }
+              - { label: "Benefit 2 (English)", name: "benefit2_en", widget: "string" }
+              - { label: "Όφελος 3 (Ελληνικά)", name: "benefit3_el", widget: "string" }
+              - { label: "Benefit 3 (English)", name: "benefit3_en", widget: "string" }
+              - { label: "Εικόνα", name: "image", widget: "image" }
+
+          - label: "Cambridge B2 & C2"
+            name: "cambridge"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Σύντομη περιγραφή στην κάρτα (Ελληνικά)", name: "overview_el", widget: "text" }
+              - { label: "Card summary (English)", name: "overview_en", widget: "text" }
+              - { label: "Κείμενο (Ελληνικά)", name: "lead_el", widget: "text" }
+              - { label: "Lead (English)", name: "lead_en", widget: "text" }
+              - { label: "Όφελος 1 (Ελληνικά)", name: "benefit1_el", widget: "string" }
+              - { label: "Benefit 1 (English)", name: "benefit1_en", widget: "string" }
+              - { label: "Όφελος 2 (Ελληνικά)", name: "benefit2_el", widget: "string" }
+              - { label: "Benefit 2 (English)", name: "benefit2_en", widget: "string" }
+              - { label: "Όφελος 3 (Ελληνικά)", name: "benefit3_el", widget: "string" }
+              - { label: "Benefit 3 (English)", name: "benefit3_en", widget: "string" }
+              - { label: "Εικόνα", name: "image", widget: "image" }
+
+          - label: "ΑΣΕΠ & Καριέρα"
+            name: "asep"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Σύντομη περιγραφή στην κάρτα (Ελληνικά)", name: "overview_el", widget: "text" }
+              - { label: "Card summary (English)", name: "overview_en", widget: "text" }
+              - { label: "Κείμενο (Ελληνικά)", name: "lead_el", widget: "text" }
+              - { label: "Lead (English)", name: "lead_en", widget: "text" }
+              - { label: "Όφελος 1 (Ελληνικά)", name: "benefit1_el", widget: "string" }
+              - { label: "Benefit 1 (English)", name: "benefit1_en", widget: "string" }
+              - { label: "Όφελος 2 (Ελληνικά)", name: "benefit2_el", widget: "string" }
+              - { label: "Benefit 2 (English)", name: "benefit2_en", widget: "string" }
+              - { label: "Όφελος 3 (Ελληνικά)", name: "benefit3_el", widget: "string" }
+              - { label: "Benefit 3 (English)", name: "benefit3_en", widget: "string" }
+              - { label: "Εικόνα", name: "image", widget: "image" }
+
+          - label: "Ειδικές Πιστοποιήσεις & Πτυχία Express"
+            name: "express"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Υπέρτιτλος (Ελληνικά)", name: "eyebrow_el", widget: "string" }
+              - { label: "Eyebrow (English)", name: "eyebrow_en", widget: "string" }
+              - { label: "Τίτλος (Ελληνικά)", name: "title_el", widget: "string" }
+              - { label: "Title (English)", name: "title_en", widget: "string" }
+              - { label: "Κείμενο (Ελληνικά)", name: "lead_el", widget: "text" }
+              - { label: "Lead (English)", name: "lead_en", widget: "text" }
+              - { label: "TOEIC — Κείμενο (Ελληνικά)", name: "toeic_text_el", widget: "text" }
+              - { label: "TOEIC — Text (English)", name: "toeic_text_en", widget: "text" }
+              - { label: "IELTS & TOEFL — Κείμενο (Ελληνικά)", name: "ielts_text_el", widget: "text" }
+              - { label: "IELTS & TOEFL — Text (English)", name: "ielts_text_en", widget: "text" }
+              - { label: "LRN & ESB — Κείμενο (Ελληνικά)", name: "lrn_text_el", widget: "text" }
+              - { label: "LRN & ESB — Text (English)", name: "lrn_text_en", widget: "text" }
+
+      - name: "contact"
+        label: "Επικοινωνία"
+        file: "content/pages/contact.yml"
+        fields:
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Υπέρτιτλος (Ελληνικά)", name: "eyebrow_el", widget: "string" }
+              - { label: "Eyebrow (English)", name: "eyebrow_en", widget: "string" }
+              - { label: "Τίτλος (Ελληνικά)", name: "title_el", widget: "string" }
+              - { label: "Title (English)", name: "title_en", widget: "string" }
+              - { label: "Κείμενο (Ελληνικά)", name: "lead_el", widget: "text" }
+              - { label: "Lead (English)", name: "lead_en", widget: "text" }
+
+          - label: "Στοιχεία Επικοινωνίας"
+            name: "contact"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Διεύθυνση — γραμμή 1", name: "address_line1", widget: "string" }
+              - { label: "Διεύθυνση — γραμμή 2", name: "address_line2", widget: "string" }
+              - { label: "Τηλέφωνο", name: "phone", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Ώρες λειτουργίας (Ελληνικά)", name: "hours_el", widget: "string" }
+              - { label: "Opening hours (English)", name: "hours_en", widget: "string" }

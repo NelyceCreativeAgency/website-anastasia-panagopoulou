@@ -20,6 +20,8 @@ const PAGES = [
   { yml: path.join(ROOT, "content", "pages", "home.yml"), html: path.join(ROOT, "index.html") },
   { yml: path.join(ROOT, "content", "pages", "about.yml"), html: path.join(ROOT, "pages", "about.html") },
   { yml: path.join(ROOT, "content", "pages", "courses.yml"), html: path.join(ROOT, "pages", "courses.html") },
+  { yml: path.join(ROOT, "content", "pages", "certificates.yml"), html: path.join(ROOT, "pages", "certificates.html") },
+  { yml: path.join(ROOT, "content", "pages", "contact.yml"), html: path.join(ROOT, "pages", "contact.html") },
 ];
 
 // { hero: { lead_el: "x" } } -> { hero_lead_el: "x" } — matches the

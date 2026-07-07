@@ -1,0 +1,22 @@
+# "Επικοινωνία" (Contact) page editable content.
+# Managed via /admin (Decap CMS) → "Σελίδες" → "Επικοινωνία".
+# scripts/build-pages.js flattens this (section.field → section_field) and
+# writes the matching text into pages/contact.html on every build — don't
+# hand-edit pages/contact.html for these fields, edit here instead (or via
+# /admin).
+
+hero:
+  eyebrow_el: "Επικοινωνία"
+  eyebrow_en: "Contact"
+  title_el: "Ας τα πούμε από κοντά"
+  title_en: "Let's talk in person"
+  lead_el: "Κλείστε δωρεάν αξιολόγηση ή απλώς περάστε για μια κουβέντα. Είμαστε εδώ για εσάς."
+  lead_en: "Book a free assessment or simply drop by for a chat. We're here for you."
+
+contact:
+  address_line1: "D. Papanikolaou 12,"
+  address_line2: "19400 Koropi, Attica, Greece"
+  phone: "+30 693 238 4633"
+  email: "hello@englishpanagopoulou.com"
+  hours_el: "Δευτέρα–Παρασκευή: 15:00–21:00"
+  hours_en: "Mon–Fri: 3:00pm–9:00pm"

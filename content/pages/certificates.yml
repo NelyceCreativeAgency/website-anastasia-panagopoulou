@@ -1,0 +1,80 @@
+# "Πτυχία" (Certificates) page editable content.
+# Managed via /admin (Decap CMS) → "Σελίδες" → "Πτυχία".
+# scripts/build-pages.js flattens this (section.field → section_field) and
+# writes the matching text/images into pages/certificates.html on every
+# build — don't hand-edit pages/certificates.html for these fields, edit
+# here instead (or via /admin).
+
+hero:
+  eyebrow_el: "Πτυχία"
+  eyebrow_en: "Certificates"
+  title_el: "Αναγνωρισμένα πτυχία που ανοίγουν πόρτες"
+  title_en: "Recognised certificates that open doors"
+  lead_el: "Προετοιμάζουμε τους μαθητές μας για τις πιο έγκυρες εξετάσεις Αγγλικών παγκοσμίως."
+  lead_en: "We prepare our students for the most respected English exams in the world."
+
+ecce:
+  overview_el: "Το πιο δημοφιλές πτυχίο Michigan, ιδανικό πρώτο βήμα για έφηβους και ενήλικες."
+  overview_en: "Michigan's most popular certificate, an ideal first step for teens and adults."
+  lead_el: "Το ECCE πιστοποιεί ότι ο μαθητής χειρίζεται άνετα τα Αγγλικά σε επίπεδο B2, με έμφαση στην πρακτική χρήση της γλώσσας."
+  lead_en: "The ECCE certifies that a student comfortably handles English at B2 level, with an emphasis on practical language use."
+  benefit1_el: "Εξάσκηση στις 4 ενότητες: Listening, Reading, Writing & Speaking."
+  benefit1_en: "Practice across all 4 sections: Listening, Reading, Writing & Speaking."
+  benefit2_el: "Τεχνικές για το ιδιαίτερο format των ερωτήσεων του Michigan."
+  benefit2_en: "Techniques for Michigan's distinctive question format."
+  benefit3_el: "Τακτικά mock tests σε πραγματικές συνθήκες εξέτασης."
+  benefit3_en: "Regular mock tests under real exam conditions."
+  image: "../Images/ECCE_Logo.webp"
+
+ecpe:
+  overview_el: "Το ανώτατο πτυχίο Michigan, απόδειξη άριστης γνώσης της αγγλικής γλώσσας."
+  overview_en: "Michigan's highest certificate, proof of excellent command of English."
+  lead_el: "Το ECPE είναι το ανώτατο πτυχίο Michigan, αποδεικνύοντας άριστη γνώση της αγγλικής σε ακαδημαϊκό και επαγγελματικό επίπεδο."
+  lead_en: "The ECPE is Michigan's highest certificate, proving excellent command of English at an academic and professional level."
+  benefit1_el: "Εμβάθυνση σε προχωρημένο λεξιλόγιο & δομές."
+  benefit1_en: "Deep work on advanced vocabulary & structures."
+  benefit2_el: "Ανάπτυξη δεξιοτήτων κριτικής σκέψης & γραπτού λόγου."
+  benefit2_en: "Developing critical thinking & writing skills."
+  benefit3_el: "Εξάσκηση στο Speaking με προσομοιώσεις συνέντευξης."
+  benefit3_en: "Speaking practice with mock interviews."
+  image: "../Images/ECPE_Logo.webp"
+
+cambridge:
+  overview_el: "Προετοιμασία και για τις εξετάσεις Cambridge, για όσους μαθητές το επιθυμούν."
+  overview_en: "We also prepare students for Cambridge exams, for those who prefer this route."
+  lead_el: "Παράλληλα με το Michigan, προετοιμάζουμε μαθητές και για τις εξετάσεις Cambridge (B2 First & C2 Proficiency), για όσους χρειάζονται ή προτιμούν αυτή τη διαδρομή."
+  lead_en: "Alongside Michigan, we also prepare students for Cambridge exams (B2 First & C2 Proficiency), for those who need or prefer this route."
+  benefit1_el: "Ίδια ποιότητα προετοιμασίας με το Michigan."
+  benefit1_en: "Same quality of preparation as Michigan."
+  benefit2_el: "Επιλογή του κατάλληλου πτυχίου ανάλογα με τον στόχο."
+  benefit2_en: "Choosing the right certificate based on each goal."
+  benefit3_el: "Διεθνώς αναγνωρισμένα, ισόβιας ισχύος πτυχία."
+  benefit3_en: "Internationally recognised, lifelong-valid certificates."
+  image: "../Images/cambridge.webp"
+
+asep:
+  overview_el: "Τα πτυχία Michigan μοριοδοτούνται στον ΑΣΕΠ, ιδανικά για επαγγελματική εξέλιξη."
+  overview_en: "Michigan certificates score points with ASEP, ideal for career growth."
+  lead_el: "Τα πτυχία Michigan (ECCE & ECPE) μοριοδοτούνται στον ΑΣΕΠ και αναγνωρίζονται ευρέως από εργοδότες, καθιστώντας τα ιδανική επιλογή για ενήλικες."
+  lead_en: "Michigan certificates (ECCE & ECPE) score points with ASEP and are widely recognised by employers, making them an ideal choice for adults."
+  benefit1_el: "Μοριοδότηση σε διαγωνισμούς του Δημοσίου (ΑΣΕΠ)."
+  benefit1_en: "Score points in public-sector exams (ASEP)."
+  benefit2_el: "Ευέλικτα τμήματα πρωί ή απόγευμα για ενήλικες."
+  benefit2_en: "Flexible morning or evening classes for adults."
+  benefit3_el: "Στοχευμένη προετοιμασία με βάση τον προσωπικό στόχο."
+  benefit3_en: "Targeted preparation based on personal goals."
+  image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&h=640&fit=crop&crop=center"
+
+express:
+  eyebrow_el: "Επιπλέον επιλογές"
+  eyebrow_en: "Additional options"
+  title_el: "Ειδικές Πιστοποιήσεις & Πτυχία Express"
+  title_en: "Special Certifications & Express Diplomas"
+  lead_el: "Πέρα από Michigan και Cambridge, προετοιμάζουμε μαθητές και για επιπλέον αναγνωρισμένες εξετάσεις, ανάλογα με τον στόχο τους."
+  lead_en: "Beyond Michigan and Cambridge, we also prepare students for additional recognised exams, depending on their goal."
+  toeic_text_el: "Εξετάζεται μόνο σε Listening & Reading. Ιδανικό για γρήγορη μοριοδότηση ΑΣΕΠ, με αποτελέσματα αμέσως."
+  toeic_text_en: "Tested in Listening & Reading only. Ideal for fast ASEP points, with immediate results."
+  ielts_text_el: "Η διεθνής «γλώσσα» των πανεπιστημίων. Απαραίτητα για σπουδές και μεταπτυχιακά στο εξωτερικό."
+  ielts_text_en: "The international \"language\" of universities. Essential for studies and postgraduate programmes abroad."
+  lrn_text_el: "Φιλικές, εναλλακτικές εξετάσεις, αναγνωρισμένες 100% από το ελληνικό Δημόσιο."
+  lrn_text_en: "Friendly, alternative exams, 100% recognised by the Greek public sector."
