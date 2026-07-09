@@ -14,6 +14,9 @@
     "build:sitemap": "node scripts/build-sitemap.js",
     "optimize": "node scripts/optimize-images.js"
   },
+  "dependencies": {
+    "nodemailer": "^6.9.14"
+  },
   "devDependencies": {
     "browser-sync": "^3.0.3",
     "sharp": "^0.35.2",

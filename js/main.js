@@ -284,13 +284,46 @@
   function initForm() {
     var form = document.getElementById("contactForm");
     if (!form) return;
+    var submitBtn = form.querySelector('button[type="submit"]');
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
+
       var status = document.getElementById("formStatus");
-      if (status) status.classList.add("is-shown");
-      form.reset();
-      if (status) status.scrollIntoView({ behavior: "smooth", block: "center" });
+      var data = {
+        name: form.name.value,
+        phone: form.phone.value,
+        email: form.email.value,
+        subject: form.subject.value,
+        message: form.message.value,
+        website: form.website ? form.website.value : "" // honeypot
+      };
+
+      if (submitBtn) submitBtn.disabled = true;
+
+      fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      })
+        .then(function (res) { return res.ok ? res.json() : Promise.reject(res); })
+        .then(function () {
+          if (status) {
+            status.classList.remove("is-error");
+            status.classList.add("is-shown");
+          }
+          form.reset();
+        })
+        .catch(function () {
+          if (status) {
+            status.classList.add("is-shown", "is-error");
+          }
+        })
+        .finally(function () {
+          if (submitBtn) submitBtn.disabled = false;
+          if (status) status.scrollIntoView({ behavior: "smooth", block: "center" });
+        });
     });
   }
 

@@ -2223,6 +2223,10 @@ h1, h2, h3, h4, h5 {
   font-weight: 600;
 }
 .form-status.is-shown { display: block; }
+.form-status__error { display: none; }
+.form-status.is-error { background: #fdecea; color: #b3261e; }
+.form-status.is-error .form-status__success { display: none; }
+.form-status.is-error .form-status__error { display: inline; }
 
 /* Contact info list */
 .contact-info { display: grid; gap: 1.2rem; }

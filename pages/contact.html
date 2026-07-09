@@ -93,13 +93,18 @@
                 <label for="message"><span data-lang-el>Μήνυμα</span><span data-lang-en>Message</span></label>
                 <textarea id="message" name="message" required placeholder="..."></textarea>
               </div>
+              <!-- honeypot - hidden from real visitors, bots tend to fill every field -->
+              <div style="position:absolute;left:-9999px" aria-hidden="true">
+                <label for="website">Website</label>
+                <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+              </div>
               <button class="btn" type="submit" style="width:100%">
                 <span data-lang-el>Αποστολή μηνύματος</span><span data-lang-en>Send message</span>
               </button>
               <p class="form-note"><span data-lang-el>Θα σας απαντήσουμε εντός μίας εργάσιμης ημέρας.</span><span data-lang-en>We'll reply within one working day.</span></p>
               <div class="form-status" id="formStatus" role="status">
-                <span data-lang-el>Ευχαριστούμε! Το μήνυμά σας στάλθηκε. Θα επικοινωνήσουμε σύντομα.</span>
-                <span data-lang-en>Thank you! Your message has been sent. We'll be in touch soon.</span>
+                <span class="form-status__error"><span data-lang-el>Κάτι πήγε στραβά. Δοκιμάστε ξανά σε λίγο ή καλέστε μας απευθείας.</span><span data-lang-en>Something went wrong. Please try again shortly or call us directly.</span></span>
+                <span class="form-status__success"><span data-lang-el>Ευχαριστούμε! Το μήνυμά σας στάλθηκε. Θα επικοινωνήσουμε σύντομα.</span><span data-lang-en>Thank you! Your message has been sent. We'll be in touch soon.</span></span>
               </div>
             </form>
           </div>
