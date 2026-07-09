@@ -1,9 +1,9 @@
 ---
 order: 2
-name: "Γιώργος Π."
-role_el: "Μαθητής Senior"
-role_en: "Senior student"
-avatar: "https://i.pravatar.cc/120?img=12"
-text_el: "Πέρασα το C2 Proficiency με την πρώτη. Οι καθηγητές ήξεραν ακριβώς πού να με σπρώξουν."
-text_en: "I passed C2 Proficiency on the first try. The teachers knew exactly where to push me."
+name: Mimika Mpata
+role_el: Γιαγιά μαθητών
+role_en: Grandma
+avatar: /Images/448337349_1187502499102264_4424502954324719133_n.jpg
+text_el: Οργάνωση, συνέπεια & οικογενειακή ατμόσφαιρα!
+text_en: Organization, consistency & a family atmosphere! Highly recommend!
 ---
