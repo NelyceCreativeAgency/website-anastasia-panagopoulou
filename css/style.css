@@ -458,15 +458,6 @@ h1, h2, h3, h4, h5 {
   .nav { aspect-ratio: 4935 / 405; }
   .nav__art { object-fit: fill; }
 }
-/* Below that, the drawer/burger layout needs its own comfortable height -
-   the artwork just covers whatever box results, cropped rather than
-   stretched, so it still reads as a clean pill even if not pixel-true. */
-@media (max-width: 1004px) {
-  .nav { padding-block: 1.1rem; }
-  .nav.is-stuck { padding-block: 0.9rem; }
-  .nav__art { object-fit: cover; }
-}
-
 /* Dual logos - light version hidden by default, swapped in on dark hero */
 .nav__logo-light { display: none; }
 
@@ -700,7 +691,6 @@ h1, h2, h3, h4, h5 {
    width alone, via aspect-ratio) stays crisp at any height. */
 @media (max-width: 1004px) {
   .nav, .nav.is-stuck {
-    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -837,6 +827,24 @@ h1, h2, h3, h4, h5 {
   [data-generated="blog-post"] .nav:not(.is-stuck):not(.is-open) .lang { background: rgba(255, 255, 255, 0.18); }
   [data-generated="blog-post"] .nav:not(.is-stuck):not(.is-open) .lang__btn { color: #fff; }
   [data-generated="blog-post"] .nav:not(.is-stuck):not(.is-open) .lang__btn.is-active { background: #fff; color: var(--navy); }
+  /* .nav::before's notch plug (added for the safe-area fix) is solid white
+     on every other page by default, which is right everywhere else but
+     cuts a white bar into the blog hero photo here before the header has
+     scrolled/opened. Only this page needs it transparent up front - once
+     stuck or open, it falls through to the normal white .nav::before rule
+     like every other page. */
+  [data-generated="blog-post"] .nav:not(.is-stuck):not(.is-open)::before {
+    background: none !important;
+    background-color: transparent !important;
+  }
+  /* .nav__inner also carries its own unconditional white backing (added so
+     the logo/burger row has an opaque plate on every other page) - that
+     needs to drop out here too, or the row still paints a solid white/
+     opaque block over the hero photo even with ::before cleared above. */
+  [data-generated="blog-post"] .nav:not(.is-stuck):not(.is-open) .nav__inner {
+    background: none !important;
+    background-color: transparent !important;
+  }
 }
 
 /* ---------- 7. Hero ---------- */
@@ -1246,6 +1254,10 @@ h1, h2, h3, h4, h5 {
   border-radius: var(--r-lg);
   box-shadow: none;
 }
+.course-panel[data-course-panel="senior"] .split__media img,
+.course-panel[data-course-panel="adults"] .split__media img {
+  object-position: center 45%;
+}
 .course-panel .split > div:last-child {
   display: flex;
   flex-direction: column;
@@ -1264,7 +1276,11 @@ h1, h2, h3, h4, h5 {
 @media (max-width: 860px) {
   .course-panel { flex: 0 0 92%; padding: 0.6rem 0.6rem 1.4rem; }
   .course-panel .split { grid-template-columns: 1fr; min-height: 0; gap: 0.6rem; }
-  .course-panel .split__media { height: auto; }
+  /* the base rule hardcodes width: 380px (for the desktop side-by-side
+     grid) and was never reset here - on phones narrower than that
+     (.course-panel itself is only ~90% of .container), the media block
+     blew past both edges of the panel and the viewport. */
+  .course-panel .split__media { width: 100%; max-width: 100%; height: auto; }
   .course-panel .split__media img { aspect-ratio: 5/4; height: auto; }
   .course-panel .split > div:last-child { padding: 0 0.6rem; }
   .course-panel .split > div:last-child .eyebrow { margin-top: 0.9rem; }
@@ -2137,7 +2153,18 @@ h1, h2, h3, h4, h5 {
 
 @media (max-width: 600px) {
   .gallery-scene { height: 400px; }
-  .gallery-item  { left: 12%; right: 12%; width: 76%; }
+  /* .gallery-track still had its desktop width (min(380px, 90%)) here,
+     while .insta-card below was already overridden to min(300px, 92%) -
+     two different caps that diverge at most mobile widths, so the image
+     track (and everything inside it) was rendering wider than the card
+     frame no matter what .gallery-item's own insets were. Sync them. */
+  .gallery-track { width: min(300px, 92%); }
+  /* Insets match .insta-card's real chrome, not a guessed percentage:
+     header = 10px padding + 36px avatar + 1.5px border = 57.5px,
+     footer = 10px padding + 22px icons + 1.5px border = 43.5px,
+     sides = card's own 1.5px border. Keeps the image track locked to
+     .insta-card__media's transparent window at any mobile width. */
+  .gallery-item  { left: 1.5px; right: 1.5px; top: 57.5px; bottom: 43.5px; }
   .insta-card    { width: min(300px, 92%); }
 }
 
