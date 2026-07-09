@@ -123,7 +123,7 @@ function detailPage(post, posts) {
 <html lang="el" data-generated="blog-post">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#0B3048">
   <title>${post.title_el} | Anastasia Panagopoulou English School</title>
   <meta name="description" content="${post.excerpt_el}">
@@ -254,7 +254,7 @@ function listingPage(posts) {
 <html lang="el">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#0B3048">
   <title>Τα νέα μας | Anastasia Panagopoulou English School</title>
   <meta name="description" content="Συμβουλές για γονείς και μαθητές, νέα του φροντιστηρίου και οδηγοί για τις εξετάσεις Αγγλικών.">

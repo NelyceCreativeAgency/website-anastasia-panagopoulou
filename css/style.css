@@ -706,6 +706,23 @@ h1, h2, h3, h4, h5 {
     transform: none;
     padding-bottom: 3rem;
   }
+  /* iOS Safari's collapsing/floating address bar can reveal the true top
+     safe area (behind the notch/status bar) as part of the scrollable page
+     rather than browser chrome - without this, page content behind the
+     fixed header shows through there instead of the header's own white.
+     The torn-paper artwork below is bottom-anchored with its own fixed
+     aspect-ratio height, so it doesn't stretch to cover this extra strip
+     on its own; a solid plug does, without touching the artwork's
+     intentional see-through torn gaps further down. */
+  .nav::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: env(safe-area-inset-top, 0px);
+    background: #fff;
+  }
   .nav__art { display: none; }
   /* Purpose-drawn torn-bottom artwork as a real <img>, not a CSS background
      — filter:drop-shadow follows the image's own alpha silhouette (the
@@ -746,6 +763,10 @@ h1, h2, h3, h4, h5 {
     height: auto;
     flex-wrap: wrap;
     align-content: flex-start;
+    /* clears the notch/status-bar safe area (see .nav::before above) so the
+       logo/burger row itself never sits under it, only the header's own
+       white background does */
+    padding-top: env(safe-area-inset-top, 0px);
     /* base .nav__inner has gap:1.5rem for the desktop link row — flexbox
        still inserts that gap between wrapped lines even when a line's
        content is height:0 (the collapsed menu), padding the closed
