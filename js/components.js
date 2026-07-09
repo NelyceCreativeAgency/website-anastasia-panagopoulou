@@ -19,7 +19,10 @@
     ["pages/contact.html", "Επικοινωνία", "Contact"]
   ];
 
-  function href(path) { return BASE + path; }
+  // Home is a special case: link to the directory, not the filename, so
+  // clicking the logo/nav "Αρχική" never puts a visible /index.html in the
+  // address bar - matches how most static hosts serve index.html at "/".
+  function href(path) { return path === "index.html" ? (inPages ? "../" : "./") : BASE + path; }
   // Generated blog post pages (pages/<slug>.html) carry data-generated="blog-post"
   // on <html> — treat them as "on the blog" for nav highlighting purposes.
   var onBlogPost = document.documentElement.getAttribute("data-generated") === "blog-post";
