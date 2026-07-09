@@ -49,6 +49,23 @@ collections:
       - { label: "Κείμενο άρθρου (Ελληνικά)", name: "body_el", widget: "markdown" }
       - { label: "Article body (English)", name: "body_en", widget: "markdown" }
 
+  - name: "testimonials"
+    label: "Αξιολογήσεις"
+    label_singular: "Αξιολόγηση"
+    folder: "content/testimonials"
+    create: true
+    slug: "{{order}}-{{slug}}"
+    summary: "{{name}} — {{role_el}}"
+    sortable_fields: ["order", "name"]
+    fields:
+      - { label: "Σειρά εμφάνισης", name: "order", widget: "number", value_type: "int", hint: "Μικρότερος αριθμός = εμφανίζεται πρώτο." }
+      - { label: "Όνομα", name: "name", widget: "string" }
+      - { label: "Ιδιότητα (Ελληνικά)", name: "role_el", widget: "string", hint: "π.χ. Μητέρα μαθήτριας" }
+      - { label: "Role (English)", name: "role_en", widget: "string", hint: "e.g. Parent" }
+      - { label: "Φωτογραφία", name: "avatar", widget: "image", hint: "Μπορείτε είτε να ανεβάσετε φωτογραφία, είτε να επικολλήσετε εξωτερικό URL (π.χ. από pravatar.cc για προσωρινά avatar)." }
+      - { label: "Κείμενο αξιολόγησης (Ελληνικά)", name: "text_el", widget: "text" }
+      - { label: "Review text (English)", name: "text_en", widget: "text" }
+
   - name: "pages"
     label: "Σελίδες"
     files:

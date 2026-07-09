@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "npm run build && browser-sync start --config bs-config.js",
     "start": "browser-sync start --config bs-config.js",
-    "build": "npm run build:blog && npm run build:pages && npm run build:sitemap",
+    "build": "npm run build:blog && npm run build:pages && npm run build:testimonials && npm run build:sitemap",
     "build:blog": "node scripts/build-blog.js",
     "build:pages": "node scripts/build-pages.js",
+    "build:testimonials": "node scripts/build-testimonials.js",
     "build:sitemap": "node scripts/build-sitemap.js",
     "optimize": "node scripts/optimize-images.js"
   },
