@@ -700,20 +700,25 @@ h1, h2, h3, h4, h5 {
    width alone, via aspect-ratio) stays crisp at any height. */
 @media (max-width: 1004px) {
   .nav, .nav.is-stuck {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     transform: none;
     padding-bottom: 3rem;
+    /* Just enough top padding to clear the notch/status-bar safe area -
+       no background here, so .nav__torn-img's transparent tear gaps still
+       read as actual paper cutouts (a solid fill on the whole box flattened
+       them into a plain rectangle). The notch strip itself is plugged by
+       ::before below, and the logo/burger row gets its own opaque backing
+       via .nav__inner - so only the area that needs to be solid is solid. */
+    padding-top: env(safe-area-inset-top, 0px);
+    z-index: 9999;
   }
-  /* iOS Safari's collapsing/floating address bar can reveal the true top
-     safe area (behind the notch/status bar) as part of the scrollable page
-     rather than browser chrome - without this, page content behind the
-     fixed header shows through there instead of the header's own white.
-     The torn-paper artwork below is bottom-anchored with its own fixed
-     aspect-ratio height, so it doesn't stretch to cover this extra strip
-     on its own; a solid plug does, without touching the artwork's
-     intentional see-through torn gaps further down. */
+  /* Solid white plug behind ONLY the notch strip (0 to safe-area-inset-top).
+     Sits below .nav__inner's own background (z-index 1) and above the torn
+     artwork (z-index -1), so it patches the one area with no artwork
+     coverage without extending down over the tear itself. */
   .nav::before {
     content: "";
     position: absolute;
@@ -721,7 +726,7 @@ h1, h2, h3, h4, h5 {
     left: 0;
     width: 100%;
     height: env(safe-area-inset-top, 0px);
-    background: #fff;
+    background-color: #fff;
   }
   .nav__art { display: none; }
   /* Purpose-drawn torn-bottom artwork as a real <img>, not a CSS background
@@ -763,16 +768,21 @@ h1, h2, h3, h4, h5 {
     height: auto;
     flex-wrap: wrap;
     align-content: flex-start;
-    /* clears the notch/status-bar safe area (see .nav::before above) so the
-       logo/burger row itself never sits under it, only the header's own
-       white background does */
-    padding-top: env(safe-area-inset-top, 0px);
     /* base .nav__inner has gap:1.5rem for the desktop link row — flexbox
        still inserts that gap between wrapped lines even when a line's
        content is height:0 (the collapsed menu), padding the closed
        header with phantom empty space. Zero it here; .nav__menu supplies
        its own top padding when open instead. */
     gap: 0;
+    /* the logo/burger row's own opaque backing - picks up right where
+       .nav::before's notch plug leaves off, so the two together read as
+       one continuous solid area with no seam, while everything below
+       (the torn edge and its gaps) stays untouched. */
+    background-color: #fff;
+    padding-top: 1.1rem;
+  }
+  .nav.is-stuck .nav__inner {
+    padding-top: 0.9rem;
   }
 
   .nav__logo { order: 1; }
