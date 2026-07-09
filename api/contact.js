@@ -8,6 +8,9 @@
      SMTP_USER       (mailbox login, e.g. hello@panagopoulou.gr)
      SMTP_PASS
      CONTACT_TO      (destination inbox - defaults to SMTP_USER)
+     CONTACT_CC      (optional extra recipient - defaults to
+                      anastasia.panagopoulou48@gmail.com so every
+                      form submission also reaches her personal inbox)
    ============================================================= */
 const nodemailer = require("nodemailer");
 
@@ -64,6 +67,7 @@ module.exports = async (req, res) => {
     await transporter.sendMail({
       from: `"${name} (via panagopoulou.gr)" <${SMTP_USER}>`,
       to: CONTACT_TO || SMTP_USER,
+      cc: process.env.CONTACT_CC || "anastasia.panagopoulou48@gmail.com",
       replyTo: email,
       subject: `Νέο μήνυμα επικοινωνίας: ${subject || "—"}`,
       text: `Όνομα: ${name}\nEmail: ${email}\nΤηλέφωνο: ${phone || "—"}\nΕνδιαφέρον: ${subject || "—"}\n\n${message}`,
