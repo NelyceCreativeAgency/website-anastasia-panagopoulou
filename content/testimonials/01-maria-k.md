@@ -1,9 +1,11 @@
 ---
 order: 1
-name: "Μαρία Κ."
-role_el: "Μητέρα μαθήτριας"
-role_en: "Parent"
-avatar: "https://i.pravatar.cc/120?img=47"
-text_el: "Η κόρη μου μπήκε ντροπαλή και βγήκε να μιλάει Αγγλικά με αυτοπεποίθηση. Η φροντίδα εδώ είναι αληθινή."
-text_en: "My daughter started shy and now speaks English with real confidence. The care here is genuine."
+name: Gianna Nikolopoulou
+role_el: Μητέρα μαθητών
+role_en: Parent
+avatar: /Images/454556449_10233742161674139_7864450994347420087_n.jpg
+text_el: Η κόρη μου μπήκε ντροπαλή και βγήκε να μιλάει Αγγλικά με αυτοπεποίθηση.
+  Η φροντίδα εδώ είναι αληθινή.
+text_en: My daughter started shy and now speaks English with real confidence.
+  The care here is genuine.
 ---
