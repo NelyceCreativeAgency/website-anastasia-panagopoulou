@@ -117,7 +117,7 @@ function pickOthers(posts, current, count) {
 function detailPage(post, posts) {
   const related = pickOthers(posts, post, 3);
   const recent = pickOthers(posts, post, 3);
-  const ogImage = post.image.startsWith("http") ? post.image : `https://englishpanagopoulou.com${post.image}`;
+  const ogImage = post.image.startsWith("http") ? post.image : `https://panagopoulou.gr${post.image}`;
 
   return `<!DOCTYPE html>
 <html lang="el" data-generated="blog-post">
@@ -130,7 +130,7 @@ function detailPage(post, posts) {
   <meta property="og:title" content="${post.title_el} | Anastasia Panagopoulou English School">
   <meta property="og:description" content="${post.excerpt_el}">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://englishpanagopoulou.com/pages/${post.slug}.html">
+  <meta property="og:url" content="https://panagopoulou.gr/pages/${post.slug}.html">
   <meta property="og:image" content="${ogImage}">
   <meta property="og:image:width" content="1600">
   <meta property="og:image:height" content="900">
@@ -138,7 +138,7 @@ function detailPage(post, posts) {
   <meta name="twitter:title" content="${post.title_el} | Anastasia Panagopoulou English School">
   <meta name="twitter:description" content="${post.excerpt_el}">
   <meta name="twitter:image" content="${ogImage}">
-  <link rel="canonical" href="https://englishpanagopoulou.com/pages/${post.slug}.html">
+  <link rel="canonical" href="https://panagopoulou.gr/pages/${post.slug}.html">
   <link rel="icon" href="../Images/favicon.webp">
 
   <link rel="preload" href="../font/Gotham-Book.woff2" as="font" type="font/woff2" crossorigin>
@@ -188,7 +188,7 @@ function detailPage(post, posts) {
 
       <div class="container">
         <div class="breadcrumb breadcrumb--article" style="justify-content:flex-start;margin:1.6rem 0">
-          <a href="../index.html" data-lang-el>Αρχική</a><a href="../index.html" data-lang-en>Home</a><span>›</span>
+          <a href="../" data-lang-el>Αρχική</a><a href="../" data-lang-en>Home</a><span>›</span>
           <a href="blog.html" data-lang-el>Τα νέα μας</a><a href="blog.html" data-lang-en>News</a><span>›</span>
           <span data-lang-el>${post.title_el}</span><span data-lang-en>${post.title_en}</span>
         </div>
@@ -261,15 +261,15 @@ function listingPage(posts) {
   <meta property="og:title" content="Τα νέα μας | Anastasia Panagopoulou English School">
   <meta property="og:description" content="Συμβουλές για γονείς και μαθητές, νέα του φροντιστηρίου και οδηγοί για τις εξετάσεις Αγγλικών.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://englishpanagopoulou.com/pages/blog.html">
-  <meta property="og:image" content="https://englishpanagopoulou.com/Images/mainroom.webp">
+  <meta property="og:url" content="https://panagopoulou.gr/pages/blog.html">
+  <meta property="og:image" content="https://panagopoulou.gr/Images/mainroom.webp">
   <meta property="og:image:width" content="800">
   <meta property="og:image:height" content="640">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Τα νέα μας | Anastasia Panagopoulou English School">
   <meta name="twitter:description" content="Συμβουλές για γονείς και μαθητές, νέα του φροντιστηρίου και οδηγοί για τις εξετάσεις Αγγλικών.">
-  <meta name="twitter:image" content="https://englishpanagopoulou.com/Images/mainroom.webp">
-  <link rel="canonical" href="https://englishpanagopoulou.com/pages/blog.html">
+  <meta name="twitter:image" content="https://panagopoulou.gr/Images/mainroom.webp">
+  <link rel="canonical" href="https://panagopoulou.gr/pages/blog.html">
   <link rel="icon" href="../Images/favicon.webp">
 
   <link rel="preload" href="../font/Gotham-Book.woff2" as="font" type="font/woff2" crossorigin>
