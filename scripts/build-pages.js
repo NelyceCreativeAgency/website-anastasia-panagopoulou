@@ -31,7 +31,12 @@ function flatten(obj, prefix = "") {
   Object.keys(obj || {}).forEach((key) => {
     const value = obj[key];
     const flatKey = prefix ? `${prefix}_${key}` : key;
-    if (value && typeof value === "object" && !Array.isArray(value)) {
+    if (Array.isArray(value)) {
+      // Repeating lists (e.g. faq.items) aren't single data-cms fields -
+      // they're rendered by their own dedicated build script instead.
+      return;
+    }
+    if (value && typeof value === "object") {
       Object.assign(out, flatten(value, flatKey));
     } else {
       out[flatKey] = value;

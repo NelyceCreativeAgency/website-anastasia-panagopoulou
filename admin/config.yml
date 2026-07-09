@@ -167,37 +167,11 @@ collections:
               - { label: "Eyebrow (English)", name: "eyebrow_en", widget: "string" }
               - { label: "Τίτλος (Ελληνικά)", name: "title_el", widget: "string" }
               - { label: "Title (English)", name: "title_en", widget: "string" }
-              - label: "Ερώτηση 1"
-                name: "q1"
-                widget: "object"
-                collapsed: true
-                fields:
-                  - { label: "Ερώτηση (Ελληνικά)", name: "q_el", widget: "string" }
-                  - { label: "Question (English)", name: "q_en", widget: "string" }
-                  - { label: "Απάντηση (Ελληνικά)", name: "a_el", widget: "text" }
-                  - { label: "Answer (English)", name: "a_en", widget: "text" }
-              - label: "Ερώτηση 2"
-                name: "q2"
-                widget: "object"
-                collapsed: true
-                fields:
-                  - { label: "Ερώτηση (Ελληνικά)", name: "q_el", widget: "string" }
-                  - { label: "Question (English)", name: "q_en", widget: "string" }
-                  - { label: "Απάντηση (Ελληνικά)", name: "a_el", widget: "text" }
-                  - { label: "Answer (English)", name: "a_en", widget: "text" }
-              - label: "Ερώτηση 3"
-                name: "q3"
-                widget: "object"
-                collapsed: true
-                fields:
-                  - { label: "Ερώτηση (Ελληνικά)", name: "q_el", widget: "string" }
-                  - { label: "Question (English)", name: "q_en", widget: "string" }
-                  - { label: "Απάντηση (Ελληνικά)", name: "a_el", widget: "text" }
-                  - { label: "Answer (English)", name: "a_en", widget: "text" }
-              - label: "Ερώτηση 4"
-                name: "q4"
-                widget: "object"
-                collapsed: true
+              - label: "Ερωτήσεις"
+                name: "items"
+                widget: "list"
+                label_singular: "Ερώτηση"
+                summary: "{{q_el}}"
                 fields:
                   - { label: "Ερώτηση (Ελληνικά)", name: "q_el", widget: "string" }
                   - { label: "Question (English)", name: "q_en", widget: "string" }
