@@ -51,11 +51,10 @@ why:
     title_el: Προσωπική Διδασκαλία
     title_en: Personal Teaching
     text_el: Τα μαθήματα πραγματοποιούνται από την Αναστασία Παναγοπούλου, πτυχιούχο
-      Αγγλικής Φιλολογίας, καθώς και από έμπειρους και πιστοποιημένους
-      συνεργάτες, με έμφαση στη συνέπεια και την ποιότητα της διδασκαλίας.
+      Αγγλικής Φιλολογίας με έμφαση στη συνέπεια και την ποιότητα της
+      διδασκαλίας.
     text_en: Classes are taught by Anastasia Panagopoulou, a graduate in English
-      Literature, along with experienced certified associates, with an emphasis
-      on consistency and quality.
+      Literature with an emphasis on consistency and quality.
     image: Images/prosopiki.webp
   lead_el: Όλοι οι μαθητές και οι γονείς που μας έχουν δείξει εμπιστοσύνη όλα αυτά
     τα χρόνια, γνωρίζουν τα σημαντικά πλεονεκτήματα της φοίτησης στο
@@ -82,11 +81,11 @@ faq:
     - q_el: Σε ποια ηλικία να ξεκινήσει το παιδί μου;
       q_en: At what age should my child start?
       a_el: Τα περισσότερα παιδιά ξεκινούν στην Α' ή Β' Δημοτικού, αλλά σχεδιάζουμε
-        πρόγραμμα για κάθε ηλικία και επίπεδο. Μια δωρεάν αξιολόγηση μάς βοηθά να
-        βρούμε το ιδανικό σημείο εκκίνησης.
+        πρόγραμμα για κάθε ηλικία και επίπεδο. Μια δωρεάν αξιολόγηση μάς βοηθά
+        να βρούμε το ιδανικό σημείο εκκίνησης.
       a_en: Most children start in the first or second grade of primary school, but we
-        design a plan for every age and level. A free assessment helps us find the
-        ideal starting point.
+        design a plan for every age and level. A free assessment helps us find
+        the ideal starting point.
     - q_el: Πόσοι μαθητές υπάρχουν σε κάθε τμήμα;
       q_en: How many students are in each class?
       a_el: Τα τμήματά μας έχουν έως 8 μαθητές. Έτσι εξασφαλίζουμε προσοχή, συμμετοχή
@@ -96,7 +95,8 @@ faq:
     - q_el: Προετοιμάζετε για Cambridge και Michigan;
       q_en: Do you prepare for Cambridge and Michigan?
       a_el: Ναι. Προετοιμάζουμε για όλα τα αναγνωρισμένα πτυχία, Cambridge B2 First &
-        C2 Proficiency, Michigan ECCE & ECPE και άλλα, με υψηλά ποσοστά επιτυχίας.
+        C2 Proficiency, Michigan ECCE & ECPE και άλλα, με υψηλά ποσοστά
+        επιτυχίας.
       a_en: Yes. We prepare for all recognised certificates, Cambridge B2 First & C2
         Proficiency, Michigan ECCE & ECPE and more, with high success rates.
     - q_el: Μπορώ να κλείσω δωρεάν αξιολόγηση;
