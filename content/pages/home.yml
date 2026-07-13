@@ -88,9 +88,9 @@ faq:
         the ideal starting point.
     - q_el: Πόσοι μαθητές υπάρχουν σε κάθε τμήμα;
       q_en: How many students are in each class?
-      a_el: Τα τμήματά μας έχουν έως 8 μαθητές. Έτσι εξασφαλίζουμε προσοχή, συμμετοχή
+      a_el: Τα τμήματά μας έχουν έως 6 μαθητές. Έτσι εξασφαλίζουμε προσοχή, συμμετοχή
         και πρόοδο για τον καθένα ξεχωριστά.
-      a_en: Our classes have up to 8 students. This ensures attention, participation
+      a_en: Our classes have up to 6 students. This ensures attention, participation
         and progress for each individual.
     - q_el: Προετοιμάζετε για Cambridge και Michigan;
       q_en: Do you prepare for Cambridge and Michigan?
@@ -101,10 +101,10 @@ faq:
         Proficiency, Michigan ECCE & ECPE and more, with high success rates.
     - q_el: Μπορώ να κλείσω δωρεάν αξιολόγηση;
       q_en: Can I book a free assessment?
-      a_el: Φυσικά! Επικοινωνήστε μαζί μας και θα κανονίσουμε μια φιλική, δωρεάν
-        συνάντηση γνωριμίας και αξιολόγησης επιπέδου.
-      a_en: Of course! Contact us and we will arrange a friendly, free meeting and
-        level assessment.
+      a_el: Φυσικά! Επικοινωνήστε μαζί μας και θα κανονίσουμε μια δωρεάν συνάντηση
+        γνωριμίας και αξιολόγησης επιπέδου.
+      a_en: Of course! Contact us and we will arrange a free meeting and level
+        assessment.
 contact:
   lead_el: Βρισκόμαστε στο Κορωπί, πλησίον της Εκκλησίας της Ανάληψης.
     Επικοινωνήστε μαζί μας ή επισκεφθείτε τον χώρο μας για να γνωριστούμε και να
