@@ -3143,6 +3143,7 @@ html[lang="en"] [data-lang-en] { display: revert; }
   .hero__grid { grid-template-columns: 1fr; }
   .hero__media { width: 95vw; max-width: 460px; margin-inline: auto; order: -1; margin-top: 3rem; }
   .hero__illustration { width: 100%; max-width: none; }
+  .hero__text { margin-top: 0.9rem; }
   .split, .split--reverse { grid-template-columns: 1fr; }
   .split--reverse .split__media { order: -1; }
   .split__media { width: 100%; margin-inline: 0; }
