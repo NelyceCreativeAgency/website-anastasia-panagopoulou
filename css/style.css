@@ -578,6 +578,7 @@ h1, h2, h3, h4, h5 {
   transition: background 0.25s var(--ease), color 0.25s var(--ease);
 }
 .lang__btn.is-active { background: var(--navy); color: #fff; }
+.lang__btn[data-set-lang="en"].is-active { background: var(--accent); }
 
 /* Burger */
 .nav__burger {
@@ -827,6 +828,7 @@ h1, h2, h3, h4, h5 {
   [data-generated="blog-post"] .nav:not(.is-stuck):not(.is-open) .lang { background: rgba(255, 255, 255, 0.18); }
   [data-generated="blog-post"] .nav:not(.is-stuck):not(.is-open) .lang__btn { color: #fff; }
   [data-generated="blog-post"] .nav:not(.is-stuck):not(.is-open) .lang__btn.is-active { background: #fff; color: var(--navy); }
+  [data-generated="blog-post"] .nav:not(.is-stuck):not(.is-open) .lang__btn[data-set-lang="en"].is-active { background: var(--accent); color: #fff; }
   /* .nav::before's notch plug (added for the safe-area fix) is solid white
      on every other page by default, which is right everywhere else but
      cuts a white bar into the blog hero photo here before the header has
@@ -1644,7 +1646,7 @@ h1, h2, h3, h4, h5 {
   z-index: 0;
   pointer-events: none;
   user-select: none;
-  filter: grayscale(1) brightness(1.55) contrast(0.85);
+  filter: grayscale(1) brightness(1.25) contrast(0.9);
 }
 .saita--tl { top: 17rem; left: clamp(5rem, 13vw, 13rem); transform: scale(-1, -1); }
 .saita--br { bottom: 4.5rem; right: clamp(5rem, 13vw, 13rem); }
@@ -2251,13 +2253,14 @@ h1, h2, h3, h4, h5 {
 
 /* Map */
 .map-wrap {
+  display: flex;
   border-radius: var(--r-lg);
   overflow: hidden;
   box-shadow: var(--shadow-md);
   border: 1px solid var(--line);
   min-height: 360px;
 }
-.map-wrap iframe { width: 100%; height: 100%; min-height: 360px; border: 0; display: block; }
+.map-wrap iframe { width: 100%; flex: 1; min-height: 360px; border: 0; display: block; }
 
 /* ---------- 15. Page hero (inner pages) ---------- */
 .page-hero {
@@ -3394,7 +3397,8 @@ html[lang="en"] [data-lang-en] { display: revert; }
   align-items: center;
   justify-content: center;
   gap: 0.9rem;
-  height: 100%;
+  flex: 1;
+  width: 100%;
   min-height: 360px;
   text-align: center;
   padding: 2rem;
