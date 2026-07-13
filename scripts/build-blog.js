@@ -126,15 +126,6 @@ function detailPage(post, posts) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#0B3048">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-96DQREPWMG"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag("js", new Date());
-
-    gtag("config", "G-96DQREPWMG");
-  </script>
   <title>${post.title_el} | Anastasia Panagopoulou English School</title>
   <meta name="description" content="${post.excerpt_el}">
   <meta property="og:title" content="${post.title_el} | Anastasia Panagopoulou English School">
@@ -249,6 +240,7 @@ ${relatedGrid(related)}
   <div id="site-footer"></div>
   <script src="../js/components.js" defer></script>
   <script src="../js/main.js" defer></script>
+  <script src="../js/consent.js" defer></script>
 </body>
 </html>
 `;
@@ -267,15 +259,6 @@ function listingPage(posts) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#0B3048">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-96DQREPWMG"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag("js", new Date());
-
-    gtag("config", "G-96DQREPWMG");
-  </script>
   <title>Τα νέα μας | Anastasia Panagopoulou English School</title>
   <meta name="description" content="Συμβουλές για γονείς και μαθητές, νέα του φροντιστηρίου και οδηγοί για τις εξετάσεις Αγγλικών.">
   <meta property="og:title" content="Τα νέα μας | Anastasia Panagopoulou English School">
@@ -386,6 +369,7 @@ ${gridPosts.map((p, i) => postCard(p, i || null)).join("\n\n")}
   <div id="site-footer"></div>
   <script src="../js/components.js" defer></script>
   <script src="../js/main.js" defer></script>
+  <script src="../js/consent.js" defer></script>
 </body>
 </html>
 `;

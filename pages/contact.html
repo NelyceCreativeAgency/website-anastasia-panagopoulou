@@ -5,15 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#0B3048">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-96DQREPWMG"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag("js", new Date());
-
-    gtag("config", "G-96DQREPWMG");
-  </script>
   <title>Επικοινωνία | Anastasia Panagopoulou English School</title>
   <meta name="description" content="Επικοινωνήστε μαζί μας στο Κορωπί. Τηλέφωνο, email, διεύθυνση, χάρτης και φόρμα επικοινωνίας.">
   <meta property="og:title" content="Επικοινωνία | Anastasia Panagopoulou English School">
@@ -137,9 +128,17 @@
     <!-- MAP -->
     <section class="section" style="padding-top:0">
       <div class="container">
-        <div class="map-wrap reveal" style="min-height:440px">
-          <iframe title="Χάρτης / Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=Koropi%20Attica%20Greece&output=embed" style="min-height:440px"></iframe>
+        <div class="map-wrap reveal" style="min-height:440px" data-consent-embed="maps" data-embed-title="Χάρτης / Map"
+          data-src="https://www.google.com/maps?q=Koropi%20Attica%20Greece&output=embed">
+          <div class="map-consent">
+            <p>
+              <span data-lang-el>Ο χάρτης φορτώνει περιεχόμενο από την Google και τοποθετεί λειτουργικά cookies. Πατήστε παρακάτω για να τον ενεργοποιήσετε.</span>
+              <span data-lang-en>The map loads content from Google and sets functional cookies. Click below to enable it.</span>
+            </p>
+            <button type="button" class="btn btn--sm" data-map-consent-enable>
+              <span data-lang-el>Ενεργοποίηση χάρτη</span><span data-lang-en>Enable map</span>
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -149,5 +148,6 @@
   <div id="site-footer"></div>
   <script src="../js/components.js" defer></script>
   <script src="../js/main.js" defer></script>
+  <script src="../js/consent.js" defer></script>
 </body>
 </html>
