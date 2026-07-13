@@ -909,7 +909,10 @@ h1, h2, h3, h4, h5 {
   animation: brush-draw 0.55s ease forwards 0.68s;
 }
 @keyframes brush-draw { to { stroke-dashoffset: 0; } }
-.hero__text { margin: 1.6rem 0 2.2rem; }
+/* Optical correction: this light/small paragraph sits at the exact same
+   left edge as the huge bold title above it, but reads as shifted right
+   next to that much heavier type - nudge it back to compensate. */
+.hero__text { margin: 1.6rem 0 2.2rem -2px; }
 .hero__cta { display: flex; flex-wrap: wrap; gap: 1rem; }
 
 .hero__media { position: relative; display: flex; justify-content: center; }
