@@ -1,7 +1,7 @@
 ---
 order: 3
 name: Asimina Klaoudatou
-role_el: Μητέρα
+role_el: Μητέρα μαθήτριας
 role_en: Parent
 avatar: /Images/484919733_2062850830861915_7788704868688753593_n.jpg
 text_el: Εξαιρετικό φροντιστήριο! Η κυρία Αναστασία είναι πάντα υποστηρικτική,
